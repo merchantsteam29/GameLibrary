@@ -1,6 +1,6 @@
 # Game Library
 
-**[⬇ Download GameLibrary.exe](https://github.com/merchantsteam29/GameLibrary/releases/latest/download/GameLibrary.exe)**
+**▶ Play in your browser: https://merchantsteam29.github.io/GameLibrary/**
 
 A desktop launcher for my browser games. Shows every game as a card with a title and thumbnail; click one for its page, then hit Play.
 
@@ -14,3 +14,7 @@ Thumbnails: uses `cover.png`, `og.png` or `icons/icon-512.png` from the game fol
 Each game runs on its own local port (47100+), so saves (localStorage) stick between launches. In game: F11 fullscreen, F5 reload, F12 dev tools.
 
 Library data lives in `%APPDATA%\Game Library`.
+
+## Website
+
+`index.html` at the repo root is the same library as a web page (GitHub Pages). Play opens each game's own GitHub Pages site. After adding or changing a game, run `npm run web` to rebuild `games.json` and `thumbs/`, then commit and push.
