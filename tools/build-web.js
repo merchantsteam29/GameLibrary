@@ -36,6 +36,17 @@ function pagesUrl(dir) {
   } catch { return null; }
 }
 
+// copy a game's playable files (not git, dev tools or docs) into dest, replacing what was there
+const SKIP = /^(\.|node_modules$|tools$|dist$|serve\.js$|.*\.md$)/i;
+function mirror(src, dest) {
+  fs.rmSync(dest, { recursive: true, force: true });
+  fs.mkdirSync(dest, { recursive: true });
+  for (const e of fs.readdirSync(src, { withFileTypes: true })) {
+    if (SKIP.test(e.name)) continue;
+    fs.cpSync(path.join(src, e.name), path.join(dest, e.name), { recursive: true });
+  }
+}
+
 function serve(dir) {
   return new Promise(res => {
     const srv = http.createServer((req, rsp) => {
@@ -85,8 +96,11 @@ app.whenReady().then(async () => {
       if (RESNAP || !fs.existsSync(path.join(HERE, thumb))) { console.log('snapping', title); try { await snap(dir, path.join(HERE, thumb)); } catch (err) { console.log('  snap failed:', err.message); } }
     }
     const added = old.find(o => o.id === id)?.added || Math.floor(fs.statSync(path.join(dir, "index.html")).birthtimeMs);
-    games.push({ id, title, desc, url: pagesUrl(dir), thumb, added });
-    console.log(`${title.padEnd(20)} ${pagesUrl(dir) || '(not online)'}`);
+    // games without their own GitHub repo are hosted inside this site, under play/<id>/
+    let url = pagesUrl(dir);
+    if (!url && pagesUrl(HERE)) { mirror(dir, path.join(HERE, 'play', id)); url = `${pagesUrl(HERE)}play/${id}/`; }
+    games.push({ id, title, desc, url, thumb, added });
+    console.log(`${title.padEnd(20)} ${url || '(not online)'}`);
   }
   fs.writeFileSync(path.join(HERE, 'games.json'), JSON.stringify(games, null, 2) + '\n');
   app.exit(0);

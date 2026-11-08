@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Willowmere After Hours</title>
+<meta name="description" content="Night-shift horror at an animal hospital. Keep the patients calm. Keep the doors ready. Survive until 6 AM.">
+<link rel="icon" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="vignette"></div>
+<div id="flash"></div>
+
+<!-- in-game HUD -->
+<div id="hud" class="hidden">
+  <div id="clock"><div id="nightLbl">NIGHT 1</div><div id="timeLbl">12 AM</div></div>
+  <div id="phoneBox" class="hidden"></div>
+  <div id="bottomLeft">
+    <div id="syringe" class="hidden"></div>
+    <div id="power"><div>POWER <b id="powerPct">100</b>%</div><div class="usageRow">USAGE <span id="usage"></span></div></div>
+  </div>
+  <div id="states">
+    <span id="stateL" class="st"><b>Q</b> DOOR · <b>A</b> LIGHT</span>
+    <span id="stateV" class="st"><b>W</b> VENT</span>
+    <span id="stateR" class="st"><b>D</b> LIGHT · <b>E</b> DOOR</span>
+  </div>
+  <div id="medBar" class="bar">MEDS / CHARTS [M]</div>
+  <div id="camBar" class="bar">▲ CAMERAS [SPACE] ▲</div>
+</div>
+<div id="subs"></div>
+<div id="toast"></div>
+
+<!-- camera monitor -->
+<div id="camUI" class="hidden">
+  <div id="camName">CAM 1A</div>
+  <div id="rec"><i></i> REC <span id="camTime"></span></div>
+  <div id="camLost" class="hidden">SIGNAL LOST</div>
+  <div id="patient" class="hidden"></div>
+  <div id="map"></div>
+  <div id="camClose" class="bar">▼ LOWER [SPACE] ▼</div>
+</div>
+
+<!-- medication station -->
+<div id="medUI" class="hidden">
+  <div class="panel">
+    <div class="medHead"><h2>MEDICATION STATION</h2><button id="medClose">✕ [M]</button></div>
+    <div id="medTabs"></div>
+    <div id="medChart"></div>
+    <div id="vials"></div>
+    <div id="syrView"></div>
+    <div class="btnRow small"><button id="medEmpty">EMPTY [⌫]</button><button id="medLoad">LOAD [ENTER]</button></div>
+    <p id="medHave"></p>
+    <p class="hint">Click the vials to match the prescription (3 vials). Then raise the cameras and press DOSE in that patient's room.</p>
+  </div>
+</div>
+
+<!-- screens -->
+<div id="menu" class="screen hidden">
+  <div class="title">
+    <div class="t1">WILLOWMERE</div>
+    <div class="t2">AFTER HOURS</div>
+    <div class="t3">night shift · animal hospital</div>
+    <div id="stars"></div>
+  </div>
+  <div class="menuBtns">
+    <button data-act="new">NEW GAME</button>
+    <button data-act="continue" id="contBtn">CONTINUE</button>
+    <button data-act="custom" id="customBtn">CUSTOM NIGHT</button>
+    <button data-act="howto">HOW TO PLAY</button>
+    <button data-act="settings">SETTINGS</button>
+  </div>
+  <div class="foot">Headphones recommended · best in Chrome</div>
+</div>
+
+<div id="howto" class="screen hidden">
+  <div class="box wide">
+    <h2>HOW TO SURVIVE THE NIGHT SHIFT</h2>
+    <div class="cols">
+      <div>
+        <h4>The office</h4>
+        <p><b>Mouse to the screen edge</b> to look left / right.</p>
+        <p><b>Q / E</b> — left / right door &nbsp; <b>A / D</b> — hall lights &nbsp; <b>W</b> — vent shutter</p>
+        <p>Or click the wall buttons and the yellow desk button. Closed doors and lights drain power. Run out and everything opens.</p>
+        <h4>Cameras</h4>
+        <p><b>Space</b> (or hover the bottom bar) to raise / lower the monitor. <b>1–9</b> or click the map to switch cameras.</p>
+        <p>You can't use doors or lights while the monitor is up.</p>
+      </div>
+      <div>
+        <h4>Patients</h4>
+        <p>Each patient's <b>STRESS</b> rises all night. At 100 they turn and come for you.</p>
+        <p><b>F</b> feed · <b>R</b> calming music · <b>T</b> give medicine — on that patient's camera.</p>
+        <p><b>M</b> opens the med station: read the chart, mix the 3 vials it prescribes, load the syringe, then DOSE them on camera. Wrong mix makes it worse.</p>
+        <p>Read the charts. Some patients like things others hate.</p>
+        <h4>Phone</h4>
+        <p><b>P</b> to answer / hang up. Owners give hints. Some callers aren't people.</p>
+      </div>
+    </div>
+    <div class="btnRow"><button data-act="menu">BACK</button></div>
+  </div>
+</div>
+
+<div id="settings" class="screen hidden">
+  <div class="box">
+    <h2>SETTINGS</h2>
+    <label class="slider">VOLUME <input id="vol" type="range" min="0" max="1" step="0.05"></label>
+    <p class="note">Phone calls use your browser's built-in voices.</p>
+    <div class="btnRow"><button data-act="reset" class="danger">RESET PROGRESS</button><button data-act="menu">BACK</button></div>
+  </div>
+</div>
+
+<div id="custom" class="screen hidden">
+  <div class="box">
+    <h2>CUSTOM NIGHT</h2>
+    <p class="note">0 = not admitted · 20 = nightmare</p>
+    <div id="customList"></div>
+    <div class="btnRow small"><button data-preset="0">ALL 0</button><button data-preset="10">ALL 10</button><button data-preset="20">ALL 20</button></div>
+    <div class="btnRow"><button data-act="menu">BACK</button><button data-act="startCustom">START</button></div>
+  </div>
+</div>
+
+<div id="pause" class="screen hidden">
+  <div class="box"><h2>PAUSED</h2><div class="btnRow"><button data-act="resume">RESUME</button><button data-act="quit">QUIT TO MENU</button></div></div>
+</div>
+<div id="intro" class="screen hidden"></div>
+<div id="over" class="screen hidden"></div>
+<div id="win" class="screen hidden"></div>
+<div id="ending" class="screen hidden"></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

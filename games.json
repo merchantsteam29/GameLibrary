@@ -1,5 +1,13 @@
 [
   {
+    "id": "afterhours",
+    "title": "Willowmere After Hours",
+    "desc": "Night-shift horror at an animal hospital. Keep the patients calm. Keep the doors ready. Survive until 6 AM.",
+    "url": "https://merchantsteam29.github.io/GameLibrary/play/afterhours/",
+    "thumb": "thumbs/afterhours.png",
+    "added": 1794111849501
+  },
+  {
     "id": "gun-game-fun",
     "title": "Trigger Happy",
     "desc": "(Formerly Gun Game 3D.) A browser-based 3D multiplayer shooter (Three.js + WebRTC) to play with friends, with bots.",
