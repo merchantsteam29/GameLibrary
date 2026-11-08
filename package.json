@@ -1,0 +1,40 @@
+{
+  "name": "game-library",
+  "productName": "Game Library",
+  "version": "1.0.0",
+  "description": "A launcher for my browser games",
+  "main": "main.js",
+  "author": "ciasfrenzer",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.ciasfrenzer.gamelibrary",
+    "productName": "Game Library",
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/**/*",
+      "build/icon.png"
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "build/icon.png"
+    },
+    "portable": {
+      "artifactName": "GameLibrary.exe"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "allowScripts": {
+    "electron@33.4.11": true
+  },
+  "repository": "github:merchantsteam29/GameLibrary"
+}
