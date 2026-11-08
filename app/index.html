@@ -15,8 +15,8 @@
       <option value="az">A – Z</option>
       <option value="added">Newest added</option>
     </select>
-    <button id="addBtn" class="ghost" title="Add a game folder">＋ Add game</button>
-    <button id="rescanBtn" class="ghost" title="Look for new games in your repos folder">⟳</button>
+    <button id="addBtn" class="ghost desktop-only" title="Add a game folder">＋ Add game</button>
+    <button id="rescanBtn" class="ghost desktop-only" title="Look for new games in your repos folder">⟳</button>
   </header>
 
   <main id="grid-view">
@@ -38,11 +38,11 @@
             <button id="d-play" class="play">▶ Play</button>
             <button id="d-fav" class="ghost" title="Favourite">☆</button>
           </div>
-          <p class="hint">In game: <kbd>F11</kbd> fullscreen · <kbd>F5</kbd> reload · <kbd>F12</kbd> dev tools</p>
+          <p class="hint desktop-only">In game: <kbd>F11</kbd> fullscreen · <kbd>F5</kbd> reload · <kbd>F12</kbd> dev tools</p>
         </div>
       </div>
     </div>
-    <div class="manage">
+    <div class="manage desktop-only">
       <h2>Manage</h2>
       <div class="row">
         <button id="d-snap" class="ghost">📸 Use current game screen as thumbnail</button>
@@ -56,6 +56,7 @@
   </main>
 
   <div id="toast" class="toast" hidden></div>
+  <script src="web.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

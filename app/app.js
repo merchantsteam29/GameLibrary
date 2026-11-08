@@ -65,7 +65,7 @@ function renderGrid() {
     if (g.favorite) { const f = document.createElement('span'); f.className = 'fav'; f.textContent = '★'; card.append(f); }
     const meta = document.createElement('div'); meta.className = 'meta';
     const h = document.createElement('h3'); h.textContent = g.title;
-    const sub = document.createElement('div'); sub.className = 'sub'; sub.textContent = g.missing ? 'Folder missing' : ago(g.lastPlayed);
+    const sub = document.createElement('div'); sub.className = 'sub'; sub.textContent = g.missing ? (g.missingText || 'Folder missing') : ago(g.lastPlayed);
     meta.append(h, sub);
     card.append(th, meta);
     card.onclick = () => showDetail(g.id);
@@ -85,7 +85,7 @@ function renderDetail(g) {
     const span = document.createElement('span'); span.textContent = s; $('#d-stats').append(span);
   }
   const isRun = running.has(g.id);
-  $('#d-play').textContent = isRun ? '● Running — switch to it' : '▶ Play';
+  $('#d-play').textContent = g.missing && g.missingText ? g.missingText : isRun ? '● Running — switch to it' : '▶ Play';
   $('#d-play').classList.toggle('running', isRun);
   $('#d-play').disabled = !!g.missing;
   $('#d-fav').textContent = g.favorite ? '★' : '☆';
@@ -156,5 +156,6 @@ $('#d-remove').onclick = async () => {
 };
 
 lib.onChange(refresh);
+window.addEventListener('lib-refresh', refresh);
 lib.onRunning(ids => { running = new Set(ids); renderGrid(); if (current) renderDetail(games.find(g => g.id === current)); });
 refresh();

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "gun-game-fun",
+    "title": "Trigger Happy",
+    "desc": "(Formerly Gun Game 3D.) A browser-based 3D multiplayer shooter (Three.js + WebRTC) to play with friends, with bots.",
+    "url": "https://merchantsteam29.github.io/trigger-happy/",
+    "thumb": "thumbs/gun-game-fun.png",
+    "added": 1792100523377
+  },
+  {
+    "id": "hollowbadge",
+    "title": "Hollow Badge",
+    "desc": "A dark first-person detective game in your browser. Four cases, one collector. Free, no download. Contains disturbing themes.",
+    "url": "https://merchantsteam29.github.io/hollow-badge/",
+    "thumb": "thumbs/hollowbadge.png",
+    "added": 1794105674503
+  },
+  {
+    "id": "mimic",
+    "title": "Mimic",
+    "desc": "A free first-person horror game in your browser. It records your voice and uses it to lure you, and your friends, into the dark.",
+    "url": "https://merchantsteam29.github.io/mimic/",
+    "thumb": "thumbs/mimic.png",
+    "added": 1793328914384
+  },
+  {
+    "id": "neon-space-runner",
+    "title": "Neon Void Runner",
+    "desc": "A first-person neon space platformer for Chrome, built with Three.js. You play an astronaut on glowing floating platforms: run, double jump, shoot alien drones, collect stars and reach the portal. You get 3 lives and every level is harder than the last.",
+    "url": "https://merchantsteam29.github.io/neon-space-runner/",
+    "thumb": "thumbs/neon-space-runner.jpg",
+    "added": 1793661470456
+  },
+  {
+    "id": "rubblemaker",
+    "title": "RUBBLEMAKER",
+    "desc": "",
+    "url": "https://merchantsteam29.github.io/rubblemaker/",
+    "thumb": "thumbs/rubblemaker.jpg",
+    "added": 1793974262722
+  },
+  {
+    "id": "wardnine",
+    "title": "Ward Nine",
+    "desc": "",
+    "url": null,
+    "thumb": "thumbs/wardnine.jpg",
+    "added": 1793662593762
+  }
+]
