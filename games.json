@@ -8,6 +8,14 @@
     "added": 1794111849501
   },
   {
+    "id": "bonkbowl",
+    "title": "Bonk Bowl",
+    "desc": "3-player party game on one keyboard. Dash into your friends and bonk them off a crumbling hex arena. Last blob standing wins.",
+    "url": "https://merchantsteam29.github.io/bonk-bowl/",
+    "thumb": "thumbs/bonkbowl.png",
+    "added": 1794177554852
+  },
+  {
     "id": "gun-game-fun",
     "title": "Trigger Happy",
     "desc": "(Formerly Gun Game 3D.) A browser-based 3D multiplayer shooter (Three.js + WebRTC) to play with friends, with bots.",
