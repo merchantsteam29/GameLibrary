@@ -1,5 +1,7 @@
 # Game Library
 
+**[⬇ Download GameLibrary.exe](https://github.com/merchantsteam29/GameLibrary/releases/latest/download/GameLibrary.exe)**
+
 A desktop launcher for my browser games. Shows every game as a card with a title and thumbnail; click one for its page, then hit Play.
 
 - **Run from source:** `npm start`
