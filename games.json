@@ -16,6 +16,14 @@
     "added": 1794177554852
   },
   {
+    "id": "breachzero",
+    "title": "BREACH: ZERO",
+    "desc": "A fast, dark first-person horror shooter. You are trapped three floors under Ardent Biolabs after a containment breach. Find keycards, fight what the lab made, and get to the surface lift.",
+    "url": "https://merchantsteam29.github.io/GameLibrary/play/breachzero/",
+    "thumb": "thumbs/breachzero.png",
+    "added": 1794192138733
+  },
+  {
     "id": "gun-game-fun",
     "title": "Trigger Happy",
     "desc": "(Formerly Gun Game 3D.) A browser-based 3D multiplayer shooter (Three.js + WebRTC) to play with friends, with bots.",
