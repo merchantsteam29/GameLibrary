@@ -17,6 +17,7 @@
       <option value="az">A – Z</option>
       <option value="added">Newest added</option>
     </select>
+    <button id="newsBtn" class="ghost news" title="What's new in your games">📰 Updates<span id="newsDot" class="dot" hidden></span></button>
     <button id="addBtn" class="ghost desktop-only" title="Add a game folder">＋ Add game</button>
     <button id="rescanBtn" class="ghost desktop-only" title="Look for new games in your repos folder">⟳</button>
   </header>
@@ -24,6 +25,15 @@
   <main id="grid-view">
     <section id="grid" class="grid"></section>
     <p id="empty" class="empty" hidden>No games yet. Hit <b>＋ Add game</b> and pick a folder with an <code>index.html</code>.</p>
+  </main>
+
+  <main id="updates-view" hidden>
+    <div class="feed-head">
+      <button id="newsBack" class="back">← Library</button>
+      <h2>Updates</h2>
+      <p>Patch notes and new content for your games, newest first.</p>
+    </div>
+    <section id="feed" class="feed"></section>
   </main>
 
   <main id="detail-view" hidden>
@@ -44,6 +54,10 @@
         </div>
       </div>
     </div>
+    <section class="game-updates" id="d-updates-wrap" hidden>
+      <h2>Updates</h2>
+      <div id="d-updates"></div>
+    </section>
     <div class="manage desktop-only">
       <h2>Manage</h2>
       <div class="row">

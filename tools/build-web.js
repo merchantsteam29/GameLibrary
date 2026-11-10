@@ -28,6 +28,16 @@ function meta(dir) {
   return { title, desc };
 }
 
+// a game's update history: optional updates.json in its folder, newest first
+function readUpdates(dir) {
+  try {
+    const u = JSON.parse(fs.readFileSync(path.join(dir, 'updates.json'), 'utf8'));
+    return (Array.isArray(u) ? u : []).filter(x => x && x.date && (x.title || x.version))
+      .map(x => ({ version: String(x.version || ''), date: x.date, title: String(x.title || ''), notes: (x.notes || []).map(String) }))
+      .sort((a, b) => b.date.localeCompare(a.date));
+  } catch { return []; }
+}
+
 function pagesUrl(dir) {
   try {
     const r = execSync('git remote get-url origin', { cwd: dir, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
@@ -37,7 +47,7 @@ function pagesUrl(dir) {
 }
 
 // copy a game's playable files (not git, dev tools or docs) into dest, replacing what was there
-const SKIP = /^(\.|node_modules$|tools$|dist$|serve\.js$|.*\.md$)/i;
+const SKIP = /^(\.|node_modules$|tools$|dist$|serve\.js$|updates\.json$|.*\.md$)/i;
 function mirror(src, dest) {
   fs.rmSync(dest, { recursive: true, force: true });
   fs.mkdirSync(dest, { recursive: true });
@@ -99,7 +109,8 @@ app.whenReady().then(async () => {
     // games without their own GitHub repo are hosted inside this site, under play/<id>/
     let url = pagesUrl(dir);
     if (!url && pagesUrl(HERE)) { mirror(dir, path.join(HERE, 'play', id)); url = `${pagesUrl(HERE)}play/${id}/`; }
-    games.push({ id, title, desc, url, thumb, added });
+    const updates = readUpdates(dir);
+    games.push({ id, title, desc, url, thumb, added, ...(updates.length ? { updates } : {}) });
     console.log(`${title.padEnd(20)} ${url || '(not online)'}`);
   }
   fs.writeFileSync(path.join(HERE, 'games.json'), JSON.stringify(games, null, 2) + '\n');

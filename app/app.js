@@ -25,6 +25,51 @@ function ago(t) {
   return d === 1 ? 'Played yesterday' : `Played ${d} days ago`;
 }
 
+// ---------- updates (patch notes from each game's updates.json) ----------
+const SEEN_KEY = 'gamelib-seen-updates';
+const seen = (() => { try { return JSON.parse(localStorage[SEEN_KEY]) || {}; } catch { return {}; } })();
+const latest = g => (g.updates && g.updates[0]) || null;
+const updKey = u => u.date + '|' + u.version;
+// an update counts as new until you open the game or the feed, and only for three weeks
+const isNew = g => { const u = latest(g); return !!u && seen[g.id] !== updKey(u) && Date.now() - Date.parse(u.date + 'T00:00') < 21 * 86400e3; };
+function markSeen(list) { for (const g of list) { const u = latest(g); if (u) seen[g.id] = updKey(u); } try { localStorage[SEEN_KEY] = JSON.stringify(seen); } catch {} }
+const fmtDate = d => new Date(d + 'T00:00').toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+
+function updateEl(u, g) {
+  const art = document.createElement('article'); art.className = 'post';
+  if (g) {
+    const th = document.createElement('div'); th.className = 'post-thumb'; paintThumb(th, g); th.onclick = () => showDetail(g.id);
+    art.append(th);
+  }
+  const body = document.createElement('div'); body.className = 'post-body';
+  const head = document.createElement('div'); head.className = 'post-head';
+  if (g) { const gt = document.createElement('span'); gt.className = 'post-game'; gt.textContent = g.title; gt.onclick = () => showDetail(g.id); head.append(gt); }
+  if (u.version) { const v = document.createElement('span'); v.className = 'ver'; v.textContent = 'v' + u.version; head.append(v); }
+  const dt = document.createElement('span'); dt.className = 'date'; dt.textContent = fmtDate(u.date); head.append(dt);
+  const h = document.createElement('h3'); h.textContent = u.title || ('Version ' + u.version);
+  const ul = document.createElement('ul'); for (const n of u.notes) { const li = document.createElement('li'); li.textContent = n; ul.append(li); }
+  body.append(head, h, ul);
+  if (g) {
+    const row = document.createElement('div'); row.className = 'post-actions';
+    const pl = document.createElement('button'); pl.className = 'play small'; pl.textContent = '▶ Play'; pl.disabled = !!g.missing; pl.onclick = () => play(g.id);
+    row.append(pl); body.append(row);
+  }
+  art.append(body);
+  return art;
+}
+
+function renderFeed() {
+  const feed = $('#feed'); feed.textContent = '';
+  const posts = games.flatMap(g => (g.updates || []).map(u => ({ u, g }))).sort((a, b) => b.u.date.localeCompare(a.u.date) || b.u.version.localeCompare(a.u.version, undefined, { numeric: true }));
+  if (!posts.length) { const p = document.createElement('p'); p.className = 'empty'; p.textContent = 'No updates yet. Add an updates.json to a game folder to post one.'; feed.append(p); return; }
+  for (const { u, g } of posts) feed.append(updateEl(u, g));
+}
+function showFeed() {
+  current = null; document.title = 'Updates — Game Library';
+  $('#grid-view').hidden = true; $('#detail-view').hidden = true; $('#updates-view').hidden = false;
+  renderFeed(); markSeen(games); renderGrid(); window.scrollTo(0, 0);
+}
+
 function toast(msg) {
   const t = $('#toast'); t.textContent = msg; t.hidden = false;
   clearTimeout(toast.t); toast.t = setTimeout(() => (t.hidden = true), 3200);
@@ -34,6 +79,7 @@ async function refresh() {
   const r = await lib.list();
   games = r.games; running = new Set(r.running);
   renderGrid();
+  if (!$('#updates-view').hidden) renderFeed();
   if (current) { const g = games.find(x => x.id === current); g ? renderDetail(g) : showGrid(); }
 }
 
@@ -63,6 +109,7 @@ function renderGrid() {
     th.append(quick);
     if (running.has(g.id)) { const b = document.createElement('span'); b.className = 'badge'; b.textContent = 'RUNNING'; card.append(b); }
     if (g.favorite) { const f = document.createElement('span'); f.className = 'fav'; f.textContent = '★'; card.append(f); }
+    if (isNew(g)) { const b = document.createElement('span'); b.className = 'badge upd'; b.textContent = 'UPDATED · v' + latest(g).version; if (running.has(g.id)) b.style.top = '36px'; card.append(b); }
     const meta = document.createElement('div'); meta.className = 'meta';
     const h = document.createElement('h3'); h.textContent = g.title;
     const sub = document.createElement('div'); sub.className = 'sub'; sub.textContent = g.missing ? (g.missingText || 'Folder missing') : ago(g.lastPlayed);
@@ -72,6 +119,7 @@ function renderGrid() {
     card.onkeydown = e => { if (e.key === 'Enter') showDetail(g.id); };
     grid.append(card);
   }
+  $('#newsDot').hidden = !games.some(isNew);
 }
 
 function renderDetail(g) {
@@ -91,17 +139,22 @@ function renderDetail(g) {
   $('#d-fav').textContent = g.favorite ? '★' : '☆';
   $('#d-fav').classList.toggle('on', !!g.favorite);
   $('#d-path').textContent = g.dir + (g.missing ? '   (missing — no index.html here any more)' : '');
+  const ups = g.updates || [];
+  $('#d-updates-wrap').hidden = !ups.length;
+  $('#d-updates').textContent = '';
+  for (const u of ups) $('#d-updates').append(updateEl(u, null));
 }
 
 function showDetail(id) {
   current = id;
-  renderDetail(games.find(g => g.id === id));
-  $('#grid-view').hidden = true; $('#detail-view').hidden = false;
+  const g = games.find(x => x.id === id);
+  renderDetail(g); markSeen([g]);
+  $('#grid-view').hidden = true; $('#updates-view').hidden = true; $('#detail-view').hidden = false;
   window.scrollTo(0, 0);
 }
 function showGrid() {
   current = null; document.title = 'Game Library';
-  $('#detail-view').hidden = true; $('#grid-view').hidden = false;
+  $('#detail-view').hidden = true; $('#updates-view').hidden = true; $('#grid-view').hidden = false;
   renderGrid();
 }
 
@@ -112,11 +165,13 @@ async function play(id) {
 }
 
 $('#back').onclick = showGrid;
+$('#newsBtn').onclick = showFeed;
+$('#newsBack').onclick = showGrid;
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && current) showGrid();
+  if (e.key === 'Escape' && (current || !$('#updates-view').hidden)) showGrid();
   if (e.key === '/' && document.activeElement !== $('#search')) { e.preventDefault(); $('#search').focus(); }
 });
-document.addEventListener('mouseup', e => { if (e.button === 3 && current) showGrid(); }); // mouse back button
+document.addEventListener('mouseup', e => { if (e.button === 3 && (current || !$('#updates-view').hidden)) showGrid(); }); // mouse back button
 $('#search').oninput = renderGrid;
 $('#sort').onchange = () => { try { localStorage.sort = $('#sort').value; } catch {} renderGrid(); };
 try { if (localStorage.sort) $('#sort').value = localStorage.sort; } catch {}

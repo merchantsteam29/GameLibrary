@@ -107,6 +107,16 @@ function refreshMeta() {
   }
 }
 
+// a game's update history: optional updates.json in its folder, newest first
+function readUpdates(dir) {
+  try {
+    const u = JSON.parse(fs.readFileSync(path.join(dir, 'updates.json'), 'utf8'));
+    return (Array.isArray(u) ? u : []).filter(x => x && x.date && (x.title || x.version))
+      .map(x => ({ version: String(x.version || ''), date: x.date, title: String(x.title || ''), notes: (x.notes || []).map(String) }))
+      .sort((a, b) => b.date.localeCompare(a.date));
+  } catch { return []; }
+}
+
 function toFileUrl(p) { return require('url').pathToFileURL(p).href; }
 
 function publicGame(g) {
@@ -114,7 +124,7 @@ function publicGame(g) {
   const custom = g.customThumb && fs.existsSync(g.customThumb) ? g.customThumb : null;
   const cover = custom || findCover(g.dir) || (fs.existsSync(shot) ? shot : null);
   const v = cover ? fs.statSync(cover).mtimeMs | 0 : 0;
-  return { ...g, thumb: cover ? toFileUrl(cover) + '?v=' + v : null };
+  return { ...g, thumb: cover ? toFileUrl(cover) + '?v=' + v : null, updates: readUpdates(g.dir) };
 }
 
 // ---------- per-game static servers ----------

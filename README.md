@@ -18,3 +18,15 @@ Library data lives in `%APPDATA%\Game Library`.
 ## Website
 
 `index.html` at the repo root is the same library as a web page (GitHub Pages). Play opens each game's own GitHub Pages site. After adding or changing a game, run `npm run web` to rebuild `games.json` and `thumbs/`, then commit and push.
+
+## Game updates (patch notes)
+
+Put an `updates.json` in a game's folder to post updates. The library shows them in the **📰 Updates** feed, on the game's page, and as an **UPDATED** badge on its card (for three weeks, or until you open it):
+
+```json
+[
+  { "version": "2.0", "date": "2026-11-09", "title": "Five floors down", "notes": ["Two new floors…", "A new boss…"] }
+]
+```
+
+The desktop app reads it straight from the folder. For the website, run `npm run web` (or copy the entries into that game's `updates` field in `games.json`), then commit and push.
