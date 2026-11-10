@@ -30,3 +30,7 @@ Put an `updates.json` in a game's folder to post updates. The library shows them
 ```
 
 The desktop app reads it straight from the folder. For the website, run `npm run web` (or copy the entries into that game's `updates` field in `games.json`), then commit and push.
+
+Where each game's notes come from: Hollow Badge writes its `updates.json` from `changelog.js` (`node tools/changelog.mjs`), Trigger Happy from `js/changelog.js` (`node tools/updates-json.mjs`, run by its `release.mjs`), . The other games' `updates.json` files are written by hand: add a new entry at the top for each update.
+
+Thumbnails: `npm run web` keeps a game's existing thumbnail if it has no cover image; `npm run web -- --resnap` retakes the screenshots.

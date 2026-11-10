@@ -105,6 +105,8 @@ app.whenReady().then(async () => {
     if (cover) {
       thumb = `thumbs/${id}${path.extname(cover)}`;
       fs.copyFileSync(cover, path.join(HERE, thumb));
+    } else if (!RESNAP && old.find(o => o.id === id)?.thumb && fs.existsSync(path.join(HERE, old.find(o => o.id === id).thumb))) {
+      thumb = old.find(o => o.id === id).thumb; // keep the thumbnail it already has (--resnap to retake)
     } else {
       thumb = `thumbs/${id}.jpg`;
       if (RESNAP || !fs.existsSync(path.join(HERE, thumb))) { console.log('snapping', title); try { await snap(dir, path.join(HERE, thumb)); } catch (err) { console.log('  snap failed:', err.message); } }

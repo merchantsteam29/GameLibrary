@@ -5,7 +5,28 @@
     "desc": "Night-shift horror at an animal hospital. Keep the patients calm. Keep the doors ready. Survive until 6 AM.",
     "url": "https://merchantsteam29.github.io/GameLibrary/play/afterhours/",
     "thumb": "thumbs/afterhours.png",
-    "added": 1794111849501
+    "added": 1794111849501,
+    "updates": [
+      {
+        "version": "1.1",
+        "date": "2026-11-09",
+        "title": "Install as an app",
+        "notes": [
+          "Willowmere After Hours can be installed as an app from the menu (INSTALL AS APP), with its own icon. It opens fullscreen and works offline once it has loaded."
+        ]
+      },
+      {
+        "version": "1.0",
+        "date": "2026-11-07",
+        "title": "Release",
+        "notes": [
+          "Night-shift horror at Willowmere animal hospital: five nights, plus a Custom Night.",
+          "Keep Biscuit, Mittens, Hoppy and Pepper calm on the cameras: feed them, play them music, or dose them at the medication station.",
+          "Let a patient's stress reach 100 and it turns, and comes for you.",
+          "From night 4, the Stray only moves when nobody is watching it."
+        ]
+      }
+    ]
   },
   {
     "id": "bonkbowl",
@@ -13,7 +34,40 @@
     "desc": "3-player party game on one keyboard. Dash into your friends and bonk them off a crumbling hex arena. Last blob standing wins.",
     "url": "https://merchantsteam29.github.io/bonk-bowl/",
     "thumb": "thumbs/bonkbowl.png",
-    "added": 1794177554852
+    "added": 1794177554852,
+    "updates": [
+      {
+        "version": "1.2",
+        "date": "2026-11-09",
+        "title": "Install as an app",
+        "notes": [
+          "Bonk Bowl can be installed as an app from the lobby (Install as an app), with its own icon. It opens fullscreen and works offline once it has loaded."
+        ]
+      },
+      {
+        "version": "1.1",
+        "date": "2026-11-08",
+        "title": "New maps, and easier to play",
+        "notes": [
+          "Four new maps: Donut Dunes, Three Isles, Bumper Park and Frozen Pond, plus Random each round.",
+          "Snappier movement with less sliding, softer knockback and a quicker dash recharge.",
+          "A small edge lip: you wobble on the edge before you fall.",
+          "The floor starts crumbling later and slower.",
+          "CPU difficulty: Easy, Normal or Hard (Easy by default)."
+        ]
+      },
+      {
+        "version": "1.0",
+        "date": "2026-11-08",
+        "title": "Release",
+        "notes": [
+          "Three blobs, one keyboard, one crumbling bowl: dash into your friends and knock them off.",
+          "CPU players fill any empty seats.",
+          "Pickups: MEGA, ZOOM and QUAKE.",
+          "First to 3, 5 or 7 rounds wins."
+        ]
+      }
+    ]
   },
   {
     "id": "breachzero",
@@ -66,7 +120,142 @@
     "desc": "(Formerly Gun Game 3D.) A browser-based 3D multiplayer shooter (Three.js + WebRTC) to play with friends, with bots.",
     "url": "https://merchantsteam29.github.io/trigger-happy/",
     "thumb": "thumbs/gun-game-fun.png",
-    "added": 1792100523377
+    "added": 1792100523377,
+    "updates": [
+      {
+        "version": "2026.10.16.10",
+        "date": "2026-10-16",
+        "title": "In Motion",
+        "notes": [
+          "Moderator looks",
+          "Fixes",
+          "New Banner"
+        ]
+      },
+      {
+        "version": "2026.10.15.38",
+        "date": "2026-10-15",
+        "title": "New Look",
+        "notes": [
+          "Menus",
+          "Play",
+          "Locker Room",
+          "Shop",
+          "Friends",
+          "New Banner",
+          "Phones: a cleaner menu",
+          "Fixes"
+        ]
+      },
+      {
+        "version": "2026.10.15.35",
+        "date": "2026-10-15",
+        "title": "Play Together",
+        "notes": [
+          "Play Hour",
+          "Join GIGACHAD",
+          "Welcome Back",
+          "New Banner"
+        ]
+      },
+      {
+        "version": "2026.10.15.34",
+        "date": "2026-10-15",
+        "title": "Costume Party 2",
+        "notes": [
+          "Costumes",
+          "Gun Skins",
+          "Banners",
+          "Name Tags",
+          "Kill Effects",
+          "More Costumes",
+          "More Gun Skins",
+          "More Banners, Name Tags and Kill Effects",
+          "Poses and Emotes"
+        ]
+      },
+      {
+        "version": "2026.10.15.32",
+        "date": "2026-10-15",
+        "title": "Armory",
+        "notes": [
+          "Gun Skins",
+          "Animated Wraps",
+          "New Banner"
+        ]
+      },
+      {
+        "version": "2026.10.15.31",
+        "date": "2026-10-15",
+        "title": "Costume Party",
+        "notes": [
+          "Costumes",
+          "New Banner",
+          "Fixes",
+          "More Costumes",
+          "Blood Machine Remake"
+        ]
+      },
+      {
+        "version": "2026.10.15.27",
+        "date": "2026-10-15",
+        "title": "Staff HQ Update",
+        "notes": [
+          "One Big Update Log",
+          "4 New Banners",
+          "Staff Permissions",
+          "Trial Moderators",
+          "Suspect Alerts",
+          "Ban Evasion Finder",
+          "Evidence Clips",
+          "Aim-Snap Detector",
+          "Report Claiming",
+          "Quick Actions on Reports",
+          "Repeat Offenders",
+          "Report Trends",
+          "Live Matches for Staff",
+          "Chat Lock Everywhere",
+          "Go To Player",
+          "Punishment Ladder",
+          "Ranked Bans",
+          "Gift Freeze",
+          "Map Publish Ban",
+          "Undo",
+          "Owner Override Log",
+          "Owner Gifts",
+          "Live Events",
+          "Owner Stats",
+          "Message of the Day",
+          "Shop Spotlight",
+          "Update Countdown",
+          "Staff Test Servers"
+        ]
+      },
+      {
+        "version": "2026.10.14.26",
+        "date": "2026-10-14",
+        "title": "The Mega Update",
+        "notes": [
+          "Smoother Replays",
+          "Ranked Revival",
+          "Smarter Bots",
+          "Replays for Staff",
+          "Moderation Tools",
+          "Your Reports",
+          "Match History",
+          "Name Tags",
+          "Weapon Charms",
+          "Your Own Spray",
+          "3D Character",
+          "Party Up",
+          "Friend Challenges",
+          "Clan Bases",
+          "Day and Night",
+          "Glass",
+          "Foundry"
+        ]
+      }
+    ]
   },
   {
     "id": "happymeadow",
@@ -74,7 +263,48 @@
     "desc": "A super cute little bunny platformer! Collect carrots with your friends in the sunny meadow ♥",
     "url": "https://merchantsteam29.github.io/happy-meadow/",
     "thumb": "thumbs/happymeadow.png",
-    "added": 1794161818116
+    "added": 1794161818116,
+    "updates": [
+      {
+        "version": "1.3",
+        "date": "2026-11-09",
+        "title": "Install as an app",
+        "notes": [
+          "Mochi's Happy Meadow can be installed as an app from the title screen (Install app ♥), with its own bunny icon. It opens fullscreen and works offline once it has loaded."
+        ]
+      },
+      {
+        "version": "1.2",
+        "date": "2026-11-08",
+        "title": "Realistic 3D garden",
+        "notes": [
+          "The garden is far more realistic: flashlight shadows, a light beam through dust and mist, film grain and motion blur.",
+          "Dead twisted trees, tens of thousands of grass blades moving in the wind, and much worse flowers.",
+          "Sunny is new: hunched, starved, in a torn costume and a cracked porcelain mask.",
+          "Heavier movement: head-bob, stumbles and breath fog.",
+          "A Graphics setting (Auto, High, Low)."
+        ]
+      },
+      {
+        "version": "1.1",
+        "date": "2026-11-08",
+        "title": "Scarier, and on phones",
+        "notes": [
+          "Sunny's footsteps move around you, and Sunny speaks.",
+          "Panic breathing, a lights-out scare, fake footsteps behind you, and a red garden in the final chase.",
+          "Phone controls: buttons in the 2D part, and a joystick, drag-to-look and action buttons in 3D."
+        ]
+      },
+      {
+        "version": "1.0",
+        "date": "2026-11-08",
+        "title": "Release",
+        "notes": [
+          "A super cute bunny platformer. Collect carrots in the sunny meadow. Day 1, Day 2, Day 3...",
+          "Something is wrong with the meadow."
+        ]
+      }
+    ]
   },
   {
     "id": "hollowbadge",
@@ -82,7 +312,89 @@
     "desc": "A dark first-person detective game in your browser. Four cases, one collector. Free, no download. Contains disturbing themes.",
     "url": "https://merchantsteam29.github.io/hollow-badge/",
     "thumb": "thumbs/hollowbadge.png",
-    "added": 1794105674503
+    "added": 1794105674503,
+    "updates": [
+      {
+        "version": "4.2",
+        "date": "2026-11-09",
+        "title": "Install as an app",
+        "notes": [
+          "Hollow Badge can be installed as an app: press Install as app on the menu (Chrome / Edge / Android), or Share > Add to Home Screen on iPhone. It gets its own icon, opens fullscreen and works offline once it has loaded."
+        ]
+      },
+      {
+        "version": "4.1",
+        "date": "2026-11-07",
+        "title": "Clean-up",
+        "notes": [
+          "Phones: the ending screen scrolls, so Go home and Epilogue can no longer end up off the bottom of a landscape phone.",
+          "Phones: presenting evidence in an interview scrolls the clue list into view, and the LIGHT and NOTES buttons now tick off the how-to-play checklist.",
+          "The menu buttons no longer overlap the tagline.",
+          "The epilogue morning looks like morning: the rain on your window has stopped.",
+          "The unused voice-acting system has been removed. The game stays fully subtitled.",
+          "Links to the game now show a proper preview image, and the browser tab has a badge icon.",
+          "Behind the scenes: tidier code, a saved suite of automated playtests (desktop and phone), and a licence."
+        ]
+      },
+      {
+        "version": "4.0.1",
+        "date": "2026-11-07",
+        "title": "Fully subtitled",
+        "notes": [
+          "Hollow Badge is fully subtitled with no spoken dialogue. The voice-actor recording link has been removed from the menu."
+        ]
+      },
+      {
+        "version": "4.0",
+        "date": "2026-11-07",
+        "title": "The Final Cut",
+        "notes": [
+          "A living title screen: the menu drifts down a rainy Ashgrove street at night.",
+          "An epilogue after the finale, and a credits roll.",
+          "A white lily is hidden somewhere off the path in Cases 01, 02 and 03. Find all three for the true ending.",
+          "Reduce flashing (on the content warning and in settings): calms lightning, jumpscare flashes, police lights, flickering lamps and screen shake.",
+          "New settings: subtitle size, field of view, invert look, controllers on/off. A short how-to-play checklist the first time you play.",
+          "Gamepad support: left stick to move, right stick to look, A to examine, X flashlight, Y notebook, LT to hold your breath, Start to pause, and the D-pad works every menu."
+        ]
+      },
+      {
+        "version": "3.0.2",
+        "date": "2026-11-07",
+        "title": "Fix: home objectives",
+        "notes": [
+          "The apartment now follows what you have done: messages, mail, then the case wall. With Cases 01 to 03 finished, the payphone downstairs rings and the door takes you straight into Case 04."
+        ]
+      },
+      {
+        "version": "3.0.1",
+        "date": "2026-11-07",
+        "title": "Fix: your car in Case 04",
+        "notes": [
+          "Your car in Ashgrove is now parked outside your building with its headlights on, and walking up to it opens the case board (it used to do nothing)."
+        ]
+      },
+      {
+        "version": "3.0",
+        "date": "2026-11-07",
+        "title": "Case 04: The Collector",
+        "notes": [
+          "The finale. Ashgrove, your own city. You come home and your door is open.",
+          "Four exhibits hidden around the city, a payphone that rings for you, and a typewriter with a bent e.",
+          "Three suspects, one interrogation, and a basement you should never have found.",
+          "Opens once you have finished Cases 01 to 03."
+        ]
+      },
+      {
+        "version": "2.3",
+        "date": "2026-11-07",
+        "title": "Home",
+        "notes": [
+          "Your apartment in Ashgrove: go home from the menu or after any case.",
+          "An answering machine that fills up as you close cases. Some messages are not from anyone you know.",
+          "Letters slipped under your door. Your case wall, and the red string that keeps leading to the same empty space."
+        ]
+      }
+    ]
   },
   {
     "id": "mimic",
@@ -90,7 +402,71 @@
     "desc": "A free first-person horror game in your browser. It records your voice and uses it to lure you, and your friends, into the dark.",
     "url": "https://merchantsteam29.github.io/mimic/",
     "thumb": "thumbs/mimic.png",
-    "added": 1793328914384
+    "added": 1793328914384,
+    "updates": [
+      {
+        "version": "Beta 1",
+        "date": "2026-10-29",
+        "title": "It listens first",
+        "notes": [
+          "The mimic sorts what it hears (screams, calls, help, laughs, whispers) and uses the right one at the right moment.",
+          "It calls from the dark near what you're looking for, sounds like the friend you split from, and answers when you shout for someone.",
+          "Each night it starts by listening, then copies, then hunts.",
+          "Learn its tells: a wet click in its throat before it speaks, and your flashlight dips twice when it's close."
+        ]
+      },
+      {
+        "version": "Beta",
+        "date": "2026-10-28",
+        "title": "Nearly finished",
+        "notes": [
+          "Mimic is in beta: fourteen places, three stories and every mode, so now it's fixing and polishing.",
+          "New places: a lighthouse island, the sewers, a liner in a storm, a snow research station and an old mine.",
+          "A third story, The Babysitter, in five chapters.",
+          "Endless descent: floor after floor, each worse than the last.",
+          "The patient, the rat swarm, and a new mode, Imposter voices.",
+          "It walks like you, and its copies of your voice get better as the night goes on.",
+          "Kill-cam replays, simpler menus, bigger-text and colour-blind settings, and a Potato graphics setting for old machines."
+        ]
+      },
+      {
+        "version": "Alpha",
+        "date": "2026-10-27",
+        "title": "Alpha",
+        "notes": [
+          "An abandoned fairground with a ghost train, a hall of mirrors and the clown.",
+          "Spliced sentences: it cuts your words up and makes you say things you never said.",
+          "A closed subway station, the Mother, and four new classes: Sound guy, Priest, Scout and Mechanic.",
+          "Quick Play shows open public rooms, and the voice that fooled you can be saved as a video.",
+          "Escort mode, map picking, a scarier-looking mimic and a sound pass for every place."
+        ]
+      },
+      {
+        "version": "",
+        "date": "2026-10-26",
+        "title": "The big expansion",
+        "notes": [
+          "New places: the church, the asylum, the mall, the school, the hotel and the woods.",
+          "New creatures: the Double, the Listener, the Stalker, the Shadow and the Caller.",
+          "New modes: Night Shift, Versus, Hide and seek, and a second story, The Operator.",
+          "Tape-recorder decoys, walkie-talkies, new hiding spots and things to throw.",
+          "A tutorial, sound captions, auto graphics, an end-of-round recap, and rejoining after a drop.",
+          "Moods and twists, so no two nights are the same."
+        ]
+      },
+      {
+        "version": "",
+        "date": "2026-10-25",
+        "title": "Release",
+        "notes": [
+          "A horror game that records your voice and uses it to lure you into the dark.",
+          "Up to 4 players online with proximity voice chat.",
+          "Story mode with Ellie, and an online story, The Signal, with a secret traitor.",
+          "Hunt mode (one player is the mimic), the hospital and the skinwalker.",
+          "Controller and touch support, and it can be installed as an app."
+        ]
+      }
+    ]
   },
   {
     "id": "rubblemaker",
@@ -98,7 +474,110 @@
     "desc": "",
     "url": "https://merchantsteam29.github.io/rubblemaker/",
     "thumb": "thumbs/rubblemaker.jpg",
-    "added": 1793974262722
+    "added": 1793974262722,
+    "updates": [
+      {
+        "version": "1.8.1",
+        "date": "2026-11-09",
+        "title": "Install as an app",
+        "notes": [
+          "RUBBLEMAKER can be installed as an app from the menu (INSTALL APP), with its own icon. It opens fullscreen and works offline once it has loaded."
+        ]
+      },
+      {
+        "version": "1.8",
+        "date": "2026-11-06",
+        "title": "Mason's Lodge",
+        "notes": [
+          "A secret co-op campaign for two golems over a room code.",
+          "Enemies chase the nearer golem, and doors closing pull your partner into the fight.",
+          "At 0 HP you go down: your partner can lift you back up before you bleed out."
+        ]
+      },
+      {
+        "version": "1.7",
+        "date": "2026-11-06",
+        "title": "Chiselled Stone",
+        "notes": [
+          "Every menu and panel is carved stone: cut corners, bevelled light and carved capitals.",
+          "A new HUD: molten health trough, a style-meter tablet and a lintel boss bar."
+        ]
+      },
+      {
+        "version": "1.6",
+        "date": "2026-11-06",
+        "title": "Hard mode, training, speedruns",
+        "notes": [
+          "Hard mode, with its own ranks and a skin for beating it.",
+          "A training level the first time you play the campaign.",
+          "A speedrun timer, golem colours and a tuning pass.",
+          "Two new duels in Act IV."
+        ]
+      },
+      {
+        "version": "1.5",
+        "date": "2026-11-05",
+        "title": "Act IV: The Aqueduct",
+        "notes": [
+          "Twelve new levels across the Sluice, the Arches and the Cistern, with their own look and music.",
+          "Water hazards: currents, sluice-gate jets and rooms that flood while you fight.",
+          "New enemies, trainers and mini-bosses, the TIDE arm, and THE GUILDMASTER at the end."
+        ]
+      },
+      {
+        "version": "1.4",
+        "date": "2026-11-05",
+        "title": "Three acts, seven layers",
+        "notes": [
+          "The campaign is regrouped into acts and layers, and your old saves move over by themselves.",
+          "Guns are dropped by new mini-bosses instead of being sold.",
+          "Elites in the codex, 17 new achievements and 4 new skins.",
+          "Fixed the camera spinning on its own with some controllers and devices."
+        ]
+      },
+      {
+        "version": "1.3",
+        "date": "2026-11-05",
+        "title": "The Chain Flail",
+        "notes": [
+          "The CHAIN FLAIL (weapon 5): whirl it, then sweep, hook, pierce or smash.",
+          "Elite IRON and EMBER enemies.",
+          "Ghost replays of your fastest clear on every level.",
+          "A tuning pass, a performance mode and save backups."
+        ]
+      },
+      {
+        "version": "1.2",
+        "date": "2026-11-05",
+        "title": "The Story, the Codex, new sound",
+        "notes": [
+          "Story cutscenes for the prologue, each act and the ending.",
+          "The Codex: a bestiary, the arsenal, lifetime stats and 32 achievements.",
+          "A sound overhaul: room reverb, 3D sound through walls and enemy voices."
+        ]
+      },
+      {
+        "version": "1.1",
+        "date": "2026-11-05",
+        "title": "Prime rematches and P-ranks",
+        "notes": [
+          "PRIME boss rematches with new gun skins to win.",
+          "P-rank for a perfect run.",
+          "New Kiln trainers, and the RUBBLE PIT arena shifts every 5 waves."
+        ]
+      },
+      {
+        "version": "1.0",
+        "date": "2026-11-04",
+        "title": "Brick launcher and swap chains",
+        "notes": [
+          "Weapon 4, the BRICK LAUNCHER, with three variants.",
+          "Swap chains: switch weapons between hits for style and extra damage.",
+          "New enemies RAM, BURROWER and MENDER, and two new duels.",
+          "Controller and touch support, and the PRACTICE ROOM (v0.9)."
+        ]
+      }
+    ]
   },
   {
     "id": "wardnine",
@@ -106,6 +585,27 @@
     "desc": "",
     "url": "https://merchantsteam29.github.io/ward-nine/",
     "thumb": "thumbs/wardnine.jpg",
-    "added": 1793662593762
+    "added": 1793662593762,
+    "updates": [
+      {
+        "version": "1.1",
+        "date": "2026-11-09",
+        "title": "Install as an app",
+        "notes": [
+          "Ward Nine can be installed as an app from the menu (Install as an app), with its own icon. It opens fullscreen and works offline once it has loaded."
+        ]
+      },
+      {
+        "version": "1.0",
+        "date": "2026-11-03",
+        "title": "Release",
+        "notes": [
+          "Work the night shift on Ward Nine, a hospital ward where something is loose.",
+          "The things in the dark hunt by noise: run and shoot, and they hear you.",
+          "Play until dawn or in an endless night, on Easy, Normal or Nightmare.",
+          "Watch out for the Ward Sister."
+        ]
+      }
+    ]
   }
 ]

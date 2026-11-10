@@ -33,6 +33,8 @@ const updKey = u => u.date + '|' + u.version;
 // an update counts as new until you open the game or the feed, and only for three weeks
 const isNew = g => { const u = latest(g); return !!u && seen[g.id] !== updKey(u) && Date.now() - Date.parse(u.date + 'T00:00') < 21 * 86400e3; };
 function markSeen(list) { for (const g of list) { const u = latest(g); if (u) seen[g.id] = updKey(u); } try { localStorage[SEEN_KEY] = JSON.stringify(seen); } catch {} }
+// '2.0' -> 'v2.0'; named versions ('Beta 1') stay as they are
+const verLabel = v => (/^\d/.test(v) ? 'v' + v : v);
 const fmtDate = d => new Date(d + 'T00:00').toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
 
 function updateEl(u, g) {
@@ -44,9 +46,9 @@ function updateEl(u, g) {
   const body = document.createElement('div'); body.className = 'post-body';
   const head = document.createElement('div'); head.className = 'post-head';
   if (g) { const gt = document.createElement('span'); gt.className = 'post-game'; gt.textContent = g.title; gt.onclick = () => showDetail(g.id); head.append(gt); }
-  if (u.version) { const v = document.createElement('span'); v.className = 'ver'; v.textContent = 'v' + u.version; head.append(v); }
+  if (u.version) { const v = document.createElement('span'); v.className = 'ver'; v.textContent = verLabel(u.version); head.append(v); }
   const dt = document.createElement('span'); dt.className = 'date'; dt.textContent = fmtDate(u.date); head.append(dt);
-  const h = document.createElement('h3'); h.textContent = u.title || ('Version ' + u.version);
+  const h = document.createElement('h3'); h.textContent = u.title || verLabel(u.version);
   const ul = document.createElement('ul'); for (const n of u.notes) { const li = document.createElement('li'); li.textContent = n; ul.append(li); }
   body.append(head, h, ul);
   if (g) {
@@ -109,7 +111,7 @@ function renderGrid() {
     th.append(quick);
     if (running.has(g.id)) { const b = document.createElement('span'); b.className = 'badge'; b.textContent = 'RUNNING'; card.append(b); }
     if (g.favorite) { const f = document.createElement('span'); f.className = 'fav'; f.textContent = '★'; card.append(f); }
-    if (isNew(g)) { const b = document.createElement('span'); b.className = 'badge upd'; b.textContent = 'UPDATED · v' + latest(g).version; if (running.has(g.id)) b.style.top = '36px'; card.append(b); }
+    if (isNew(g)) { const b = document.createElement('span'); b.className = 'badge upd'; b.textContent = 'UPDATED' + (latest(g).version ? ' · ' + verLabel(latest(g).version) : ''); if (running.has(g.id)) b.style.top = '36px'; card.append(b); }
     const meta = document.createElement('div'); meta.className = 'meta';
     const h = document.createElement('h3'); h.textContent = g.title;
     const sub = document.createElement('div'); sub.className = 'sub'; sub.textContent = g.missing ? (g.missingText || 'Folder missing') : ago(g.lastPlayed);
