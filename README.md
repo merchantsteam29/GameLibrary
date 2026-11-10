@@ -2,12 +2,12 @@
 
 **▶ Play in your browser: https://merchantsteam29.github.io/GameLibrary/**
 
-**⬇ Download for PC: [GameLibrary.exe](https://github.com/merchantsteam29/GameLibrary/releases/latest)** (Windows, one file, no install). It lists every game and plays them in their own window, straight from the internet, so it works on any PC.
+**⬇ Download for PC: [GameLibrary.zip](https://github.com/merchantsteam29/GameLibrary/releases/latest/download/GameLibrary.zip)** (Windows; unzip it and run GameLibrary.exe, no install). It lists every game and plays them in their own window, straight from the internet, so it works on any PC.
 
 A desktop launcher for my browser games. Shows every game as a card with a title and thumbnail; click one for its page, then hit Play.
 
 - **Run from source:** `npm start`
-- **Build the download:** `npm run dist` → `dist/GameLibrary.exe` (one portable file, no install)
+- **Build the download:** `npm run dist` → `dist/GameLibrary.exe` (one portable file, no install). Releases also attach it zipped as `GameLibrary.zip`, because Edge SmartScreen blocks a bare unsigned .exe download
 
 On every launch it scans `~/source/repos` for folders with an `index.html` (your own copies, played from disk), then loads the website's `games.json` and adds the games you don't have locally as online games (cached, so the list also shows offline). A local copy always wins over the online one. Use **＋ Add game** for anything elsewhere, ⟳ to rescan.
 
