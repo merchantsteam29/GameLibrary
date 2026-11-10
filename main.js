@@ -291,6 +291,8 @@ ipcMain.handle('open-folder', (_e, id) => {
 // ---------- app ----------
 app.whenReady().then(() => {
   initLib();
+  // pick up games made since last time (removed / hidden ones stay out)
+  if (scanFolder(lib.root, lib)) saveLib(lib);
   // Games need the mic (Mimic), gamepads, pointer lock, fullscreen, notifications.
   session.defaultSession.setPermissionRequestHandler((_wc, _perm, cb) => cb(true));
   session.defaultSession.setPermissionCheckHandler(() => true);
