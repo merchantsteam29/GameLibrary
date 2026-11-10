@@ -9,6 +9,10 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
+// Games run on the fast graphics card. Laptops with two GPUs otherwise often give Electron the slow built-in one,
+// which is the most common reason a game lags in the app but not on a desktop.
+app.commandLine.appendSwitch('force_high_performance_gpu');
+
 // --data-dir=<folder> keeps the library somewhere else (a portable copy, or a clean test profile)
 const dataArg = process.argv.find(x => x.startsWith('--data-dir='));
 if (dataArg) app.setPath('userData', dataArg.slice('--data-dir='.length));
