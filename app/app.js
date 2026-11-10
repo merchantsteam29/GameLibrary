@@ -114,7 +114,7 @@ function renderGrid() {
     if (isNew(g)) { const b = document.createElement('span'); b.className = 'badge upd'; b.textContent = 'UPDATED' + (latest(g).version ? ' · ' + verLabel(latest(g).version) : ''); if (running.has(g.id)) b.style.top = '36px'; card.append(b); }
     const meta = document.createElement('div'); meta.className = 'meta';
     const h = document.createElement('h3'); h.textContent = g.title;
-    const sub = document.createElement('div'); sub.className = 'sub'; sub.textContent = g.missing ? (g.missingText || 'Folder missing') : ago(g.lastPlayed);
+    const sub = document.createElement('div'); sub.className = 'sub'; sub.textContent = g.missing ? (g.missingText || 'Folder missing') : ago(g.lastPlayed) + (g.online ? ' · online' : '');
     meta.append(h, sub);
     card.append(th, meta);
     card.onclick = () => showDetail(g.id);
@@ -140,7 +140,8 @@ function renderDetail(g) {
   $('#d-play').disabled = !!g.missing;
   $('#d-fav').textContent = g.favorite ? '★' : '☆';
   $('#d-fav').classList.toggle('on', !!g.favorite);
-  $('#d-path').textContent = g.dir + (g.missing ? '   (missing — no index.html here any more)' : '');
+  $('#d-path').textContent = (g.dir || '') + (g.missing ? '   (missing — no index.html here any more)' : '');
+  $('#d-folder').textContent = g.online ? '🌐 Open website' : '📁 Open folder';
   const ups = g.updates || [];
   $('#d-updates-wrap').hidden = !ups.length;
   $('#d-updates').textContent = '';

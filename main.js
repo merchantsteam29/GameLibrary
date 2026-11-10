@@ -1,12 +1,17 @@
 // Game Library — Electron main process.
-// Each game gets its own tiny static server on a fixed port, so ES modules,
-// service workers and localStorage saves all work and persist between launches.
+// Local games (folders with an index.html) each get their own tiny static server on a fixed
+// port, so ES modules, service workers and localStorage saves all work and persist.
+// Online games come from the library website's catalog (games.json) and play straight from
+// their own site, so the app works on any PC; a game you have locally always wins.
 const { app, BrowserWindow, ipcMain, dialog, session, shell } = require('electron');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
+// --data-dir=<folder> keeps the library somewhere else (a portable copy, or a clean test profile)
+const dataArg = process.argv.find(x => x.startsWith('--data-dir='));
+if (dataArg) app.setPath('userData', dataArg.slice('--data-dir='.length));
 const DATA = app.getPath('userData');
 const LIB_FILE = path.join(DATA, 'library.json');
 const THUMBS = path.join(DATA, 'thumbs');
@@ -68,7 +73,7 @@ function makeEntry(dir, lib) {
   let port = 47100;
   while (used.has(port)) port++;
   let id = makeId(dir), n = 2;
-  while (lib.games.some(g => g.id === id)) id = makeId(dir) + '-' + n++;
+  while (lib.games.some(g => !g.online && g.id === id)) id = makeId(dir) + '-' + n++;
   return { id, dir, title: meta.title, desc: meta.desc, port, added: Date.now(), lastPlayed: 0, plays: 0 };
 }
 
@@ -88,7 +93,7 @@ function scanFolder(root, lib) {
     if (dir === __dirname || path.basename(dir) === 'GameLibrary') continue;
     if (/redirect/i.test(e.name)) continue;
     if (!fs.existsSync(path.join(dir, 'index.html'))) continue;
-    if (lib.games.some(g => path.resolve(g.dir) === path.resolve(dir))) continue;
+    if (lib.games.some(g => !g.online && path.resolve(g.dir) === path.resolve(dir))) continue;
     if (isHidden(dir, lib)) continue;
     const entry = makeEntry(dir, lib);
     if (entry) { lib.games.push(entry); added++; }
@@ -97,13 +102,16 @@ function scanFolder(root, lib) {
 }
 
 function defaultRoot() {
+  // --library-root=<folder> picks another games folder (also used to test a PC with no games).
+  const arg = process.argv.find(x => x.startsWith('--library-root='));
+  if (arg) return arg.slice('--library-root='.length);
   // Running from source: the folder next to GameLibrary. Packaged: ~/source/repos.
   if (!app.isPackaged) return path.dirname(__dirname);
   return path.join(os.homedir(), 'source', 'repos');
 }
 
 let lib = loadLib();
-if (lib) lib.games = lib.games.filter(g => !HIDDEN.has(path.basename(g.dir).toLowerCase()));
+if (lib) lib.games = lib.games.filter(g => g.online || !HIDDEN.has(path.basename(g.dir).toLowerCase()));
 function initLib() {
   if (lib) return;
   lib = { root: defaultRoot(), games: [] };
@@ -111,8 +119,48 @@ function initLib() {
   saveLib(lib);
 }
 
+// ---------- online catalog ----------
+const SITE = 'https://merchantsteam29.github.io/GameLibrary/';
+const CATALOG_FILE = path.join(DATA, 'catalog.json');
+const readCatalog = () => { try { return JSON.parse(fs.readFileSync(CATALOG_FILE, 'utf8')); } catch { return []; } };
+
+// Add the catalog's games you don't have locally (and drop ones the catalog no longer lists).
+function mergeCatalog(cat) {
+  const localIds = new Set(lib.games.filter(g => !g.online).map(g => g.id));
+  lib.games = lib.games.filter(g => !g.online || !localIds.has(g.id));
+  const hiddenIds = new Set(lib.hiddenIds || []);
+  const keep = new Set();
+  for (const c of cat) {
+    if (!c || !c.id || !c.url || localIds.has(c.id) || hiddenIds.has(c.id) || HIDDEN.has(c.id)) continue;
+    keep.add(c.id);
+    let g = lib.games.find(x => x.online && x.id === c.id);
+    if (!g) { g = { id: c.id, online: true, added: Date.now(), lastPlayed: 0, plays: 0 }; lib.games.push(g); }
+    g.url = c.url; g.remoteThumb = c.thumb ? new URL(c.thumb, SITE).href : null; g.updates = c.updates || [];
+    if (!g.customTitle) g.title = c.title;
+    if (!g.customDesc) g.desc = c.desc || '';
+  }
+  lib.games = lib.games.filter(g => !g.online || keep.has(g.id));
+}
+
+// Fetch the latest catalog (and its thumbnails, for offline use); fall back to the cached copy.
+async function syncCatalog() {
+  try {
+    const res = await fetch(SITE + 'games.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(res.status);
+    const cat = await res.json();
+    fs.writeFileSync(CATALOG_FILE, JSON.stringify(cat));
+    mergeCatalog(cat); saveLib(lib);
+    for (const g of lib.games.filter(x => x.online && x.remoteThumb)) {
+      const file = path.join(THUMBS, 'online-' + g.id + path.extname(new URL(g.remoteThumb).pathname));
+      try { const r = await fetch(g.remoteThumb); if (r.ok) fs.writeFileSync(file, Buffer.from(await r.arrayBuffer())); } catch {}
+    }
+    libWin?.webContents.send('library-changed');
+  } catch {} // offline: the cached catalog was merged at startup
+}
+
 function refreshMeta() {
   for (const g of lib.games) {
+    if (g.online) { g.missing = false; continue; }
     const meta = readMeta(g.dir);
     g.missing = !meta;
     if (meta && !g.customTitle) g.title = meta.title;
@@ -133,6 +181,11 @@ function readUpdates(dir) {
 function toFileUrl(p) { return require('url').pathToFileURL(p).href; }
 
 function publicGame(g) {
+  if (g.online) {
+    const custom = g.customThumb && fs.existsSync(g.customThumb) ? toFileUrl(g.customThumb) : null;
+    const cached = g.remoteThumb && path.join(THUMBS, 'online-' + g.id + path.extname(new URL(g.remoteThumb).pathname));
+    return { ...g, dir: g.url, thumb: custom || (cached && fs.existsSync(cached) ? toFileUrl(cached) : g.remoteThumb) };
+  }
   const shot = path.join(THUMBS, g.id + '.png');
   const custom = g.customThumb && fs.existsSync(g.customThumb) ? g.customThumb : null;
   const cover = custom || findCover(g.dir) || (fs.existsSync(shot) ? shot : null) || findIcon(g.dir);
@@ -185,8 +238,11 @@ async function launch(id) {
   const g = lib.games.find(x => x.id === id);
   if (!g) return { ok: false, error: 'Game not found' };
   if (gameWins.has(id)) { const w = gameWins.get(id); if (w.isMinimized()) w.restore(); w.focus(); return { ok: true }; }
-  try { await ensureServer(g); }
-  catch (e) { return { ok: false, error: `Port ${g.port} is busy (${e.code}). Close whatever is using it and try again.` }; }
+  if (!g.online) {
+    try { await ensureServer(g); }
+    catch (e) { return { ok: false, error: `Port ${g.port} is busy (${e.code}). Close whatever is using it and try again.` }; }
+  }
+  const home = g.online ? g.url : `http://127.0.0.1:${g.port}/`;
 
   g.lastPlayed = Date.now(); g.plays = (g.plays || 0) + 1; saveLib(lib);
   const win = new BrowserWindow({
@@ -194,7 +250,7 @@ async function launch(id) {
     webPreferences: { contextIsolation: true, backgroundThrottling: false },
   });
   gameWins.set(id, win);
-  win.loadURL(`http://127.0.0.1:${g.port}/`);
+  win.loadURL(home);
   win.on('page-title-updated', e => e.preventDefault());
   win.webContents.on('before-input-event', (e, input) => {
     if (input.type !== 'keyDown') return;
@@ -204,13 +260,13 @@ async function launch(id) {
   });
   // Links to other sites open in the real browser.
   win.webContents.setWindowOpenHandler(({ url }) => {
-    if (url.startsWith(`http://127.0.0.1:${g.port}`)) return { action: 'allow' };
+    if (url.startsWith(home)) return { action: 'allow' };
     shell.openExternal(url); return { action: 'deny' };
   });
 
   // Auto-thumbnail: if the game has no cover image, grab a screenshot after it's loaded.
   const shot = path.join(THUMBS, g.id + '.png');
-  if (!findCover(g.dir) && !g.customThumb && !fs.existsSync(shot)) {
+  if (!g.online && !findCover(g.dir) && !g.customThumb && !fs.existsSync(shot)) {
     setTimeout(async () => {
       if (win.isDestroyed()) return;
       try {
@@ -234,7 +290,7 @@ async function launch(id) {
 // ---------- IPC ----------
 ipcMain.handle('list', () => { refreshMeta(); return { root: lib.root, games: lib.games.map(publicGame), running: [...gameWins.keys()] }; });
 ipcMain.handle('launch', (_e, id) => launch(id));
-ipcMain.handle('rescan', () => { const n = scanFolder(lib.root, lib); saveLib(lib); return n; });
+ipcMain.handle('rescan', async () => { const n = scanFolder(lib.root, lib); mergeCatalog(readCatalog()); saveLib(lib); syncCatalog(); return n; });
 
 ipcMain.handle('add-folder', async () => {
   const r = await dialog.showOpenDialog(libWin, { title: 'Pick a game folder (with index.html) or a folder of games', properties: ['openDirectory'] });
@@ -243,17 +299,18 @@ ipcMain.handle('add-folder', async () => {
   // picking a folder by hand brings back one you removed before
   lib.hidden = (lib.hidden || []).filter(d => d !== path.resolve(dir));
   if (fs.existsSync(path.join(dir, 'index.html'))) {
-    if (lib.games.some(g => path.resolve(g.dir) === path.resolve(dir))) return { added: 0, msg: 'Already in your library' };
+    if (lib.games.some(g => !g.online && path.resolve(g.dir) === path.resolve(dir))) return { added: 0, msg: 'Already in your library' };
     const e = makeEntry(dir, lib);
-    if (e) { lib.games.push(e); saveLib(lib); return { added: 1 }; }
+    if (e) { lib.games.push(e); mergeCatalog(readCatalog()); saveLib(lib); return { added: 1 }; }
   }
-  const n = scanFolder(dir, lib); saveLib(lib);
+  const n = scanFolder(dir, lib); mergeCatalog(readCatalog()); saveLib(lib);
   return { added: n, msg: n ? '' : 'No games found there (a game folder needs an index.html)' };
 });
 
 ipcMain.handle('remove', (_e, id) => {
   const g = lib.games.find(x => x.id === id);
-  if (g) lib.hidden = [...new Set([...(lib.hidden || []), path.resolve(g.dir)])];
+  if (g && g.online) lib.hiddenIds = [...new Set([...(lib.hiddenIds || []), g.id])];
+  else if (g) lib.hidden = [...new Set([...(lib.hidden || []), path.resolve(g.dir)])];
   lib.games = lib.games.filter(x => x.id !== id); saveLib(lib); return true;
 });
 
@@ -285,14 +342,18 @@ ipcMain.handle('snap-thumb', async (_e, id) => {
 });
 
 ipcMain.handle('open-folder', (_e, id) => {
-  const g = lib.games.find(x => x.id === id); if (g) shell.openPath(g.dir);
+  const g = lib.games.find(x => x.id === id); if (!g) return;
+  if (g.online) shell.openExternal(g.url); else shell.openPath(g.dir);
 });
 
 // ---------- app ----------
 app.whenReady().then(() => {
   initLib();
   // pick up games made since last time (removed / hidden ones stay out)
-  if (scanFolder(lib.root, lib)) saveLib(lib);
+  scanFolder(lib.root, lib);
+  // online games: the cached catalog right away, then the latest one in the background
+  mergeCatalog(readCatalog()); saveLib(lib);
+  syncCatalog();
   // Games need the mic (Mimic), gamepads, pointer lock, fullscreen, notifications.
   session.defaultSession.setPermissionRequestHandler((_wc, _perm, cb) => cb(true));
   session.defaultSession.setPermissionCheckHandler(() => true);
