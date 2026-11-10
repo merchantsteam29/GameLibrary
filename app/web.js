@@ -42,3 +42,41 @@ if (!window.lib) {
   // Coming back to the tab after playing: refresh the "played X ago" labels.
   document.addEventListener('visibilitychange', () => { if (!document.hidden) window.dispatchEvent(new Event('lib-refresh')); });
 }
+
+// ---------- "Download for PC": install the website as an app ----------
+// No .exe (browsers block unsigned ones), so it's the browser's own install: its own window and
+// icon, works offline. The games' Download for PC buttons open this page with ?install.
+(() => {
+  const box = document.getElementById('getApp'); if (!box) return;
+  let prompt = null;
+  const $ = (id) => document.getElementById(id);
+  const standalone = matchMedia('(display-mode: standalone)').matches || !!navigator.standalone;
+  const ua = navigator.userAgent;
+  const ios = /iPad|iPhone|iPod/.test(ua) || (/Mac/.test(navigator.platform) && navigator.maxTouchPoints > 1);
+  const chromium = /Chrome|Edg\//.test(ua) && !/OPR|SamsungBrowser/.test(ua);
+  function help() {
+    const h = $('installHelp');
+    if (standalone) { h.textContent = 'You already have it: this is the Game Library app.'; $('installLib').hidden = true; return; }
+    $('installLib').hidden = !prompt;
+    h.textContent = prompt ? 'Your browser will ask to install it. It takes a second.'
+      : ios ? 'On iPhone or iPad: tap Share (□↑) in Safari, then "Add to Home Screen".'
+      : chromium ? 'Click the install icon at the right end of the address bar (a screen with an arrow), or open the ⋮ menu → "Cast, save and share" → "Install page as app". If it says it is already installed, open Game Library from your Start menu.'
+      : 'Open this page in Chrome or Edge to install it.';
+  }
+  const open = () => { help(); box.hidden = false; };
+  const close = () => { box.hidden = true; };
+  addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); prompt = e; if (!box.hidden) help(); });
+  addEventListener('appinstalled', () => { prompt = null; $('installHelp').textContent = 'Installed! Open Game Library from your desktop or Start menu.'; $('installLib').hidden = true; });
+  $('installLib').onclick = async () => {
+    if (!prompt) return help();
+    const p = prompt; prompt = null;
+    p.prompt(); await p.userChoice.catch(() => null); help();
+  };
+  $('getAppBtn').onclick = open;
+  $('getAppClose').onclick = close;
+  box.addEventListener('click', (e) => { if (e.target === box) close(); });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && !box.hidden) close(); });
+  if (standalone) $('getAppBtn').style.display = 'none'; // (.web-only sets display, so [hidden] would not win)
+  if (/[?&]install\b/.test(location.search) && !standalone) open();
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
+})();

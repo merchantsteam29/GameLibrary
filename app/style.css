@@ -116,3 +116,15 @@ a.ghost { text-decoration: none; align-items: center; border-radius: 8px; }
   .feed { padding: 14px 16px 40px; }
   .feed-head { padding: 0 16px; }
 }
+
+/* "Download for PC" dialog (website only) */
+.modal { position: fixed; inset: 0; z-index: 30; background: rgba(5, 7, 10, .72); display: grid; place-items: center; padding: 16px; backdrop-filter: blur(4px); }
+.modal-box { position: relative; width: min(520px, 100%); background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 28px 28px 22px; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+.modal-logo { width: 72px; height: 72px; }
+.modal-box h2 { margin: 10px 0 6px; font-size: 24px; }
+.modal-box > p { color: #c4cad6; margin: 0 0 18px; }
+.modal-box .close { position: absolute; top: 12px; right: 12px; padding: 4px 10px; }
+.install-help { color: var(--dim); font-size: 13px; margin: 12px 0 0; }
+.exe { margin-top: 18px; text-align: left; border-top: 1px solid var(--line); padding-top: 12px; color: var(--dim); font-size: 13px; }
+.exe summary { cursor: pointer; color: var(--text); }
+.exe a { display: inline-flex; margin-top: 4px; padding: 8px 14px; color: var(--text); }

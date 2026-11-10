@@ -6,6 +6,9 @@
 <meta name="description" content="All my browser games in one place. Click one and play.">
 <link rel="icon" href="build/icon.png">
 <title>Game Library</title>
+<meta name="theme-color" content="#0d0f14">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="stylesheet" href="app/style.css">
 </head>
 <body>
@@ -17,7 +20,7 @@
       <option value="az">A – Z</option>
       <option value="added">Newest added</option>
     </select>
-    <a class="ghost web-only" href="https://github.com/merchantsteam29/GameLibrary/releases/latest/download/GameLibrary.exe" title="The Game Library as a Windows app: every game in its own window">⬇ Download for PC</a>
+    <button id="getAppBtn" class="ghost web-only" title="Put the Game Library on your PC, with its own icon">⬇ Download for PC</button>
     <button id="newsBtn" class="ghost news" title="What's new in your games">📰 Updates<span id="newsDot" class="dot" hidden></span></button>
     <button id="addBtn" class="ghost desktop-only" title="Add a game folder">＋ Add game</button>
     <button id="rescanBtn" class="ghost desktop-only" title="Look for new games in your repos folder">⟳</button>
@@ -71,6 +74,22 @@
       <p class="path" id="d-path"></p>
     </div>
   </main>
+
+  <div id="getApp" class="modal" hidden>
+    <div class="modal-box">
+      <button id="getAppClose" class="ghost close" title="Close">✕</button>
+      <img class="modal-logo" src="icons/icon-192.png" alt="">
+      <h2>Get the Game Library on your PC</h2>
+      <p>Every game in one place, with its own icon on your desktop, taskbar and Start menu. Free, and it updates itself.</p>
+      <button id="installLib" class="play">⬇ Install the Game Library</button>
+      <p id="installHelp" class="install-help"></p>
+      <details class="exe">
+        <summary>Prefer a Windows .exe instead?</summary>
+        <p>Chrome and Edge may stop the download, because the .exe is new and not code-signed. To keep it: open your downloads (<kbd>Ctrl</kbd>+<kbd>J</kbd>) and choose <b>Keep</b> / <b>Keep anyway</b>. When you open it, Windows may say <i>Windows protected your PC</i>: click <b>More info → Run anyway</b>. On PCs with Smart App Control turned on, Windows can refuse it completely; use <b>Install</b> above instead.</p>
+        <a class="ghost" href="https://github.com/merchantsteam29/GameLibrary/releases/latest/download/GameLibrary.exe">Download GameLibrary.exe</a>
+      </details>
+    </div>
+  </div>
 
   <div id="toast" class="toast" hidden></div>
   <script src="app/web.js"></script>
