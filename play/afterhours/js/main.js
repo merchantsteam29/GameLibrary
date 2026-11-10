@@ -3,6 +3,7 @@ import { buildOffice, buildCams, CAM_LIST, CAM_NAMES } from './world.js';
 import { buildMonster } from './models.js';
 import { initAudio, sfx, loop, allLoopsOff, setVolume } from './audio.js';
 import { CREATURES, PATIENTS, ALL, NIGHT_LEVELS, VIALS, CALLS, FAKE_LINES, ENDING } from './data.js';
+import { createGovernor } from './perf.js';
 
 const $ = (id) => document.getElementById(id);
 const TEST = new URLSearchParams(location.search).has('test');
@@ -19,8 +20,10 @@ setVolume(save.volume);
 
 // ------------------------------------------------------------------ renderer & scenes
 const canvas = $('c');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+// perf.js trims the render resolution a little when frames run slow (and gives it back when they don't)
+const gov = createGovernor({ apply: (s) => renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5) * s) });
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.15;
 
@@ -93,7 +96,25 @@ function newCreature(id, level) {
   };
 }
 
+// Compile every shader before the night, while the '12:00 AM' card is up. Each camera room is its own scene with its
+// own lights, and three.js builds a material's shader for the lights around it, so without this the first look at
+// each camera (and each creature's first appearance in a room) froze the game for a moment while it compiled.
+let warmed = false;
+function warmShaders() {
+  if (warmed) return; warmed = true;
+  const models = Object.values(monsters);
+  const pass = (scene, camera, target) => {
+    renderer.setRenderTarget(target);
+    try { renderer.compile(scene, camera); for (const m of models) renderer.compile(m, camera, scene); } catch (e) {}
+  };
+  pass(office.scene, office.camera, null);
+  for (const id of CAM_LIST) pass(W.sets[id].scene, W.sets[id].camera, rt);
+  renderer.setRenderTarget(null);
+  try { renderer.compile(postScene, postCam); } catch (e) {}
+}
+
 function startNight(night, levels) {
+  warmShaders();
   const lv = levels || NIGHT_LEVELS[night];
   G = {
     night, t: 0, power: 100, doors: { L: false, R: false, V: false }, lights: { L: false, R: false },
@@ -850,7 +871,8 @@ let last = performance.now();
 let menuScare = 8;
 function frame(now) {
   requestAnimationFrame(frame);
-  const dt = Math.min(0.05, (now - last) / 1000); last = now;
+  const raw = (now - last) / 1000, dt = Math.min(0.05, raw); last = now;
+  if (mode === 'play') gov.tick(raw);
   clockT += dt;
   const time = clockT;
   postMat.uniforms.time.value = time;
