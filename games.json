@@ -93,14 +93,6 @@
     "added": 1793328914384
   },
   {
-    "id": "neon-space-runner",
-    "title": "Neon Void Runner",
-    "desc": "A first-person neon space platformer for Chrome, built with Three.js. You play an astronaut on glowing floating platforms: run, double jump, shoot alien drones, collect stars and reach the portal. You get 3 lives and every level is harder than the last.",
-    "url": "https://merchantsteam29.github.io/neon-space-runner/",
-    "thumb": "thumbs/neon-space-runner.jpg",
-    "added": 1793661470456
-  },
-  {
     "id": "rubblemaker",
     "title": "RUBBLEMAKER",
     "desc": "",

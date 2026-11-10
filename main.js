@@ -72,6 +72,11 @@ function makeEntry(dir, lib) {
   return { id, dir, title: meta.title, desc: meta.desc, port, added: Date.now(), lastPlayed: 0, plays: 0 };
 }
 
+// Game folders left out of the library on purpose (hidden.json, shared with the website build),
+// plus any you removed yourself (lib.hidden), so a rescan does not bring them back.
+const HIDDEN = new Set((() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, 'hidden.json'), 'utf8')); } catch { return []; } })().map(n => n.toLowerCase()));
+const isHidden = (dir, lib) => HIDDEN.has(path.basename(dir).toLowerCase()) || (lib.hidden || []).includes(path.resolve(dir));
+
 // Folders that look like games: has index.html, not this app, not a redirect stub.
 function scanFolder(root, lib) {
   let added = 0;
@@ -84,6 +89,7 @@ function scanFolder(root, lib) {
     if (/redirect/i.test(e.name)) continue;
     if (!fs.existsSync(path.join(dir, 'index.html'))) continue;
     if (lib.games.some(g => path.resolve(g.dir) === path.resolve(dir))) continue;
+    if (isHidden(dir, lib)) continue;
     const entry = makeEntry(dir, lib);
     if (entry) { lib.games.push(entry); added++; }
   }
@@ -97,6 +103,7 @@ function defaultRoot() {
 }
 
 let lib = loadLib();
+if (lib) lib.games = lib.games.filter(g => !HIDDEN.has(path.basename(g.dir).toLowerCase()));
 function initLib() {
   if (lib) return;
   lib = { root: defaultRoot(), games: [] };
@@ -233,6 +240,8 @@ ipcMain.handle('add-folder', async () => {
   const r = await dialog.showOpenDialog(libWin, { title: 'Pick a game folder (with index.html) or a folder of games', properties: ['openDirectory'] });
   if (r.canceled || !r.filePaths[0]) return { added: 0 };
   const dir = r.filePaths[0];
+  // picking a folder by hand brings back one you removed before
+  lib.hidden = (lib.hidden || []).filter(d => d !== path.resolve(dir));
   if (fs.existsSync(path.join(dir, 'index.html'))) {
     if (lib.games.some(g => path.resolve(g.dir) === path.resolve(dir))) return { added: 0, msg: 'Already in your library' };
     const e = makeEntry(dir, lib);
@@ -243,7 +252,9 @@ ipcMain.handle('add-folder', async () => {
 });
 
 ipcMain.handle('remove', (_e, id) => {
-  lib.games = lib.games.filter(g => g.id !== id); saveLib(lib); return true;
+  const g = lib.games.find(x => x.id === id);
+  if (g) lib.hidden = [...new Set([...(lib.hidden || []), path.resolve(g.dir)])];
+  lib.games = lib.games.filter(x => x.id !== id); saveLib(lib); return true;
 });
 
 ipcMain.handle('edit', (_e, id, patch) => {

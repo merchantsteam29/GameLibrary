@@ -17,7 +17,8 @@
       "main.js",
       "preload.js",
       "app/**/*",
-      "build/icon.png"
+      "build/icon.png",
+      "hidden.json"
     ],
     "win": {
       "target": "portable",

@@ -9,6 +9,8 @@ const path = require('path');
 
 const HERE = path.resolve(__dirname, '..');
 const ROOT = process.argv.find(a => a.startsWith('--root='))?.slice(7) || path.dirname(HERE);
+// game folders left out of the library on purpose (hidden.json, shared with the desktop app)
+const HIDDEN = new Set((() => { try { return JSON.parse(fs.readFileSync(path.join(HERE, 'hidden.json'), 'utf8')); } catch { return []; } })().map(n => n.toLowerCase()));
 const THUMBS = path.join(HERE, 'thumbs');
 const RESNAP = process.argv.includes('--resnap');
 const COVERS = ['cover.png', 'cover.jpg', 'thumbnail.png', 'og.png', 'og.jpg'];
@@ -94,7 +96,7 @@ app.whenReady().then(async () => {
   const games = [];
   for (const e of fs.readdirSync(ROOT, { withFileTypes: true })) {
     const dir = path.join(ROOT, e.name);
-    if (!e.isDirectory() || dir === HERE || /redirect|^\.|node_modules/i.test(e.name)) continue;
+    if (!e.isDirectory() || dir === HERE || /redirect|^\.|node_modules/i.test(e.name) || HIDDEN.has(e.name.toLowerCase())) continue;
     if (!fs.existsSync(path.join(dir, 'index.html'))) continue;
     const id = e.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const { title, desc } = meta(dir);
