@@ -11,7 +11,9 @@ const HERE = path.resolve(__dirname, '..');
 const ROOT = process.argv.find(a => a.startsWith('--root='))?.slice(7) || path.dirname(HERE);
 const THUMBS = path.join(HERE, 'thumbs');
 const RESNAP = process.argv.includes('--resnap');
-const COVERS = ['cover.png', 'cover.jpg', 'thumbnail.png', 'og.png', 'og.jpg', 'icons/icon-512.png', 'icon-512.png'];
+const COVERS = ['cover.png', 'cover.jpg', 'thumbnail.png', 'og.png', 'og.jpg'];
+// app icons are square: only used when there is no cover and the screenshot fails
+const ICONS = ['icons/icon-512.png', 'icon-512.png'];
 
 function meta(dir) {
   const html = fs.readFileSync(path.join(dir, 'index.html'), 'utf8');
@@ -104,6 +106,8 @@ app.whenReady().then(async () => {
     } else {
       thumb = `thumbs/${id}.jpg`;
       if (RESNAP || !fs.existsSync(path.join(HERE, thumb))) { console.log('snapping', title); try { await snap(dir, path.join(HERE, thumb)); } catch (err) { console.log('  snap failed:', err.message); } }
+      const icon = ICONS.map(c => path.join(dir, c)).find(fs.existsSync);
+      if (!fs.existsSync(path.join(HERE, thumb)) && icon) { thumb = `thumbs/${id}.png`; fs.copyFileSync(icon, path.join(HERE, thumb)); }
     }
     const added = old.find(o => o.id === id)?.added || Math.floor(fs.statSync(path.join(dir, "index.html")).birthtimeMs);
     // games without their own GitHub repo are hosted inside this site, under play/<id>/

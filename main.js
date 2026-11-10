@@ -45,9 +45,15 @@ function readMeta(dir) {
   return { title, desc };
 }
 
+// a real cover image; app icons are square, so they are only a last resort (after a screenshot)
 function findCover(dir) {
-  for (const f of ['cover.png', 'cover.jpg', 'thumbnail.png', 'og.png', 'og.jpg',
-                   'icons/icon-512.png', 'icon-512.png', 'icons/icon-192.png']) {
+  for (const f of ['cover.png', 'cover.jpg', 'thumbnail.png', 'og.png', 'og.jpg']) {
+    if (fs.existsSync(path.join(dir, f))) return path.join(dir, f);
+  }
+  return null;
+}
+function findIcon(dir) {
+  for (const f of ['icons/icon-512.png', 'icon-512.png', 'icons/icon-192.png']) {
     if (fs.existsSync(path.join(dir, f))) return path.join(dir, f);
   }
   return null;
@@ -122,7 +128,7 @@ function toFileUrl(p) { return require('url').pathToFileURL(p).href; }
 function publicGame(g) {
   const shot = path.join(THUMBS, g.id + '.png');
   const custom = g.customThumb && fs.existsSync(g.customThumb) ? g.customThumb : null;
-  const cover = custom || findCover(g.dir) || (fs.existsSync(shot) ? shot : null);
+  const cover = custom || findCover(g.dir) || (fs.existsSync(shot) ? shot : null) || findIcon(g.dir);
   const v = cover ? fs.statSync(cover).mtimeMs | 0 : 0;
   return { ...g, thumb: cover ? toFileUrl(cover) + '?v=' + v : null, updates: readUpdates(g.dir) };
 }

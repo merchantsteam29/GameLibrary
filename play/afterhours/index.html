@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Willowmere After Hours</title>
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="description" content="Night-shift horror at an animal hospital. Keep the patients calm. Keep the doors ready. Survive until 6 AM.">
 <link rel="icon" href="favicon.svg">
 <link rel="stylesheet" href="style.css">
@@ -78,6 +81,7 @@
     <button data-act="custom" id="customBtn">CUSTOM NIGHT</button>
     <button data-act="howto">HOW TO PLAY</button>
     <button data-act="settings">SETTINGS</button>
+    <button id="installApp" style="display:none">INSTALL AS APP</button>
   </div>
   <div class="foot">Headphones recommended · best in Chrome</div>
 </div>
@@ -137,5 +141,6 @@
 <div id="ending" class="screen hidden"></div>
 
 <script type="module" src="js/main.js"></script>
+<script src="install.js"></script>
 </body>
 </html>
