@@ -54,21 +54,24 @@ if (!window.lib) {
   const ua = navigator.userAgent;
   const ios = /iPad|iPhone|iPod/.test(ua) || (/Mac/.test(navigator.platform) && navigator.maxTouchPoints > 1);
   const chromium = /Chrome|Edg\//.test(ua) && !/OPR|SamsungBrowser/.test(ua);
-  function help() {
+  const edge = /Edg\//.test(ua);
+  // what to do when the browser hasn't offered its install prompt (yet)
+  const manual = () => ios ? 'On iPhone or iPad: tap Share (□↑) in Safari, then "Add to Home Screen".'
+    : edge ? 'In Edge: click the "App available" icon at the right end of the address bar, or open the ⋯ menu → Apps → "Install this site as an app".'
+    : chromium ? 'In Chrome: click the install icon at the right end of the address bar, or open the ⋮ menu → "Cast, save and share" → "Install page as app".'
+    : 'Open this page in Edge or Chrome to install it.';
+  function help(clicked) {
     const h = $('installHelp');
     if (standalone) { h.textContent = 'You already have it: this is the Game Library app.'; $('installLib').hidden = true; return; }
-    $('installLib').hidden = !prompt;
-    h.textContent = prompt ? 'Your browser will ask to install it. It takes a second.'
-      : ios ? 'On iPhone or iPad: tap Share (□↑) in Safari, then "Add to Home Screen".'
-      : chromium ? 'Click the install icon at the right end of the address bar (a screen with an arrow), or open the ⋮ menu → "Cast, save and share" → "Install page as app". If it says it is already installed, open Game Library from your Start menu.'
-      : 'Open this page in Chrome or Edge to install it.';
+    h.classList.toggle('strong', !!clicked && !prompt);
+    h.textContent = prompt ? 'Your browser will ask "Install Game Library?". Click Install.' : clicked ? manual() : 'No download and no warnings: your browser installs it like an app.';
   }
   const open = () => { help(); box.hidden = false; };
   const close = () => { box.hidden = true; };
   addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); prompt = e; if (!box.hidden) help(); });
   addEventListener('appinstalled', () => { prompt = null; $('installHelp').textContent = 'Installed! Open Game Library from your desktop or Start menu.'; $('installLib').hidden = true; });
   $('installLib').onclick = async () => {
-    if (!prompt) return help();
+    if (!prompt) return help(true);
     const p = prompt; prompt = null;
     p.prompt(); await p.userChoice.catch(() => null); help();
   };

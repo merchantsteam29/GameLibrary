@@ -128,3 +128,4 @@ a.ghost { text-decoration: none; align-items: center; border-radius: 8px; }
 .exe { margin-top: 18px; text-align: left; border-top: 1px solid var(--line); padding-top: 12px; color: var(--dim); font-size: 13px; }
 .exe summary { cursor: pointer; color: var(--text); }
 .exe a { display: inline-flex; margin-top: 4px; padding: 8px 14px; color: var(--text); }
+.install-help.strong { color: var(--text); font-size: 14px; background: var(--panel2); border: 1px solid var(--accent); border-radius: 10px; padding: 10px 12px; }
