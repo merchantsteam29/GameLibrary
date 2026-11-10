@@ -50,7 +50,9 @@ if (!window.lib) {
   const box = document.getElementById('getApp'); if (!box) return;
   let prompt = null;
   const $ = (id) => document.getElementById(id);
-  const standalone = matchMedia('(display-mode: standalone)').matches || !!navigator.standalone;
+  // running as the installed app (Edge and Chrome use several window modes for installed apps)
+  const appMode = matchMedia('(display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui), (display-mode: window-controls-overlay)');
+  let standalone = appMode.matches || !!navigator.standalone;
   const ua = navigator.userAgent;
   const ios = /iPad|iPhone|iPod/.test(ua) || (/Mac/.test(navigator.platform) && navigator.maxTouchPoints > 1);
   const chromium = /Chrome|Edg\//.test(ua) && !/OPR|SamsungBrowser/.test(ua);
@@ -66,10 +68,19 @@ if (!window.lib) {
     h.classList.toggle('strong', !!clicked && !prompt);
     h.textContent = prompt ? 'Your browser will ask "Install Game Library?". Click Install.' : clicked ? manual() : 'No download and no warnings: your browser installs it like an app.';
   }
-  const open = () => { help(); box.hidden = false; };
+  // drop ?install from the address so a reload (or the installed app) does not open the box again
+  const clearParam = () => { if (/[?&]install\b/.test(location.search)) history.replaceState(null, '', location.pathname + location.hash); };
+  const open = () => { help(); box.hidden = false; clearParam(); };
   const close = () => { box.hidden = true; };
   addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); prompt = e; if (!box.hidden) help(); });
-  addEventListener('appinstalled', () => { prompt = null; $('installHelp').textContent = 'Installed! Open Game Library from your desktop or Start menu.'; $('installLib').hidden = true; });
+  // Installing moves this very page into the new app window, so close the box and get out of the way.
+  const nowApp = () => { standalone = true; prompt = null; box.hidden = true; $('getAppBtn').style.display = 'none'; clearParam(); };
+  addEventListener('appinstalled', () => {
+    prompt = null; $('installLib').hidden = true; $('installHelp').classList.remove('strong');
+    $('installHelp').textContent = 'Installed! Game Library is on your desktop and Start menu.';
+    setTimeout(() => { box.hidden = true; }, 1800);
+  });
+  appMode.addEventListener?.('change', (e) => { if (e.matches) nowApp(); });
   $('installLib').onclick = async () => {
     if (!prompt) return help(true);
     const p = prompt; prompt = null;
@@ -80,6 +91,6 @@ if (!window.lib) {
   box.addEventListener('click', (e) => { if (e.target === box) close(); });
   addEventListener('keydown', (e) => { if (e.key === 'Escape' && !box.hidden) close(); });
   if (standalone) $('getAppBtn').style.display = 'none'; // (.web-only sets display, so [hidden] would not win)
-  if (/[?&]install\b/.test(location.search) && !standalone) open();
+  if (/[?&]install\b/.test(location.search)) { if (standalone) clearParam(); else open(); }
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
 })();
