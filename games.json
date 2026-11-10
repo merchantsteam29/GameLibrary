@@ -315,6 +315,14 @@
     "added": 1794105674503,
     "updates": [
       {
+        "version": "4.2.1",
+        "date": "2026-11-09",
+        "title": "Download for PC",
+        "notes": [
+          "A Download for PC button on the menu: the Game Library app for Windows, with Hollow Badge and all the other games in one place. It is hidden on phones."
+        ]
+      },
+      {
         "version": "4.2",
         "date": "2026-11-09",
         "title": "Install as an app",
@@ -382,16 +390,6 @@
           "Four exhibits hidden around the city, a payphone that rings for you, and a typewriter with a bent e.",
           "Three suspects, one interrogation, and a basement you should never have found.",
           "Opens once you have finished Cases 01 to 03."
-        ]
-      },
-      {
-        "version": "2.3",
-        "date": "2026-11-07",
-        "title": "Home",
-        "notes": [
-          "Your apartment in Ashgrove: go home from the menu or after any case.",
-          "An answering machine that fills up as you close cases. Some messages are not from anyone you know.",
-          "Letters slipped under your door. Your case wall, and the red string that keeps leading to the same empty space."
         ]
       }
     ]
