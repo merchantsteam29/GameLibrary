@@ -8,6 +8,20 @@
     "added": 1794111849501,
     "updates": [
       {
+        "version": "1.3",
+        "date": "2026-11-11",
+        "title": "Overtime",
+        "notes": [
+          "New: Night 6 · Overtime, unlocked once you finish night 5. A new patient, Ziggy the ferret, lives in a pen in the lobby (camera 4).",
+          "Ziggy doesn't use the halls. If he turns, he's in the walls: listen for his chitter on the left, the right or the vent, and shut that one fast.",
+          "The generator surges on Overtime: every door pops open and the cameras reboot.",
+          "Nights: replay any night you've reached and earn up to 3 stars (survive · keep 25% power · nobody turns).",
+          "Custom Night challenges (Pack Animals, Birdwatching, Runners, Skeleton Crew), ticked off when you beat them. Ziggy can join Custom Night too.",
+          "Patient files: every patient's chart, how many times they got you, and how many correct doses you've given them.",
+          "Sync: keep your progress on all your devices (☁ SYNC on the menu)."
+        ]
+      },
+      {
         "version": "1.2",
         "date": "2026-11-10",
         "title": "Controllers and phones",
@@ -46,6 +60,17 @@
     "thumb": "thumbs/bonkbowl.png",
     "added": 1794177554852,
     "updates": [
+      {
+        "version": "1.3",
+        "date": "2026-11-11",
+        "title": "Online",
+        "notes": [
+          "Play online: press 🌐 Online in the lobby. One of you hosts and shares the 4-letter code (or the link); friends join from their own computers.",
+          "Friends take the free slots; the host can still add CPUs and local players on the same keyboard.",
+          "If a friend drops out mid-match, a CPU takes over their blob.",
+          "Settings: volume, screen shake, auto resolution and fullscreen. Big bonks freeze for a split second and the winning knock-off plays in slow motion."
+        ]
+      },
       {
         "version": "1.2",
         "date": "2026-11-09",
@@ -485,6 +510,16 @@
     "added": 1793974262722,
     "updates": [
       {
+        "version": "1.9",
+        "date": "2026-11-11",
+        "title": "Daily Pit",
+        "notes": [
+          "DAILY PIT: the Rubble Pit with one modifier for the whole run, the same for everyone that day, and the same bosses.",
+          "Today's best and your day streak show on the button and on the results screen.",
+          "Sync: keep your progress on all your devices (☁ SYNC on the menu)."
+        ]
+      },
+      {
         "version": "1.8.1",
         "date": "2026-11-09",
         "title": "Install as an app",
@@ -595,6 +630,15 @@
     "thumb": "thumbs/wardnine.jpg",
     "added": 1793662593762,
     "updates": [
+      {
+        "version": "1.3",
+        "date": "2026-11-11",
+        "title": "Daily night",
+        "notes": [
+          "Daily night: one night a day that's the same for everyone: the same building, the same map and a twist (Blackout, Shotgun start, Swarm, Dying batteries, Fakers everywhere or Nail gun start).",
+          "Your best for the day and a day streak are kept, separate from your normal best scores."
+        ]
+      },
       {
         "version": "1.2",
         "date": "2026-11-10",
