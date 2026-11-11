@@ -26,6 +26,9 @@
     happymeadow: { ach: 'meadow', list: [['garden', 'Into the garden'], ['escape', 'Out of the meadow']], stats: () => [] },
     bonkbowl: { ach: 'bonkbowl', list: [['champ', 'Champion'], ['bonk10', 'Bonk-off'], ['bonk100', 'Bowling ball'], ['online', 'Long distance'], ['regular', 'Regular']],
       stats: () => { const s = read('bonkbowl.stats') || {}; return [s.matches && ['Matches', num(s.matches) + ' · ' + num(s.wins) + ' won'], s.bonkoffs && ['Bonk-offs', num(s.bonkoffs)]]; } },
+    'lifewillend': { ach: 'lifewillend', list: [['ch1', 'Last delivery'], ['ch3', 'Under the Ring'], ['ch5', "Don't look down"], ['end', 'Life did not end'], ['flawless', 'Untouched'], ['srank', 'Courier of the year'], ['deflect10', 'Return to sender'], ['blade50', 'Edge of the world']],
+      stats: () => { const p = read('lwe.progress') || {}, b = p.best || {}, st = read('lwe.stats') || {}; const done = Object.keys(b).length;
+        return [done && ['Chapters cleared', done + ' / 6'], Object.values(b).some((x) => x.rank === 'S') && ['S ranks', Object.values(b).filter((x) => x.rank === 'S').length], st.kills && ['Wardens down', num(st.kills)]]; } },
     mimic: { ach: null, list: [], // no achievements in Mimic, on purpose: nothing to unlock or grind there
       stats: () => { const s = read('mimic.stats') || {}, n = read('mimic.nights'), d = read('mimic.depth');
         return [s.runs && ['Runs', num(s.runs) + ' · ' + num(s.escapes) + ' got out'], s.voices && ['Voices it stole', num(s.voices)], n && ['Night Shift best', 'night ' + n], d && ['Deepest floor', '-' + d]]; } },
