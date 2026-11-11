@@ -18,8 +18,9 @@
 
   // ---------- your stuff ----------
   const achCount = () => { let n = 0; try { for (const k of Object.keys(localStorage)) if (k.startsWith('gamesach.')) n += Object.keys(read(k, {}) || {}).length; } catch { /* blocked */ } return n; };
-  const owned = () => { const o = new Set(read('gamelib.owned', [])); for (const i of shop.items) if (!i.price) o.add(i.id); return o; };
-  const earned = () => achCount() * (shop.coinsPerAchievement || 100);
+  const giftList = () => Object.values(read('gamelib.gifts', {}) || {}).filter((g) => g && typeof g === 'object');
+  const owned = () => { const o = new Set(read('gamelib.owned', [])); for (const i of shop.items) if (!i.price) o.add(i.id); for (const g of giftList()) if (g.item) o.add(g.item); return o; };
+  const earned = () => achCount() * (shop.coinsPerAchievement || 100) + giftList().reduce((a, g) => a + (Number(g.coins) || 0), 0);
   const spent = () => [...new Set(read('gamelib.owned', []))].reduce((a, id) => a + (item(id)?.price || 0), 0);
   const coins = () => Math.max(0, earned() - spent());
   const look = () => {
@@ -28,7 +29,8 @@
     return { banner: o.has(l.banner) && item(l.banner) ? l.banner : firstFree('banner'), pfp: o.has(l.pfp) && item(l.pfp) ? l.pfp : null };
   };
   // the gamertag as it was made (capitals and all): kept in the account so a lowercase sign-in still shows it right
-const tag = () => { const t = GS()?.account?.tag; if (!t) return null; const c = read('gamelib.tag', null); return c && c.toLowerCase() === t.toLowerCase() ? c : t; };
+  let staffRole = null;
+  const tag = () => { const t = GS()?.account?.tag; if (!t) return null; const c = read('gamelib.tag', null); return c && c.toLowerCase() === t.toLowerCase() ? c : t; };
 
   function pfpHTML(size, cls = '') {
     const p = item(look().pfp), t = tag();
@@ -51,14 +53,15 @@ const tag = () => { const t = GS()?.account?.tag; if (!t) return null; const c =
     const h = document.createElement('div'); h.className = 'phead acct-head';
     if (b) h.style.backgroundImage = `linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.55)), url("${b.file}")`;
     h.innerHTML = `<div class="acct-row">${pfpHTML(84, 'big')}
-        <div class="acct-who"><div class="pbig">${t ? tagHTML(t) : 'Guest'}</div>
+        <div class="acct-who"><div class="pbig">${t ? tagHTML(t) : 'Guest'}${staffRole ? ` <span class="sbadge ${staffRole}">${staffRole === 'owner' ? 'OWNER' : 'MOD'}</span>` : ''}</div>
           <div class="psub">${t ? (status === 'on' ? '☁ Signed in · syncing on all your devices' : status === 'connecting' ? '☁ Signed in · connecting…' : '☁ Signed in · offline, catches up later') : 'Not signed in: your progress stays on this browser'}</div></div>
         <div class="coins" title="Coins: ${shop.coinsPerAchievement || 100} for every achievement in any game">🪙 ${coins().toLocaleString()}</div></div>
       <div class="acct-btns">
         <button class="ghost" data-a="shop">🛍 Shop</button>
+        ${staffRole ? '<button class="ghost" data-a="staff">🛡 Staff</button>' : t ? '<button class="ghost" data-a="key" title="For the owner and moderators">🔑 Staff key</button>' : ''}
         ${t ? '<button class="ghost" data-a="out">Sign out</button>' : '<button class="ghost primary" data-a="new">Create account</button><button class="ghost" data-a="in">Sign in</button>'}
       </div>`;
-    h.onclick = (e) => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'shop') showShop(); else if (a === 'new') modal('new'); else if (a === 'in') modal('in'); else if (a === 'out') signOut(); };
+    h.onclick = (e) => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'shop') showShop(); else if (a === 'new') modal('new'); else if (a === 'in') modal('in'); else if (a === 'out') signOut(); else if (a === 'staff') window.Staff?.show(); else if (a === 'key') window.Staff?.keyModal(); };
     return h;
   }
 
@@ -164,7 +167,7 @@ const tag = () => { const t = GS()?.account?.tag; if (!t) return null; const c =
   function equip(i) { const l = read('gamelib.look', {}); l[i.type] = i.id; write('gamelib.look', l); GS()?.syncNow?.(); paintShop(); paintButton(); }
   function showShop() {
     document.title = 'Shop — Game Library';
-    for (const id of ['#grid-view', '#detail-view', '#updates-view', '#profile-view']) { const el = $(id); if (el) el.hidden = true; }
+    for (const id of ['#grid-view', '#detail-view', '#updates-view', '#profile-view', '#staff-view']) { const el = $(id); if (el) el.hidden = true; }
     $('#shop-view').hidden = false; paintShop(); window.scrollTo(0, 0);
   }
   $('#shopBack').onclick = () => { $('#shop-view').hidden = true; window.Profile?.show(); };
@@ -173,9 +176,9 @@ const tag = () => { const t = GS()?.account?.tag; if (!t) return null; const c =
 
   // ---------- sync for the library itself ----------
   if (GS()) {
-    GS().init({ game: 'library', keys: [{ match: 'gamesach.*', mode: 'max' }, { match: 'gamelib.owned', mode: 'max' }, { match: 'gamelib.look' }, { match: 'gamelib.tag' }], idle: () => !document.querySelector('.acct-modal') });
+    GS().init({ game: 'library', keys: [{ match: 'gamesach.*', mode: 'max' }, { match: 'gamelib.owned', mode: 'max' }, { match: 'gamelib.look' }, { match: 'gamelib.tag' }, { match: 'gamelib.staffkey' }, { match: 'gamelib.gifts', mode: 'max' }], idle: () => !document.querySelector('.acct-modal') });
     GS().onStatus(() => refresh());
   }
-  window.Acct = { head, showShop, modal, refresh, coins };
+  window.Acct = { head, showShop, modal, refresh, coins, tag, items: () => shop.items, setStaff(r) { if (r !== staffRole) { staffRole = r; refresh(); } } };
   ready.then(refresh);
 })();

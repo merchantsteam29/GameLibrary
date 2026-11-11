@@ -44,3 +44,11 @@ Thumbnails: `npm run web` keeps a game's existing thumbnail if it has no cover i
 - **Accounts are optional.** Create one on the Profile page: a gamertag (you get `Name#1234`) and a password. They make your sync code, so every game on the site syncs to your account on any device you sign in on. There is no password reset.
 - **Coins:** every achievement in any game is worth `coinsPerAchievement` coins (in `shop/items.json`, 100 by default). Coins buy banners and profile pictures. No real money.
 - **Adding your own art:** put a picture in `shop/banners/` (wide, 1200 x 300 looks best) or `shop/pfps/` (square, 256 x 256 or bigger). PNG, JPG, WEBP, GIF or SVG. Then run `npm run shop` (or `npm run web`), which adds it to `shop/items.json` with a name from the file name and a default price (banners 600, pictures 300). Edit `items.json` to change a name or price; `0` makes it free for everyone. Commit and push to put it live.
+
+## Staff: owner and moderators
+
+The owner is **GIGACHAD#8122**. Authority comes from signatures, not a server: the owner's public key is in `app/sync.js` (shared by every game), the owner signs the moderator list, and every ban, announcement and gift is signed. Every browser checks the signatures, so faked ones are ignored.
+
+- **Owner key:** `GameLibrary-OWNER-KEY.txt` in the owner's Documents folder (never commit it). Sign in as GIGACHAD#8122, Profile → 🔑 Staff key, paste it once; it syncs to your devices through your account. Losing that file and every signed-in device means making a new key (and a new `OWNER` in sync.js).
+- **Moderators** (Profile → 🛡 Staff): ban / unban players from every game's daily leaderboards, by name or with the Ban button on a leaderboard row. Staff can't be banned, and nobody else can post a score under a staff gamertag (staff scores carry a signature and an OWNER / MOD badge).
+- **Owner only:** the announcement bar at the top of the library, adding / removing moderators (you get an invite key to send them privately), and gifting coins or shop items to a gamertag.
