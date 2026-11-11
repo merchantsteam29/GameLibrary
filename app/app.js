@@ -68,7 +68,7 @@ function renderFeed() {
 }
 function showFeed() {
   current = null; document.title = 'Updates — Game Library';
-  $('#grid-view').hidden = true; $('#detail-view').hidden = true; $('#updates-view').hidden = false;
+  $('#grid-view').hidden = true; $('#detail-view').hidden = true; $('#profile-view').hidden = true; $('#updates-view').hidden = false;
   renderFeed(); markSeen(games); renderGrid(); window.scrollTo(0, 0);
 }
 
@@ -152,12 +152,12 @@ function showDetail(id) {
   current = id;
   const g = games.find(x => x.id === id);
   renderDetail(g); markSeen([g]);
-  $('#grid-view').hidden = true; $('#updates-view').hidden = true; $('#detail-view').hidden = false;
+  $('#grid-view').hidden = true; $('#updates-view').hidden = true; $('#profile-view').hidden = true; $('#detail-view').hidden = false;
   window.scrollTo(0, 0);
 }
 function showGrid() {
   current = null; document.title = 'Game Library';
-  $('#detail-view').hidden = true; $('#updates-view').hidden = true; $('#grid-view').hidden = false;
+  $('#detail-view').hidden = true; $('#updates-view').hidden = true; $('#profile-view').hidden = true; $('#grid-view').hidden = false;
   renderGrid();
 }
 

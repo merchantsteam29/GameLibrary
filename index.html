@@ -21,6 +21,7 @@
       <option value="added">Newest added</option>
     </select>
     <button id="getAppBtn" class="ghost web-only" title="Put the Game Library on your PC, with its own icon">⬇ Download for PC</button>
+    <button id="profileBtn" class="ghost" title="Your progress and achievements in every game">👤 Profile</button>
     <button id="newsBtn" class="ghost news" title="What's new in your games">📰 Updates<span id="newsDot" class="dot" hidden></span></button>
     <button id="addBtn" class="ghost desktop-only" title="Add a game folder">＋ Add game</button>
     <button id="rescanBtn" class="ghost desktop-only" title="Look for new games in your repos folder">⟳</button>
@@ -38,6 +39,15 @@
       <p>Patch notes and new content for your games, newest first.</p>
     </div>
     <section id="feed" class="feed"></section>
+  </main>
+
+  <main id="profile-view" hidden>
+    <div class="feed-head">
+      <button id="profileBack" class="back">← Library</button>
+      <h2>Profile</h2>
+      <p>Your progress and achievements in every game, from this browser.</p>
+    </div>
+    <section id="profile" class="feed"></section>
   </main>
 
   <main id="detail-view" hidden>
@@ -94,5 +104,6 @@
   <div id="toast" class="toast" hidden></div>
   <script src="app/web.js"></script>
   <script src="app/app.js"></script>
+  <script src="app/profile.js"></script>
 </body>
 </html>

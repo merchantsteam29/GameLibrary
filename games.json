@@ -8,6 +8,15 @@
     "added": 1794111849501,
     "updates": [
       {
+        "version": "1.4",
+        "date": "2026-11-11",
+        "title": "Achievements",
+        "notes": [
+          "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page.",
+          "Your progress syncs between devices too (☁ Sync)."
+        ]
+      },
+      {
         "version": "1.3",
         "date": "2026-11-11",
         "title": "Overtime",
@@ -61,6 +70,17 @@
     "added": 1794177554852,
     "updates": [
       {
+        "version": "1.4",
+        "date": "2026-11-11",
+        "title": "Carousel, Factory Floor, magnets and bananas",
+        "notes": [
+          "New arena: Carousel. The whole bowl turns and carries you with it.",
+          "New arena: Factory Floor. Conveyor belts push you sideways: ride them into a bonk, or fight them.",
+          "New power-ups: MAGNET pulls everyone toward you, BANANA drops a peel that sends whoever steps on it spinning.",
+          "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page."
+        ]
+      },
+      {
         "version": "1.3",
         "date": "2026-11-11",
         "title": "Online",
@@ -112,6 +132,16 @@
     "thumb": "thumbs/breachzero.png",
     "added": 1794192138733,
     "updates": [
+      {
+        "version": "2.1",
+        "date": "2026-11-11",
+        "title": "The incinerator and the Burster",
+        "notes": [
+          "New weapon: the INCINERATOR [5]. Hold the trigger for a cone of fire that sets things alight. Find it on Sublevel 3; fuel cans refill it. You start Survival with it.",
+          "New enemy: the BURSTER, a swollen husk that waddles up and bursts in acid. Shoot it early, or pop it next to its friends: the blast hurts them too. From Sublevel 3, and in Survival from wave 3.",
+          "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page."
+        ]
+      },
       {
         "version": "2.0",
         "date": "2026-11-09",
@@ -301,6 +331,15 @@
     "added": 1794161818116,
     "updates": [
       {
+        "version": "1.4",
+        "date": "2026-11-11",
+        "title": "Achievements",
+        "notes": [
+          "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page.",
+          "Your progress syncs between devices too (☁ Sync)."
+        ]
+      },
+      {
         "version": "1.3",
         "date": "2026-11-09",
         "title": "Install as an app",
@@ -349,6 +388,15 @@
     "thumb": "thumbs/hollowbadge.png",
     "added": 1794105674503,
     "updates": [
+      {
+        "version": "4.3",
+        "date": "2026-11-11",
+        "title": "Sync and achievements",
+        "notes": [
+          "Sync: keep your case results and lilies on all your devices. Press ☁ Sync on the menu, then enter the code on your other device. No account or email.",
+          "Achievements: close each case, solve one on hard, find all three white lilies. A 🏆 pops up when you get one, and the Game Library's Profile page shows them all."
+        ]
+      },
       {
         "version": "4.2.1",
         "date": "2026-11-09",
@@ -414,17 +462,6 @@
         "title": "Fix: your car in Case 04",
         "notes": [
           "Your car in Ashgrove is now parked outside your building with its headlights on, and walking up to it opens the case board (it used to do nothing)."
-        ]
-      },
-      {
-        "version": "3.0",
-        "date": "2026-11-07",
-        "title": "Case 04: The Collector",
-        "notes": [
-          "The finale. Ashgrove, your own city. You come home and your door is open.",
-          "Four exhibits hidden around the city, a payphone that rings for you, and a typewriter with a bent e.",
-          "Three suspects, one interrogation, and a basement you should never have found.",
-          "Opens once you have finished Cases 01 to 03."
         ]
       }
     ]
@@ -509,6 +546,15 @@
     "thumb": "thumbs/rubblemaker.jpg",
     "added": 1793974262722,
     "updates": [
+      {
+        "version": "1.10",
+        "date": "2026-11-11",
+        "title": "Achievements",
+        "notes": [
+          "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page.",
+          "Daily leaderboards: see today's top 10 for the daily challenge and put your name on it."
+        ]
+      },
       {
         "version": "1.9",
         "date": "2026-11-11",
@@ -630,6 +676,15 @@
     "thumb": "thumbs/wardnine.jpg",
     "added": 1793662593762,
     "updates": [
+      {
+        "version": "1.4",
+        "date": "2026-11-11",
+        "title": "Achievements",
+        "notes": [
+          "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page.",
+          "Daily leaderboards: see today's top 10 for the daily challenge and put your name on it."
+        ]
+      },
       {
         "version": "1.3",
         "date": "2026-11-11",

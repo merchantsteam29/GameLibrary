@@ -130,3 +130,20 @@ a.ghost { text-decoration: none; align-items: center; border-radius: 8px; }
 .exe a { display: inline-flex; margin-top: 4px; padding: 8px 14px; color: var(--text); }
 .install-help.strong { color: var(--text); font-size: 14px; background: var(--panel2); border: 1px solid var(--accent); border-radius: 10px; padding: 10px 12px; }
 .modal[hidden] { display: none; } /* .modal sets display, which would beat the hidden attribute */
+
+/* profile */
+.phead { background: linear-gradient(120deg, #1e2a48, #2a1e48); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+.pbig { font-size: 26px; font-weight: 800; }
+.psub { color: var(--dim); margin-top: 2px; }
+.pcard { display: flex; gap: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.pbody { flex: 1; min-width: 0; }
+.pbody h3 { margin: 0 0 8px; font-size: 19px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.pcount { font-size: 13px; color: #ffd45b; font-weight: 600; }
+.pstats { display: grid; grid-template-columns: auto 1fr; gap: 3px 14px; margin: 0 0 10px; font-size: 14px; }
+.pstats dt { color: var(--dim); }
+.pstats dd { margin: 0; }
+.pnone { color: var(--dim); margin: 0 0 10px; font-size: 14px; }
+.pach { display: flex; flex-wrap: wrap; gap: 6px; }
+.pach span { font-size: 12px; padding: 3px 9px; border-radius: 20px; background: var(--panel2); border: 1px solid var(--line); color: var(--dim); }
+.pach span.on { color: #ffe9a6; border-color: #8a7020; background: #2a2412; }
+@media (max-width: 640px) { .pcard { flex-direction: column; } .pcard .post-thumb { width: 100%; flex-basis: auto; } }

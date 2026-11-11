@@ -1,10 +1,10 @@
 // Service worker: makes the Game Library website installable as an app (no .exe, so no browser
 // or Windows warnings). Network first, so the game list is always fresh; the last copy of every
 // file is kept so the library still opens offline. The games themselves have their own workers.
-const CACHE = 'gamelib-v1';
+const CACHE = 'gamelib-v2';
 self.addEventListener('install', (e) => {
   self.skipWaiting();
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(['./', 'index.html', 'games.json', 'app/style.css', 'app/web.js', 'app/app.js', 'manifest.webmanifest'])).catch(() => {}));
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(['./', 'index.html', 'games.json', 'app/style.css', 'app/web.js', 'app/app.js', 'app/profile.js', 'manifest.webmanifest'])).catch(() => {}));
 });
 self.addEventListener('activate', (e) => e.waitUntil((async () => {
   for (const k of await caches.keys()) if (k !== CACHE) await caches.delete(k);
