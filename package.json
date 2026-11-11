@@ -8,7 +8,8 @@
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder --win portable",
-    "web": "electron tools/build-web.js"
+    "web": "electron tools/build-web.js",
+    "shop": "node tools/shop.js"
   },
   "build": {
     "appId": "com.ciasfrenzer.gamelibrary",

@@ -56,10 +56,11 @@
         ${def.list.length ? `<div class="pach">${def.list.map(([id, nm]) => `<span class="${have[id] ? 'on' : ''}" title="${esc(have[id] ? (have[id].d || nm) + ' · ' + new Date(have[id].t).toLocaleDateString() : 'Locked')}">${have[id] ? '🏆' : '🔒'} ${esc(nm)}</span>`).join('')}</div>` : ''}`;
       card.append(th, body); cards.push([stats.length + n, card]);
     }
-    const head = document.createElement('div'); head.className = 'phead';
-    head.innerHTML = `<div class="pbig">${esc(name || 'You')}</div>
-      <div class="psub">${got} of ${all} achievements · ${synced ? '☁ progress syncs between your devices' : 'turn on ☁ Sync in any game to keep this on all your devices'}</div>`;
-    box.append(head);
+    let head;
+    if (window.Acct) head = window.Acct.head();
+    else { head = document.createElement('div'); head.className = 'phead'; head.innerHTML = `<div class="pbig">${esc(name || 'You')}</div><div class="psub">${synced ? '☁ progress syncs between your devices' : 'turn on ☁ Sync in any game to keep this on all your devices'}</div>`; }
+    const tally = document.createElement('div'); tally.className = 'psub ptally'; tally.textContent = `${got} of ${all} achievements`;
+    box.append(head, tally);
     for (const [, c] of cards.sort((a, b) => b[0] - a[0])) box.append(c);
     if (!document.body.classList.contains('web')) {
       const p = document.createElement('p'); p.className = 'pnone';
@@ -69,9 +70,11 @@
   }
   function showProfile() {
     current = null; document.title = 'Profile — Game Library';
+    if ($('#shop-view')) $('#shop-view').hidden = true;
     $('#grid-view').hidden = true; $('#detail-view').hidden = true; $('#updates-view').hidden = true; $('#profile-view').hidden = false;
     render(); window.scrollTo(0, 0);
   }
   $('#profileBtn').onclick = showProfile;
+  window.Profile = { render, show: showProfile };
   $('#profileBack').onclick = () => { $('#profile-view').hidden = true; showGrid(); };
 })();

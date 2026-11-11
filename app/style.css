@@ -147,3 +147,49 @@ a.ghost { text-decoration: none; align-items: center; border-radius: 8px; }
 .pach span { font-size: 12px; padding: 3px 9px; border-radius: 20px; background: var(--panel2); border: 1px solid var(--line); color: var(--dim); }
 .pach span.on { color: #ffe9a6; border-color: #8a7020; background: #2a2412; }
 @media (max-width: 640px) { .pcard { flex-direction: column; } .pcard .post-thumb { width: 100%; flex-basis: auto; } }
+
+/* ---------- accounts + shop ---------- */
+.ghost.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.ghost:disabled { opacity: .55; cursor: default; border-color: var(--line); }
+#profileBtn.signed { display: flex; align-items: center; gap: 8px; padding: 5px 12px 5px 6px; }
+.tagnum { color: var(--dim); font-weight: 400; }
+.pfp { border-radius: 50%; object-fit: cover; display: inline-grid; place-items: center; flex: none; background: var(--panel2); }
+.pfp-letter { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; font-weight: 800; }
+.pfp.big { border: 3px solid rgba(255,255,255,.85); box-shadow: 0 6px 20px rgba(0,0,0,.5); }
+.acct-head { background-size: cover; background-position: center; min-height: 170px; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px; }
+.acct-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.acct-who { flex: 1; min-width: 160px; text-shadow: 0 2px 8px rgba(0,0,0,.7); }
+.acct-who .psub { color: #d6dbe6; }
+.acct-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.acct-btns .ghost { background: rgba(13,15,20,.7); }
+.acct-btns .ghost.primary { background: var(--accent); }
+.coins { background: rgba(13,15,20,.75); border: 1px solid #c9a227; color: #ffd65a; border-radius: 999px; padding: 6px 14px; font-weight: 800; white-space: nowrap; }
+.coins.big { font-size: 22px; display: inline-block; }
+.ptally { padding: 0 4px; }
+.acct-modal { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.65); display: grid; place-items: center; padding: 16px; }
+.acct-box { width: min(440px, 100%); max-height: calc(100vh - 32px); overflow: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; user-select: text; }
+.acct-box h2 { margin: 0 0 6px; }
+.acct-box label { display: block; margin-top: 12px; font-weight: 600; }
+.acct-box input { display: block; width: 100%; margin-top: 5px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; outline: none; }
+.acct-box input:focus { border-color: var(--accent); }
+.acct-box .row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.acct-box .msg { min-height: 1.2em; margin: 10px 0 0; color: var(--dim); }
+.acct-box .msg.err { color: var(--danger); }
+.dim { color: var(--dim); } .small { font-size: 13px; } .warn { color: #ffcf6b; }
+.bigtag { font-size: 30px; font-weight: 800; margin: 4px 0 10px; }
+.shop-top { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.shop-top p { margin: 0; flex: 1; min-width: 220px; }
+.tabs { display: flex; gap: 6px; }
+.tabs button { background: var(--panel); border: 1px solid var(--line); padding: 8px 16px; }
+.tabs button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.shop-grid { display: grid; gap: 14px; }
+.shop-grid.banner { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.shop-grid.pfp { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.sitem { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+.sitem.on { border-color: var(--accent); }
+.sprev { background-size: cover; background-position: center; border-radius: 8px; background-color: var(--panel2); }
+.banner .sprev { aspect-ratio: 4 / 1; }
+.pfp .sprev { aspect-ratio: 1; border-radius: 50%; width: 70%; margin: 4px auto 0; }
+.sinfo { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.sitem .ghost { width: 100%; }
+@media (max-width: 640px) { #profileBtn.signed .tagnum { display: none; } .acct-head { min-height: 150px; } }

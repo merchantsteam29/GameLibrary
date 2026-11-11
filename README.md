@@ -38,3 +38,9 @@ The desktop app reads it straight from the folder. For the website, run `npm run
 Where each game's notes come from: Hollow Badge writes its `updates.json` from `changelog.js` (`node tools/changelog.mjs`), Trigger Happy from `js/changelog.js` (`node tools/updates-json.mjs`, run by its `release.mjs`), . The other games' `updates.json` files are written by hand: add a new entry at the top for each update.
 
 Thumbnails: `npm run web` keeps a game's existing thumbnail if it has no cover image; `npm run web -- --resnap` retakes the screenshots.
+
+## Accounts and the shop (website)
+
+- **Accounts are optional.** Create one on the Profile page: a gamertag (you get `Name#1234`) and a password. They make your sync code, so every game on the site syncs to your account on any device you sign in on. There is no password reset.
+- **Coins:** every achievement in any game is worth `coinsPerAchievement` coins (in `shop/items.json`, 100 by default). Coins buy banners and profile pictures. No real money.
+- **Adding your own art:** put a picture in `shop/banners/` (wide, 1200 x 300 looks best) or `shop/pfps/` (square, 256 x 256 or bigger). PNG, JPG, WEBP, GIF or SVG. Then run `npm run shop` (or `npm run web`), which adds it to `shop/items.json` with a name from the file name and a default price (banners 600, pictures 300). Edit `items.json` to change a name or price; `0` makes it free for everyone. Commit and push to put it live.

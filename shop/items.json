@@ -1,0 +1,109 @@
+{
+  "coinsPerAchievement": 100,
+  "items": [
+    {
+      "id": "banner-00-night-sky",
+      "type": "banner",
+      "name": "Night Sky",
+      "price": 0,
+      "file": "shop/banners/00-night-sky.svg"
+    },
+    {
+      "id": "banner-bonk-party",
+      "type": "banner",
+      "name": "Bonk Party",
+      "price": 500,
+      "file": "shop/banners/bonk-party.svg",
+      "game": "bonkbowl"
+    },
+    {
+      "id": "banner-drowned-city",
+      "type": "banner",
+      "name": "Drowned City",
+      "price": 800,
+      "file": "shop/banners/drowned-city.svg",
+      "game": "lifewillend"
+    },
+    {
+      "id": "banner-gold-rush",
+      "type": "banner",
+      "name": "Gold Rush",
+      "price": 2500,
+      "file": "shop/banners/gold-rush.svg"
+    },
+    {
+      "id": "banner-neon-rain",
+      "type": "banner",
+      "name": "Neon Rain",
+      "price": 400,
+      "file": "shop/banners/neon-rain.svg"
+    },
+    {
+      "id": "banner-ward-nine",
+      "type": "banner",
+      "name": "Ward Nine",
+      "price": 800,
+      "file": "shop/banners/ward-nine.svg",
+      "game": "ward-nine"
+    },
+    {
+      "id": "pfp-bonk-ball",
+      "type": "pfp",
+      "name": "Bonk Ball",
+      "price": 300,
+      "file": "shop/pfps/bonk-ball.svg",
+      "game": "bonkbowl"
+    },
+    {
+      "id": "pfp-controller",
+      "type": "pfp",
+      "name": "Controller",
+      "price": 0,
+      "file": "shop/pfps/controller.svg"
+    },
+    {
+      "id": "pfp-ghost",
+      "type": "pfp",
+      "name": "Ghost",
+      "price": 200,
+      "file": "shop/pfps/ghost.svg"
+    },
+    {
+      "id": "pfp-gold-crown",
+      "type": "pfp",
+      "name": "Gold Crown",
+      "price": 2000,
+      "file": "shop/pfps/gold-crown.svg"
+    },
+    {
+      "id": "pfp-heartbeat",
+      "type": "pfp",
+      "name": "Heartbeat",
+      "price": 400,
+      "file": "shop/pfps/heartbeat.svg",
+      "game": "ward-nine"
+    },
+    {
+      "id": "pfp-neon-blade",
+      "type": "pfp",
+      "name": "Neon Blade",
+      "price": 600,
+      "file": "shop/pfps/neon-blade.svg",
+      "game": "lifewillend"
+    },
+    {
+      "id": "pfp-skull",
+      "type": "pfp",
+      "name": "Skull",
+      "price": 400,
+      "file": "shop/pfps/skull.svg"
+    },
+    {
+      "id": "pfp-the-eye",
+      "type": "pfp",
+      "name": "The Eye",
+      "price": 600,
+      "file": "shop/pfps/the-eye.svg"
+    }
+  ]
+}

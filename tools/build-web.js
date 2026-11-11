@@ -91,6 +91,7 @@ async function snap(dir, out) {
 process.on('unhandledRejection', e => console.log('unhandled', e));
 app.on('window-all-closed', () => {});
 app.whenReady().then(async () => {
+  require('./shop.js').buildShop();
   fs.mkdirSync(THUMBS, { recursive: true });
   const old = (() => { try { return JSON.parse(fs.readFileSync(path.join(HERE, 'games.json'), 'utf8')); } catch { return []; } })();
   const games = [];
