@@ -37,6 +37,10 @@
     <span id="stateV" class="st"><b>W</b> VENT</span>
     <span id="stateR" class="st"><b>D</b> LIGHT · <b>E</b> DOOR</span>
   </div>
+  <div id="touchRow">
+    <button data-t="doorL">◀ DOOR</button><button data-t="lightL">LIGHT</button><button data-t="vent">VENT</button><button data-t="lightR">LIGHT</button><button data-t="doorR">DOOR ▶</button>
+  </div>
+  <button id="tPause" class="tOnly" aria-label="Pause">II</button>
   <div id="medBar" class="bar">MEDS / CHARTS [M]</div>
   <div id="camBar" class="bar">▲ CAMERAS [SPACE] ▲</div>
 </div>
@@ -81,6 +85,7 @@
     <button data-act="custom" id="customBtn">CUSTOM NIGHT</button>
     <button data-act="howto">HOW TO PLAY</button>
     <button data-act="settings">SETTINGS</button>
+    <button id="syncBtn">☁ SYNC</button>
     <button id="installApp" style="display:none">INSTALL AS APP</button>
     <button id="pcDownload" title="The Game Library app for Windows: every game in one place">DOWNLOAD FOR PC</button>
   </div>
@@ -99,6 +104,9 @@
         <h4>Cameras</h4>
         <p><b>Space</b> (or hover the bottom bar) to raise / lower the monitor. <b>1–9</b> or click the map to switch cameras.</p>
         <p>You can't use doors or lights while the monitor is up.</p>
+        <h4>Controller / phone</h4>
+        <p><b>Controller:</b> left stick looks, LB / RB doors, LT / RT lights, Y vent, A cameras, X meds, View phone, Start pause. On the monitor: LB / RB switch camera, X feed, Y music, RT medicine.</p>
+        <p><b>Phone:</b> drag to look around, tap the buttons along the bottom, tap the phone box to answer.</p>
       </div>
       <div>
         <h4>Patients</h4>
@@ -121,6 +129,7 @@
     <p class="note">Phone calls use your browser's built-in voices.</p>
     <div class="setRow">SCREEN SHAKE &amp; FLASHES <span class="seg" id="shakeSeg"><button data-shake="1">FULL</button><button data-shake="0.4">REDUCED</button><button data-shake="0">OFF</button></span></div>
     <div class="setRow">AUTO RESOLUTION <span class="seg"><button id="autoResBtn">ON</button></span></div>
+    <div class="setRow">CONTROLLERS <span class="seg"><button id="padBtn">ON</button></span></div>
     <p class="note">Lowers the resolution a little when the frame rate drops, so it stays smooth.</p>
     <div class="btnRow small"><button id="fsBtn">FULLSCREEN</button></div>
     <div class="btnRow"><button data-act="reset" class="danger" id="resetBtn">RESET PROGRESS</button><button data-act="setBack">BACK</button></div>
@@ -145,6 +154,7 @@
 <div id="win" class="screen hidden"></div>
 <div id="ending" class="screen hidden"></div>
 
+<script src="sync.js"></script>
 <script type="module" src="js/main.js"></script>
 <script src="install.js"></script>
 </body>

@@ -198,3 +198,27 @@ button { font-family: inherit; }
 .seg button { font-family: inherit; font-size: 18px; padding: 3px 10px; background: rgba(20, 40, 25, .8); color: #cfc; border: 1px solid #3a6a42; cursor: pointer; }
 .seg button.sel { background: #3a6a42; border-color: #afa; color: #fff; }
 #flash.soft { background: #fff; opacity: .25; transition: none; }
+
+/* touch controls (phones / tablets) */
+#touchRow, .tOnly { display: none; }
+body.is-touch #touchRow { position: absolute; bottom: 62px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; pointer-events: auto; }
+body.is-touch #touchRow button { font-family: inherit; font-size: 20px; padding: 10px 12px; min-width: 64px; color: var(--ink); background: rgba(0,0,0,.55); border: 1px solid rgba(255,255,255,.25); border-radius: 6px; touch-action: manipulation; }
+body.is-touch #touchRow button.on { border-color: var(--red); color: var(--red); }
+body.is-touch #touchRow button.lit { box-shadow: inset 0 0 0 1px #ffe; color: #ffe; }
+body.is-touch #states { display: none; }
+body.is-touch .tOnly { display: block; position: absolute; top: 12px; left: 12px; font-family: inherit; font-size: 22px; width: 48px; height: 48px; color: var(--ink); background: rgba(0,0,0,.55); border: 1px solid rgba(255,255,255,.25); border-radius: 6px; pointer-events: auto; }
+body.is-touch #phoneBox { pointer-events: auto; cursor: pointer; }
+body.is-touch #camBar { padding: 12px; }
+#hud.cams #touchRow { display: none; }
+@media (max-height: 460px) {
+  body.is-touch #touchRow { bottom: 54px; }
+  body.is-touch #touchRow button { font-size: 16px; padding: 8px 8px; min-width: 52px; }
+  #camBar { font-size: 18px; padding: 6px; }
+}
+/* phones: the camera bar and the meds button side by side, not on top of each other */
+body.is-touch #camBar { width: min(560px, 46vw); }
+body.is-touch #medBar { right: 12px; bottom: 8px; padding: 10px 12px; letter-spacing: 1px; }
+/* controller focus ring */
+body.is-pad button:focus { outline: 2px solid #afa; outline-offset: 2px; }
+body.is-touch #hud.cams .tOnly { display: none; }
+body.is-touch #hud.cams #phoneBox { top: auto; bottom: 8px; right: 12px; font-size: 16px; padding: 6px 10px; }

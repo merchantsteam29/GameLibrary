@@ -13,7 +13,7 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
 // ------------------------------------------------------------------ save
 const SAVE_KEY = 'willowmere_after_hours_v1';
-let save = { night: 1, beat: false, stars: 0, volume: 0.8, shake: 1, autoRes: true, custom: { biscuit: 10, mittens: 10, hoppy: 10, pepper: 10, stray: 10 } };
+let save = { night: 1, beat: false, stars: 0, volume: 0.8, shake: 1, autoRes: true, pads: true, custom: { biscuit: 10, mittens: 10, hoppy: 10, pepper: 10, stray: 10 } };
 try { Object.assign(save, JSON.parse(localStorage.getItem(SAVE_KEY) || '{}')); } catch { /* fresh save */ }
 const persist = () => { try { localStorage.setItem(SAVE_KEY, JSON.stringify(save)); } catch { /* storage blocked */ } };
 setVolume(save.volume);
@@ -641,12 +641,17 @@ function updateHUD() {
   if (G.syringe) { sy.classList.remove('hidden'); sy.innerHTML = `💉 Syringe: <b>${CREATURES[G.syringe.patient].name}</b> ${G.syringe.fill.map((k) => `<i style="background:${VIALS[k].color}"></i>`).join('')}`; }
   else sy.classList.add('hidden');
   const ph = G.phone, pb = $('phoneBox');
-  if (ph.state === 'ringing') { pb.className = 'ring'; pb.innerHTML = `☎ INCOMING CALL<br><b>${ph.call.from}</b><br><span>[P] answer</span>`; }
-  else if (ph.state === 'talk') { pb.className = 'talk'; pb.innerHTML = `☎ ${ph.call.from}<br><span>[P] hang up</span>`; }
+  const pk = isTouch ? 'tap to' : padMode ? '[View]' : '[P]';
+  if (ph.state === 'ringing') { pb.className = 'ring'; pb.innerHTML = `☎ INCOMING CALL<br><b>${ph.call.from}</b><br><span>${pk} answer</span>`; }
+  else if (ph.state === 'talk') { pb.className = 'talk'; pb.innerHTML = `☎ ${ph.call.from}<br><span>${pk} hang up</span>`; }
   else pb.className = 'hidden';
   $('stateL').className = 'st' + (G.doors.L ? ' on' : '') + (G.lights.L ? ' lit' : '');
   $('stateR').className = 'st' + (G.doors.R ? ' on' : '') + (G.lights.R ? ' lit' : '');
   $('stateV').className = 'st' + (G.doors.V ? ' on' : '');
+  if (isTouch) for (const b of $('touchRow').children) {
+    const t = b.dataset.t, k = t.slice(-1);
+    b.className = t === 'vent' ? (G.doors.V ? 'on' : '') : t.startsWith('door') ? (G.doors[k] ? 'on' : '') : (G.lights[k] ? 'lit' : '');
+  }
   $('hud').classList.toggle('cams', G.camsUp);
   $('camBar').classList.toggle('hidden', G.camsUp || G.powerOut);
   $('medBar').classList.toggle('hidden', G.camsUp || G.powerOut);
@@ -799,6 +804,7 @@ function syncSettings() {
   $('vol').value = save.volume;
   document.querySelectorAll('#shakeSeg button').forEach((b) => b.classList.toggle('sel', Number(b.dataset.shake) === save.shake));
   $('autoResBtn').textContent = save.autoRes ? 'ON' : 'OFF'; $('autoResBtn').classList.toggle('sel', save.autoRes);
+  $('padBtn').textContent = save.pads ? 'ON' : 'OFF'; $('padBtn').classList.toggle('sel', save.pads);
   $('fsBtn').textContent = document.fullscreenElement ? 'LEAVE FULLSCREEN' : 'FULLSCREEN';
   $('resetBtn').classList.toggle('hidden', setFromPause); // no wiping the save in the middle of a night
 }
@@ -813,6 +819,7 @@ function closeSettings() {
   setFromPause = false;
 }
 $('shakeSeg').addEventListener('click', (e) => { const b = e.target.closest('button[data-shake]'); if (b) { save.shake = Number(b.dataset.shake); persist(); syncSettings(); } });
+$('padBtn').addEventListener('click', () => { save.pads = !save.pads; if (!save.pads) { padMode = false; document.body.classList.remove('is-pad'); } persist(); syncSettings(); });
 $('autoResBtn').addEventListener('click', () => { save.autoRes = !save.autoRes; if (!save.autoRes) gov.reset(); persist(); syncSettings(); });
 $('fsBtn').addEventListener('click', () => { const r = document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.(); r?.catch?.(() => {}); });
 document.addEventListener('fullscreenchange', () => { if (!$('settings').classList.contains('hidden')) syncSettings(); });
@@ -832,7 +839,7 @@ $('camClose').addEventListener('click', () => { barArmed = false; lowerCams(); }
 $('medBar').addEventListener('click', () => openMeds());
 
 // ------------------------------------------------------------------ input
-addEventListener('mousemove', (e) => { mouseX = (e.clientX / innerWidth) * 2 - 1; hoverPick(e); });
+addEventListener('pointermove', (e) => { if (e.pointerType !== 'mouse') return; mouseX = (e.clientX / innerWidth) * 2 - 1; hoverPick(e); });
 addEventListener('contextmenu', (e) => e.preventDefault());
 const ray = new THREE.Raycaster();
 const ndc = new THREE.Vector2();
@@ -847,7 +854,21 @@ function hoverPick(e) {
   if (performance.now() - hoverT < 50) return; hoverT = performance.now();
   canvas.style.cursor = mode === 'play' && G && !G.camsUp && !G.medOpen && pickAt(e) ? 'pointer' : 'default';
 }
-canvas.addEventListener('pointerdown', (e) => {
+const drag = { id: null, x: 0, moved: 0 };
+canvas.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') { setTouch(); drag.id = e.pointerId; drag.x = e.clientX; drag.moved = 0; } });
+addEventListener('pointermove', (e) => {
+  if (e.pointerId !== drag.id) return;
+  const dx = e.clientX - drag.x; drag.x = e.clientX; drag.moved += Math.abs(dx);
+  if (mode === 'play' && !paused && G && !G.camsUp && !G.medOpen) yaw = clamp(yaw + dx * 0.006, -1.12, 1.12);
+});
+addEventListener('pointerup', (e) => {
+  if (e.pointerId !== drag.id) return;
+  drag.id = null;
+  if (drag.moved < 12) usePick(e); // a tap, not a drag
+});
+addEventListener('pointercancel', (e) => { if (e.pointerId === drag.id) drag.id = null; });
+canvas.addEventListener('pointerdown', (e) => { if (e.pointerType === 'mouse') usePick(e); });
+function usePick(e) {
   initAudio();
   if (mode !== 'play' || paused || G.camsUp || G.medOpen) return;
   const a = pickAt(e); if (!a) return;
@@ -857,7 +878,86 @@ canvas.addEventListener('pointerdown', (e) => {
   else if (a === 'vent') toggleDoor('V');
   else if (a.startsWith('door')) toggleDoor(a.slice(4));
   else if (a.startsWith('light')) toggleLight(a.slice(5));
+}
+// ---- touch screens
+let isTouch = false;
+function setTouch() {
+  if (isTouch) return;
+  isTouch = true; document.body.classList.add('is-touch'); mouseX = 0;
+  $('camBar').textContent = '▲ CAMERAS ▲'; $('camClose').textContent = '▼ LOWER ▼'; $('medBar').textContent = 'MEDS';
+}
+if (matchMedia('(pointer: coarse)').matches) setTouch();
+$('touchRow').addEventListener('click', (e) => {
+  const b = e.target.closest('button[data-t]'); if (!b || mode !== 'play' || paused || G.camsUp || G.medOpen) return;
+  const t = b.dataset.t;
+  if (t === 'vent') toggleDoor('V'); else if (t.startsWith('door')) toggleDoor(t.slice(-1)); else toggleLight(t.slice(-1));
 });
+$('tPause').addEventListener('click', () => { if (mode === 'play') { if (G.medOpen) closeMeds(); else if (G.camsUp) lowerCams(); pause(!paused); } });
+$('phoneBox').addEventListener('click', () => { if (mode === 'play' && !paused) answerPhone(); });
+
+// ---- controllers: buttons become the keyboard keys, so every screen works the same way.
+// Standard-mapping pads only, and an axis only counts once seen centred (wheels / flight sticks rest off-centre).
+const BAD_PAD = /wheel|joystick|flight|pedal|tablet|throttle|rudder|hotas|stick|g29|g920|t300|wacom/i;
+let padMode = false, padIdx = -1, padLook = 0;
+const padSt = {};
+const press = (code) => dispatchEvent(new KeyboardEvent('keydown', { code, key: code })) && dispatchEvent(new KeyboardEvent('keyup', { code, key: code }));
+function visibleScreen() {
+  if (G && G.medOpen) return $('medUI');
+  return [...document.querySelectorAll('.screen')].find((s) => !s.classList.contains('hidden') && getComputedStyle(s).display !== 'none');
+}
+function padFocus(dir) {
+  const box = visibleScreen(); if (!box) return;
+  const list = [...box.querySelectorAll('button, input[type=range]')].filter((b) => b.getClientRects().length && !b.disabled && !b.classList.contains('hidden'));
+  if (!list.length) return;
+  const i = list.indexOf(document.activeElement);
+  list[i < 0 ? 0 : (i + dir + list.length) % list.length].focus();
+}
+function pollPad(dt) {
+  padLook = 0;
+  if (!save.pads || !navigator.getGamepads) return;
+  let cur = null;
+  for (const gp of navigator.getGamepads()) {
+    if (!gp || !gp.connected || gp.mapping !== 'standard' || BAD_PAD.test(gp.id)) continue;
+    const st = padSt[gp.index] || (padSt[gp.index] = { c: gp.axes.map(() => false), prev: gp.buttons.map(() => true), navT: 0 });
+    gp.axes.forEach((v, i) => { if (Math.abs(v) < 0.2) st.c[i] = true; });
+    const fresh = gp.buttons.some((b, i) => b.pressed && !st.prev[i]), moved = gp.axes.some((v, i) => st.c[i] && Math.abs(v) > 0.5);
+    if (fresh || moved) { padIdx = gp.index; if (!padMode) { padMode = true; document.body.classList.add('is-pad'); } }
+    if (gp.index === padIdx) cur = { gp, st }; else st.prev = gp.buttons.map((b) => b.pressed);
+  }
+  if (!cur) return;
+  const { gp, st } = cur, prev = st.prev;
+  st.prev = gp.buttons.map((b) => b.pressed);
+  const ax = (i) => (st.c[i] && Math.abs(gp.axes[i] || 0) > 0.2 ? gp.axes[i] : 0);
+  const hit = (i) => gp.buttons[i] && gp.buttons[i].pressed && !prev[i];
+  const playing = mode === 'play' && !paused && G;
+  if (playing && !G.medOpen) {
+    if (hit(9)) return press('Escape');
+    if (hit(8)) press('KeyP');
+    if (G.camsUp) {
+      const i = CAM_LIST.indexOf(G.cam);
+      if (hit(4) || hit(14)) selectCam(CAM_LIST[(i - 1 + CAM_LIST.length) % CAM_LIST.length]);
+      if (hit(5) || hit(15)) selectCam(CAM_LIST[(i + 1) % CAM_LIST.length]);
+      if (hit(2)) press('KeyF'); if (hit(3)) press('KeyR'); if (hit(7)) press('KeyT');
+      if (hit(0) || hit(1)) press('Space');
+    } else {
+      padLook = ax(0) || ax(2);
+      if (hit(4)) press('KeyQ'); if (hit(5)) press('KeyE'); if (hit(6)) press('KeyA'); if (hit(7)) press('KeyD');
+      if (hit(3)) press('KeyW'); if (hit(0)) press('Space'); if (hit(2)) press('KeyM');
+    }
+    return;
+  }
+  // menus, the med station, pause: the D-pad / left stick moves between buttons, A presses, B backs out
+  const ly = ax(1), f = document.activeElement;
+  st.navT -= dt;
+  if (hit(12) || hit(14)) padFocus(-1); else if (hit(13) || hit(15)) padFocus(1);
+  else if (Math.abs(ly) > 0.6 && st.navT <= 0) { padFocus(ly < 0 ? -1 : 1); st.navT = 0.25; }
+  else if (Math.abs(ly) < 0.3) st.navT = 0;
+  if (hit(0)) { if (f && f.tagName === 'BUTTON' && f.getClientRects().length) f.click(); else padFocus(0); }
+  if (hit(1)) { if (G && G.medOpen) press('KeyM'); else if (!$('settings').classList.contains('hidden')) closeSettings(); else press('Escape'); }
+  if (hit(9) && mode === 'play' && paused) pause(false);
+  if (hit(8) && G && G.medOpen) press('KeyP');
+}
+addEventListener('keydown', (e) => { if (e.isTrusted && padMode) { padMode = false; document.body.classList.remove('is-pad'); } }, true);
 const keys = {};
 addEventListener('keydown', (e) => {
   initAudio();
@@ -891,6 +991,11 @@ addEventListener('keydown', (e) => {
 });
 addEventListener('keyup', (e) => { keys[e.code] = false; });
 document.addEventListener('visibilitychange', () => { if (document.hidden && mode === 'play' && !paused) pause(true); });
+// progress sync between devices (sync.js): the save's progress, never its settings
+if (window.GameSync) {
+  GameSync.init({ game: 'afterhours', keys: [{ match: SAVE_KEY, mode: 'max', skip: ['volume', 'shake', 'autoRes', 'pads'] }], idle: () => mode === 'menu' });
+  $('syncBtn').addEventListener('click', (e) => { e.stopPropagation(); GameSync.open(); });
+} else $('syncBtn').classList.add('hidden');
 
 // ------------------------------------------------------------------ loop
 let last = performance.now();
@@ -899,6 +1004,7 @@ function frame(now) {
   requestAnimationFrame(frame);
   const raw = (now - last) / 1000, dt = Math.min(0.05, raw); last = now;
   if (mode === 'play' && save.autoRes) gov.tick(raw);
+  pollPad(dt);
   clockT += dt;
   const time = clockT;
   postMat.uniforms.time.value = time;
@@ -910,6 +1016,7 @@ function frame(now) {
       let dir = 0;
       if (Math.abs(mouseX) > 0.42) dir = Math.sign(mouseX) * (Math.abs(mouseX) - 0.42) / 0.58;
       if (keys.ArrowLeft) dir = -1; if (keys.ArrowRight) dir = 1;
+      if (padLook) dir = padLook;
       yaw = clamp(yaw - dir * 2.4 * dt, -1.12, 1.12);
     }
   } else if (mode === 'menu') {
@@ -953,7 +1060,7 @@ requestAnimationFrame(frame);
 // ------------------------------------------------------------------ test hook
 if (TEST) {
   window.__wah = {
-    get G() { return G; }, get mode() { return mode; }, monsters, W, office,
+    get G() { return G; }, get mode() { return mode; }, get yaw() { return yaw; }, monsters, W, office,
     start: (n, lv) => startNight(n, lv), setYaw: (v) => (yaw = v), freeze: (v) => (aiFrozen = v),
     raiseCams, lowerCams, selectCam, toggleDoor, toggleLight, openMeds, closeMeds, feed, soothe, dose, addVial, loadSyringe, answerPhone, kill: (id) => kill(G.cr[id]), turn: (id) => turn(G.cr[id]),
     step: (sec) => { for (let i = 0; i < sec * 30; i++) { if (mode === 'play') updatePlay(1 / 30); } },
