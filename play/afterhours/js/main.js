@@ -13,7 +13,7 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
 // ------------------------------------------------------------------ save
 const SAVE_KEY = 'willowmere_after_hours_v1';
-let save = { night: 1, beat: false, stars: 0, volume: 0.8, custom: { biscuit: 10, mittens: 10, hoppy: 10, pepper: 10, stray: 10 } };
+let save = { night: 1, beat: false, stars: 0, volume: 0.8, shake: 1, autoRes: true, custom: { biscuit: 10, mittens: 10, hoppy: 10, pepper: 10, stray: 10 } };
 try { Object.assign(save, JSON.parse(localStorage.getItem(SAVE_KEY) || '{}')); } catch { /* fresh save */ }
 const persist = () => { try { localStorage.setItem(SAVE_KEY, JSON.stringify(save)); } catch { /* storage blocked */ } };
 setVolume(save.volume);
@@ -263,7 +263,7 @@ function screech(c) {
   G.camLost = 8; G.power = Math.max(0, G.power - 3);
   for (const id of PATIENTS) { const o = G.cr[id]; if (o !== c && o.state === 'patient') o.stress = clamp(o.stress + 10, 0, 100); }
   c.state = 'patient'; c.loc = c.def.room; c.stress = 55;
-  $('flash').className = 'white'; setTimeout(() => ($('flash').className = ''), 120);
+  if (save.shake > 0) { $('flash').className = save.shake < 1 ? 'soft' : 'white'; setTimeout(() => ($('flash').className = ''), 120); }
   shake = 0.5;
   setTimeout(() => { if (G.camsUp) lowerCams(); }, 300);
   toast('Pepper screamed — cameras offline!', 'warn');
@@ -774,7 +774,8 @@ document.addEventListener('click', (e) => {
   else if (act === 'custom') showCustom();
   else if (act === 'startCustom') startNight(6, { ...save.custom });
   else if (act === 'howto') { hideAll(); $('howto').classList.remove('hidden'); }
-  else if (act === 'settings') { hideAll(); $('vol').value = save.volume; $('settings').classList.remove('hidden'); }
+  else if (act === 'settings') openSettings();
+  else if (act === 'setBack') closeSettings();
   else if (act === 'menu') showMenu();
   else if (act === 'retry') startNight(G.night, G.night === 6 ? G.levels : null);
   else if (act === 'next') startNight(Math.min(5, G.night + 1));
@@ -792,6 +793,30 @@ document.addEventListener('click', (e) => {
   else if (t.id === 'medClose') closeMeds();
 });
 $('vol').addEventListener('input', (e) => { save.volume = Number(e.target.value); setVolume(save.volume); persist(); });
+// ---- settings: from the menu, or from the pause screen mid-night ----
+let setFromPause = false;
+function syncSettings() {
+  $('vol').value = save.volume;
+  document.querySelectorAll('#shakeSeg button').forEach((b) => b.classList.toggle('sel', Number(b.dataset.shake) === save.shake));
+  $('autoResBtn').textContent = save.autoRes ? 'ON' : 'OFF'; $('autoResBtn').classList.toggle('sel', save.autoRes);
+  $('fsBtn').textContent = document.fullscreenElement ? 'LEAVE FULLSCREEN' : 'FULLSCREEN';
+  $('resetBtn').classList.toggle('hidden', setFromPause); // no wiping the save in the middle of a night
+}
+function openSettings() {
+  setFromPause = mode === 'play' && paused;
+  if (setFromPause) $('pause').classList.add('hidden'); else hideAll();
+  syncSettings(); $('settings').classList.remove('hidden');
+}
+function closeSettings() {
+  $('settings').classList.add('hidden');
+  if (setFromPause && mode === 'play') $('pause').classList.remove('hidden'); else showMenu();
+  setFromPause = false;
+}
+$('shakeSeg').addEventListener('click', (e) => { const b = e.target.closest('button[data-shake]'); if (b) { save.shake = Number(b.dataset.shake); persist(); syncSettings(); } });
+$('autoResBtn').addEventListener('click', () => { save.autoRes = !save.autoRes; if (!save.autoRes) gov.reset(); persist(); syncSettings(); });
+$('fsBtn').addEventListener('click', () => { const r = document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.(); r?.catch?.(() => {}); });
+document.addEventListener('fullscreenchange', () => { if (!$('settings').classList.contains('hidden')) syncSettings(); });
+if (!document.documentElement.requestFullscreen) $('fsBtn').classList.add('hidden');
 // care buttons act on pointerdown: the panel refreshes often and a click could land on a replaced button
 $('patient').addEventListener('pointerdown', (e) => {
   const t = e.target.closest('button[data-care]'); if (!t || t.disabled) return;
@@ -838,6 +863,7 @@ addEventListener('keydown', (e) => {
   initAudio();
   keys[e.code] = true;
   if (e.repeat) return;
+  if (e.code === 'Escape' && !$('settings').classList.contains('hidden')) { closeSettings(); return; }
   if (mode !== 'play') { if (e.code === 'Escape' && !['menu', 'intro', 'dying'].includes(mode)) showMenu(); return; }
   if (e.code === 'Escape') { if (G.medOpen) closeMeds(); else if (G.camsUp) lowerCams(); else pause(!paused); return; }
   if (paused) return;
@@ -872,7 +898,7 @@ let menuScare = 8;
 function frame(now) {
   requestAnimationFrame(frame);
   const raw = (now - last) / 1000, dt = Math.min(0.05, raw); last = now;
-  if (mode === 'play') gov.tick(raw);
+  if (mode === 'play' && save.autoRes) gov.tick(raw);
   clockT += dt;
   const time = clockT;
   postMat.uniforms.time.value = time;
@@ -901,7 +927,7 @@ function frame(now) {
   const cam = office.camera;
   cam.rotation.set(0, yaw, 0, 'YXZ');
   cam.position.set(0, 1.42, 1.7);
-  if (shake > 0) { shake = Math.max(0, shake - dt); cam.rotation.x += (Math.random() - 0.5) * shake * 0.12; cam.rotation.z += (Math.random() - 0.5) * shake * 0.12; cam.position.x += (Math.random() - 0.5) * shake * 0.08; }
+  if (shake > 0) { shake = Math.max(0, shake - dt); const sk = shake * save.shake; cam.rotation.x += (Math.random() - 0.5) * sk * 0.12; cam.rotation.z += (Math.random() - 0.5) * sk * 0.12; cam.position.x += (Math.random() - 0.5) * sk * 0.08; }
 
   if (G && G.camsUp && mode === 'play') {
     updateCamRooms(time);

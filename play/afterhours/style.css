@@ -191,3 +191,10 @@ button { font-family: inherit; }
   #patient { bottom: 280px; width: calc(100vw - 48px); }
   #states { bottom: 110px; font-size: 14px; }
 }
+
+/* settings rows */
+.setRow { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 12px 0 4px; flex-wrap: wrap; }
+.seg { display: inline-flex; gap: 6px; }
+.seg button { font-family: inherit; font-size: 18px; padding: 3px 10px; background: rgba(20, 40, 25, .8); color: #cfc; border: 1px solid #3a6a42; cursor: pointer; }
+.seg button.sel { background: #3a6a42; border-color: #afa; color: #fff; }
+#flash.soft { background: #fff; opacity: .25; transition: none; }
