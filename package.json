@@ -1,7 +1,7 @@
 {
   "name": "game-library",
   "productName": "Game Library",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "A launcher for my browser games",
   "main": "main.js",
   "author": "ciasfrenzer",
@@ -17,6 +17,9 @@
     "files": [
       "main.js",
       "preload.js",
+      "game-preload.js",
+      "index.html",
+      "shop/**/*",
       "app/**/*",
       "build/icon.png",
       "hidden.json"

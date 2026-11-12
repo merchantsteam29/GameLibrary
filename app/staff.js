@@ -1,9 +1,9 @@
-// Staff tools (website only): the owner and moderators.
+// Staff tools: the owner and moderators.
 // Moderators: ban and unban players from every game's leaderboards (also a 🛡 button on each leaderboard row).
 // Owner only: everything moderators can, plus the site announcement, adding / removing moderators, and
 // gifting coins or shop items to a gamertag. All of it is signed (see sync.js), so nobody can fake it.
 (() => {
-  if (!document.body.classList.contains('web') || !window.GameSync?.staff) return;
+  if (!window.GameSync?.staff) return;
   const S = GameSync.staff, $ = (s) => document.querySelector(s);
   const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
   const read = (k, d) => { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } };
@@ -66,20 +66,28 @@
   }
   async function show() {
     ensureView();
-    for (const id of ['#grid-view', '#detail-view', '#updates-view', '#profile-view', '#shop-view']) { const el = $(id); if (el) el.hidden = true; }
+    document.querySelectorAll('main[id$="-view"]').forEach((v) => { v.hidden = true; });
     $('#staff-view').hidden = false; document.title = 'Staff — Game Library'; window.scrollTo(0, 0);
     await paint();
   }
   async function paint(note) {
     const box = $('#staffBody'); box.innerHTML = `<p class="dim">${esc(note || 'Loading…')}</p>`;
-    const [me, list, bans, news] = await Promise.all([S.me(), S.list(true), S.bans(true).catch(() => new Map()), S.news().catch(() => null)]);
+    const [me, list, bans, news, reps] = await Promise.all([S.me(), S.list(true), S.bans(true).catch(() => new Map()), S.news().catch(() => null), S.reports().catch(() => [])]);
     if (!me) { box.innerHTML = '<p>You aren’t on the staff list on this browser.</p>'; return; }
     const owner = me.role === 'owner';
     $('#staffWho').textContent = `Signed in as ${me.tag} · ${owner ? 'Owner' : 'Moderator'}`;
     const active = [...bans.entries()].filter(([, b]) => b.ban).sort((a, b) => (b[1].t || 0) - (a[1].t || 0));
     const mods = list.filter((p) => p.role === 'mod');
     const items = window.Acct?.items() || [];
+    // reports nobody has dealt with yet: no ban or unban on that player since the report
+    const decided = (r) => { const a = bans.get('pid:' + r.pid), n = bans.get('name:' + String(r.name || '').toLowerCase()); return Math.max(a?.t || 0, n?.t || 0) > (r.t || 0); };
+    const open = new Map(); for (const r of reps) { if (decided(r)) continue; const k = r.pid + '|' + r.game + '|' + r.board; const o = open.get(k) || { ...r, why: [] }; o.why.push(r); open.set(k, o); }
+    const openList = [...open.values()].sort((a, b) => b.why.length - a.why.length || (b.t || 0) - (a.t || 0));
     box.innerHTML = `${note ? `<p class="staff-note">${esc(note)}</p>` : ''}
+      <div class="spanel"><h3>Reports ${openList.length ? '<span class="sbadge">' + openList.length + '</span>' : ''}</h3>
+        <p class="dim small">Scores players flagged as cheated. Ban the player, or mark it fine (it won't come back unless someone reports it again).</p>
+        ${openList.length ? '<table class="stable sreport"><tr><th>Player</th><th>Why</th><th>Reports</th><th>Last</th><th></th></tr>' + openList.map((r) => '<tr><td>' + esc(r.name) + '<small>' + esc(r.game) + ' · ' + esc(r.board) + ' · ' + Math.floor(Number(r.s) || 0).toLocaleString() + '</small></td><td>' + r.why.map((w) => esc(w.reason || '(no reason)') + ' <span class="dim small">— ' + esc(w.by) + '</span>').join('<br>') + '</td><td>' + r.why.length + '</td><td class="dim small">' + when(r.t) + '</td><td><button class="ghost danger" data-rban="' + esc(r.pid) + '" data-n="' + esc(r.name) + '" data-why="' + esc(r.why[0].reason || '') + '">Ban</button> <button class="ghost" data-rok="' + esc(r.pid) + '" data-n="' + esc(r.name) + '">Fine</button></td></tr>').join('') + '</table>' : '<p class="dim">No reports waiting.</p>'}
+      </div>
       <div class="spanel"><h3>Leaderboard bans</h3>
         <p class="dim small">Banned players disappear from every game's daily leaderboards. You can also ban straight from a leaderboard with the Ban button next to a name.</p>
         <div class="srow"><input id="b-name" placeholder="Gamertag or leaderboard name" maxlength="24"><input id="b-why" placeholder="Reason (staff only see this)" maxlength="120"><button class="ghost primary" data-a="ban">Ban</button></div>
@@ -108,6 +116,8 @@
     const v = (id) => ($(id)?.value || '').trim(), run = async (fn, ok) => { b.disabled = true; try { await fn(); await paint(ok); } catch (err) { b.disabled = false; alert('That didn’t work: ' + (err.message || err)); } };
     if (b.dataset.a === 'forget') { if (confirm('Remove your staff key? It is removed from all your signed-in devices too.')) { S.clearKey(); GameSync.syncNow(); await check(); window.Profile?.show(); } return; }
     if (b.dataset.a === 'ban') { const n = v('#b-name'); if (!n) return; await run(() => S.setBan('name:' + n.toLowerCase(), true, v('#b-why'), n), 'Banned ' + n + '.'); }
+    else if (b.dataset.rban) await run(() => S.setBan('pid:' + b.dataset.rban, true, 'Reported: ' + b.dataset.why, b.dataset.n), 'Banned ' + b.dataset.n + '.');
+    else if (b.dataset.rok) await run(() => S.setBan('pid:' + b.dataset.rok, false, 'Report checked: fine', b.dataset.n), 'Marked ' + b.dataset.n + ' as fine.');
     else if (b.dataset.unban) await run(() => S.setBan(b.dataset.unban, false, '', b.dataset.n), 'Unbanned ' + (b.dataset.n || '') + '.');
     else if (!owner) return;
     else if (b.dataset.a === 'news') { const t = v('#n-text'); if (t) await run(() => S.postNews(t), 'Announcement posted.'); showNews(); }

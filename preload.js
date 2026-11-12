@@ -12,4 +12,6 @@ contextBridge.exposeInMainWorld('lib', {
   openFolder: id => ipcRenderer.invoke('open-folder', id),
   onChange: fn => ipcRenderer.on('library-changed', fn),
   onRunning: fn => ipcRenderer.on('running', (_e, ids) => fn(ids)),
+  setAccount: a => ipcRenderer.send('account-set', a),
+  onFriends: fn => ipcRenderer.on('friends-set', (_e, list) => fn(list)),
 });

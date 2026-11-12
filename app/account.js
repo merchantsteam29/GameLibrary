@@ -1,10 +1,11 @@
-// Accounts and the shop (website only).
+// Accounts and the shop (the website and the PC app).
 // An account is a gamertag (Name#1234) and a password. They make the sync code (see sync.js), so every
 // game on this site syncs to it on any device, and the library syncs your look, what you own and every
 // game's achievements. No account is needed to play: the shop works on this browser without one too.
 // Coins: each achievement in any game is worth coins (shop/items.json sets how many); items cost coins.
 (() => {
-  if (!document.body.classList.contains('web')) return;
+  const WEB = document.body.classList.contains('web');
+  const SITE = 'https://merchantsteam29.github.io/GameLibrary/';
   const $ = (s) => document.querySelector(s);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
   const read = (k, d) => { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } };
@@ -13,7 +14,10 @@
 
   // ---------- the shop's items ----------
   let shop = { coinsPerAchievement: 100, items: [] };
-  const ready = fetch('shop/items.json', { cache: 'no-cache' }).then((r) => r.json()).then((j) => { shop = j; }).catch(() => {});
+  const getJSON = (u) => fetch(u, { cache: 'no-cache' }).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
+  let base = '';
+  const ready = getJSON('shop/items.json').catch(() => { base = SITE; return getJSON(SITE + 'shop/items.json'); })
+    .then((j) => { shop = { ...j, items: (j.items || []).map((i) => ({ ...i, file: base + i.file })) }; GS()?.useItems?.(shop.items, ''); }).catch(() => {});
   const item = (id) => shop.items.find((i) => i.id === id);
 
   // ---------- your stuff ----------
@@ -59,9 +63,10 @@
       <div class="acct-btns">
         <button class="ghost" data-a="shop">🛍 Shop</button>
         ${staffRole ? '<button class="ghost" data-a="staff">🛡 Staff</button>' : t ? '<button class="ghost" data-a="key" title="For the owner and moderators">🔑 Staff key</button>' : ''}
+        ${t ? '<button class="ghost" data-a="acct">⚙ Account</button>' : ''}
         ${t ? '<button class="ghost" data-a="out">Sign out</button>' : '<button class="ghost primary" data-a="new">Create account</button><button class="ghost" data-a="in">Sign in</button>'}
       </div>`;
-    h.onclick = (e) => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'shop') showShop(); else if (a === 'new') modal('new'); else if (a === 'in') modal('in'); else if (a === 'out') signOut(); else if (a === 'staff') window.Staff?.show(); else if (a === 'key') window.Staff?.keyModal(); };
+    h.onclick = (e) => { const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'shop') showShop(); else if (a === 'new') modal('new'); else if (a === 'in') modal('in'); else if (a === 'out') signOut(); else if (a === 'staff') window.Staff?.show(); else if (a === 'key') window.Staff?.keyModal(); else if (a === 'acct') settings(); };
     return h;
   }
 
@@ -112,7 +117,7 @@
           if (!t) return draw('Couldn’t reach the sync relays. Check your connection and try again.', true);
           busy('Making your account…');
           const code = await GS().accountCode(t, pw);
-          await GS().claimTag(t);
+          await GS().claimTag(t, code);
           write('gamelib.tag', t); GS().signIn(code, t, 'new');
           view = t; draw(); refresh();
         } else {
@@ -122,6 +127,7 @@
           busy('Checking…');
           const code = await GS().accountCode(t, pw);
           const r = await GS().probe(code, 'library');
+          if (r === 'moved') return draw('That password was changed (or the account was deleted). Use your new password.', true);
           if (r !== 'ok') {
             const taken = await GS().tagTaken(t);
             return draw(taken ? 'Wrong password for ' + t + '.' : 'There’s no account called ' + t + '. Check the number after the #.', true);
@@ -134,6 +140,123 @@
     };
     draw(); document.body.append(w);
   }
+  // ---------- account settings ----------
+  const accCode = () => { try { return (JSON.parse(localStorage.getItem('gamesync.account')) || {}).code || ''; } catch { return ''; } };
+  const sameCode = (a, b) => String(a).replace(/[^A-Z0-9]/gi, '').toUpperCase() === String(b).replace(/[^A-Z0-9]/gi, '').toUpperCase();
+  function settings(view = 'menu') {
+    document.querySelector('.acct-modal')?.remove();
+    const w = document.createElement('div'); w.className = 'acct-modal';
+    const box = document.createElement('div'); box.className = 'acct-box'; w.append(box);
+    const close = () => { w.remove(); refresh(); };
+    w.onclick = (e) => { if (e.target === w) close(); };
+    const cur = '<label>Current password<input id="a-cur" type="password" maxlength="64" autocomplete="current-password"></label>';
+    const draw = (msg = '', err = false) => {
+      const t = tag(), m = `<p class="msg ${err ? 'err' : ''}">${esc(msg)}</p>`;
+      if (view === 'menu') box.innerHTML = `<h2>⚙ Account</h2><p class="dim">Signed in as <b>${tagHTML(t)}</b>.</p>
+        <div class="acct-menu"><button class="ghost" data-v="pw">🔒 Change password</button><button class="ghost" data-v="tag">✎ Change gamertag</button><button class="ghost danger" data-v="del">🗑 Delete account</button></div>
+        <div class="row"><button class="ghost" data-a="x">Close</button></div>`;
+      else if (view === 'pw') box.innerHTML = `<h2>Change password</h2>${cur}
+        <label>New password<input id="a-pw" type="password" maxlength="64" placeholder="8 characters or more" autocomplete="new-password"></label>
+        <label>New password again<input id="a-pw2" type="password" maxlength="64" autocomplete="new-password"></label>
+        <p class="dim small">Your other devices sign out and need the new password.</p>${m}
+        <div class="row"><button class="ghost primary" data-a="go">Change password</button><button class="ghost" data-v="menu">Back</button></div>`;
+      else if (view === 'tag') box.innerHTML = `<h2>Change gamertag</h2>${staffRole ? '<p class="warn small">Staff can’t change their gamertag (the staff list is by gamertag).</p>' : ''}
+        <label>New gamertag<input id="a-name" maxlength="11" placeholder="3 to 11 letters or numbers" autocomplete="off"></label>
+        <p class="dim small">You get a new number after it. Friends who added your old gamertag need to add the new one. Your progress, coins and items come with you.</p>${cur}${m}
+        <div class="row"><button class="ghost primary" data-a="go" ${staffRole ? 'disabled' : ''}>Change gamertag</button><button class="ghost" data-v="menu">Back</button></div>`;
+      else if (view === 'del') box.innerHTML = `<h2>Delete account</h2>
+        <p>This deletes <b>${tagHTML(t)}</b> from the sync relays: every game's synced progress, your coins, items and profile. Your other devices sign out. The progress saved on this device stays here.</p>
+        <p class="warn small">⚠ This can't be undone.</p>
+        <label>Type your gamertag to confirm<input id="a-conf" maxlength="16" placeholder="${esc(t)}" autocomplete="off"></label>${cur}${m}
+        <div class="row"><button class="ghost danger" data-a="go">Delete forever</button><button class="ghost" data-v="menu">Back</button></div>`;
+      else box.innerHTML = `<h2>Done</h2><p>${msg}</p><div class="row"><button class="ghost primary" data-a="x">OK</button></div>`;
+      box.querySelector('input')?.focus();
+      box.querySelectorAll('input').forEach((i) => i.addEventListener('keydown', (e) => { if (e.key === 'Enter') box.querySelector('[data-a=go]')?.click(); }));
+    };
+    box.onclick = async (e) => {
+      const v = e.target.closest('[data-v]')?.dataset.v; if (v) { view = v; draw(); return; }
+      const a = e.target.closest('[data-a]')?.dataset.a; if (a === 'x') { close(); return; }
+      if (a !== 'go' || !GS()) return;
+      const t = tag(), code = accCode(), pw = $('#a-cur')?.value || '';
+      const busy = (x) => { draw(x); box.querySelectorAll('button').forEach((b) => { b.disabled = true; }); };
+      try {
+        if (view === 'del' && ($('#a-conf').value.trim().toLowerCase() !== t.toLowerCase())) return draw('Type your whole gamertag to confirm.', true);
+        const npw = $('#a-pw')?.value, npw2 = $('#a-pw2')?.value, name = $('#a-name')?.value.trim();
+        if (view === 'pw' && (!npw || npw.length < 8)) return draw('Use a new password of 8 characters or more.', true);
+        if (view === 'pw' && npw !== npw2) return draw('The two new passwords are different.', true);
+        if (view === 'tag' && !/^[A-Za-z0-9_]{3,11}$/.test(name || '')) return draw('Gamertags are 3 to 11 letters, numbers or _ (no spaces).', true);
+        if (!pw) return draw('Type your current password.', true);
+        busy('Checking your password…');
+        if (!sameCode(await GS().accountCode(t, pw), code)) return draw('That isn’t your current password.', true);
+        if (view === 'pw') {
+          busy('Moving your account to the new password…');
+          const n = await GS().changeAccount(code, await GS().accountCode(t, npw), t, t);
+          sent = ''; view = 'done'; draw(`Password changed. ${n} saves moved. Sign in with the new password on your other devices.`);
+        } else if (view === 'tag') {
+          busy('Finding a free number…');
+          let nt = null;
+          for (let i = 0; i < 6 && !nt; i++) { const c = name + '#' + String(1000 + Math.floor(Math.random() * 9000)); if (!(await GS().tagTaken(c))) nt = c; }
+          if (!nt) return draw('Couldn’t reach the sync relays. Check your connection and try again.', true);
+          busy('Moving your account to ' + nt + '…');
+          await GS().changeAccount(code, await GS().accountCode(nt, pw), nt, t);
+          write('gamelib.tag', nt); try { localStorage.setItem('gamesync.name', nt); } catch { /* blocked */ } GS().syncNow();
+          sent = ''; view = 'done'; draw(`You're now <b>${tagHTML(nt)}</b>. Sign in with it (same password) on your other devices.`);
+        } else if (view === 'del') {
+          busy('Deleting…');
+          await GS().deleteAccount(code, t);
+          try { localStorage.removeItem('gamelib.tag'); } catch { /* blocked */ }
+          sent = ''; view = 'done'; draw('Your account is deleted. Your progress on this device stays here.');
+        }
+        refresh();
+      } catch (err) { draw(err?.message || 'Something went wrong. Check your connection and try again.', true); }
+    };
+    draw(); document.body.append(w);
+  }
+
+  // ---------- what other players see: your profile ----------
+  let sent = '', sendT = 0;
+  function publishProfile() {
+    clearTimeout(sendT);
+    sendT = setTimeout(() => {
+      if (!tag() || !GS()?.setProfile) return;
+      const l = look(), sum = window.Profile?.summary?.() || { games: [], got: achCount() };
+      const p = { pfp: l.pfp || null, banner: l.banner || null, ach: sum.got, games: sum.games };
+      const k = JSON.stringify(p) + '|' + tag();
+      if (k === sent && Date.now() - (publishProfile.at || 0) < 30 * 60000) return; // unchanged: refresh "last seen" every half hour
+      sent = k; publishProfile.at = Date.now(); GS().setProfile(p).catch(() => { sent = ''; });
+    }, 2500);
+  }
+  // every game's achievements (and, in the PC app, its stats) from the account, so this page shows them all
+  let pulling = false;
+  async function pull() {
+    if (pulling || !tag() || !GS()?.pullAll) return; pulling = true;
+    try {
+      let changed = false;
+      for (const d of await GS().pullAll()) {
+        if (d.game === 'library') continue;
+        for (const [k, r] of Object.entries(d.keys || {})) {
+          if (!r || typeof r.v !== 'string') continue;
+          if (k.startsWith('gamesach.')) {
+            const a = read(k, {}) || {}; let b = {}; try { b = JSON.parse(r.v) || {}; } catch { continue; }
+            const m = { ...b, ...a }; if (Object.keys(m).length > Object.keys(a).length) { write(k, m); changed = true; }
+          } else if (!WEB && !k.startsWith('gamesync.') && !k.startsWith('gamelib.')) {
+            // the PC app keeps each game's saves apart; this is a copy just for the Profile page
+            try { if (localStorage.getItem(k) !== r.v) { localStorage.setItem(k, r.v); changed = true; } } catch { /* full */ }
+          }
+        }
+      }
+      if (changed) { GS().syncNow(); refresh(); }
+    } catch { /* offline */ } finally { pulling = false; }
+  }
+  // the PC app: games open in their own windows, so tell it who's signed in (it signs the games in too)
+  let told = null;
+  function tellApp() {
+    if (!window.lib?.setAccount) return;
+    let a = null; const t = tag(), code = accCode();
+    if (t && code) a = { code, tag: t, staffkey: localStorage.getItem('gamelib.staffkey') || '', friends: read('gamelib.friends', []) };
+    const k = JSON.stringify(a); if (k !== told) { told = k; window.lib.setAccount(a); }
+  }
+
   function signOut() {
     if (!confirm('Sign out on this browser? Your progress here stays; it just stops syncing until you sign in again.')) return;
     GS()?.signOut(); refresh();
@@ -167,18 +290,22 @@
   function equip(i) { const l = read('gamelib.look', {}); l[i.type] = i.id; write('gamelib.look', l); GS()?.syncNow?.(); paintShop(); paintButton(); }
   function showShop() {
     document.title = 'Shop — Game Library';
-    for (const id of ['#grid-view', '#detail-view', '#updates-view', '#profile-view', '#staff-view']) { const el = $(id); if (el) el.hidden = true; }
+    for (const id of ['#grid-view', '#detail-view', '#updates-view', '#profile-view', '#staff-view', '#friends-view']) { const el = $(id); if (el) el.hidden = true; }
     $('#shop-view').hidden = false; paintShop(); window.scrollTo(0, 0);
   }
   $('#shopBack').onclick = () => { $('#shop-view').hidden = true; window.Profile?.show(); };
 
-  function refresh() { const t = tag(); if (t) { try { if (localStorage.getItem('gamesync.name') !== t.slice(0, 16)) localStorage.setItem('gamesync.name', t.slice(0, 16)); } catch { /* blocked */ } } paintButton(); if (!$('#profile-view').hidden) window.Profile?.render(); if (!$('#shop-view').hidden) paintShop(); }
+  function refresh() { publishProfile(); tellApp(); const t = tag(); if (t) { try { if (localStorage.getItem('gamesync.name') !== t.slice(0, 16)) localStorage.setItem('gamesync.name', t.slice(0, 16)); } catch { /* blocked */ } } paintButton(); if (!$('#profile-view').hidden) window.Profile?.render(); if (!$('#shop-view').hidden) paintShop(); }
 
   // ---------- sync for the library itself ----------
   if (GS()) {
-    GS().init({ game: 'library', keys: [{ match: 'gamesach.*', mode: 'max' }, { match: 'gamelib.owned', mode: 'max' }, { match: 'gamelib.look' }, { match: 'gamelib.tag' }, { match: 'gamelib.staffkey' }, { match: 'gamelib.gifts', mode: 'max' }], idle: () => !document.querySelector('.acct-modal') });
+    GS().init({ game: 'library', keys: [{ match: 'gamesach.*', mode: 'max' }, { match: 'gamelib.owned', mode: 'max' }, { match: 'gamelib.look' }, { match: 'gamelib.tag' }, { match: 'gamelib.staffkey' }, { match: 'gamelib.gifts', mode: 'max' }, { match: 'gamelib.friends' }], title: 'Game Library', idle: () => !document.querySelector('.acct-modal') });
     GS().onStatus(() => refresh());
+    setTimeout(pull, 2500); setInterval(() => { if (!document.hidden) pull(); }, 5 * 60000);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) pull(); });
+    window.lib?.onFriends?.((list) => { GS().setFriends(list); GS().syncNow(); window.dispatchEvent(new Event('gs-friends')); }); // changed in a game window (PC app)
+    window.addEventListener('gs-friends', () => { GS().syncNow(); tellApp(); });
   }
-  window.Acct = { head, showShop, modal, refresh, coins, tag, items: () => shop.items, setStaff(r) { if (r !== staffRole) { staffRole = r; refresh(); } } };
+  window.Acct = { head, showShop, modal, refresh, coins, tag, settings, pull, items: () => shop.items, setStaff(r) { if (r !== staffRole) { staffRole = r; refresh(); } } };
   ready.then(refresh);
 })();

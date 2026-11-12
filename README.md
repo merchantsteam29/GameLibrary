@@ -39,11 +39,15 @@ Where each game's notes come from: Hollow Badge writes its `updates.json` from `
 
 Thumbnails: `npm run web` keeps a game's existing thumbnail if it has no cover image; `npm run web -- --resnap` retakes the screenshots.
 
-## Accounts and the shop (website)
+## Accounts and the shop (website and PC app)
 
 - **Accounts are optional.** Create one on the Profile page: a gamertag (you get `Name#1234`) and a password. They make your sync code, so every game on the site syncs to your account on any device you sign in on. There is no password reset.
 - **Coins:** every achievement in any game is worth `coinsPerAchievement` coins (in `shop/items.json`, 100 by default). Coins buy banners and profile pictures. No real money.
 - **Adding your own art:** put a picture in `shop/banners/` (wide, 1200 x 300 looks best) or `shop/pfps/` (square, 256 x 256 or bigger). PNG, JPG, WEBP, GIF or SVG. Then run `npm run shop` (or `npm run web`), which adds it to `shop/items.json` with a name from the file name and a default price (banners 600, pictures 300). Edit `items.json` to change a name or price; `0` makes it free for everyone. Commit and push to put it live.
+- **Account settings** (Profile → ⚙ Account): change password, change gamertag (staff can't), delete account. A change moves every game's encrypted save to the new code and leaves a marker on the old one that signs out devices still using it. Deleting removes the account from the relays; progress saved on each device stays there.
+- **Profiles and friends:** each account has a signing key made from its sync code (so every device and game has it); its public half is on the gamertag's marker. The library publishes your public profile (picture, banner, achievements per game) and every game posts an "online" ping every couple of minutes, both signed. **👥 Friends** lists the gamertags you add (synced) with what they're playing and when they were last on. On the leaderboards, account scores are signed: they show the player's picture, a ★ for friends, and a click opens their profile card (add friend from there). A "Name#1234" score that its account didn't sign is dropped, and guests can't use a name with a #.
+- **Reports:** signed-in players can report a leaderboard score; it shows on the Staff page with the reason and who reported it. Ban, or mark it fine (any ban/unban decision on that player after the report closes it).
+- **PC app:** the app opens the same page as the website, so accounts, the shop, friends and staff tools are all there. Each game window runs at its own address (its own saves), so the app hands your account to every game window it opens (`game-preload.js`), and the library pulls every game's achievements from your account for the Profile page.
 
 ## Staff: owner and moderators
 

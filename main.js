@@ -235,7 +235,7 @@ function createLibraryWindow() {
     backgroundColor: '#0d0f14', title: 'Game Library', icon: path.join(__dirname, 'build', 'icon.png'), autoHideMenuBar: true,
     webPreferences: { preload: path.join(__dirname, 'preload.js'), contextIsolation: true },
   });
-  libWin.loadFile(path.join(__dirname, 'app', 'index.html'));
+  libWin.loadFile(path.join(__dirname, 'index.html')); // the same page as the website
 }
 
 async function launch(id) {
@@ -251,7 +251,8 @@ async function launch(id) {
   g.lastPlayed = Date.now(); g.plays = (g.plays || 0) + 1; saveLib(lib);
   const win = new BrowserWindow({
     width: 1280, height: 800, backgroundColor: '#000', title: g.title, icon: path.join(__dirname, 'build', 'icon.png'), autoHideMenuBar: true,
-    webPreferences: { contextIsolation: true, backgroundThrottling: false },
+    // game-preload.js signs the game in to your library account before it starts
+    webPreferences: { contextIsolation: true, backgroundThrottling: false, preload: path.join(__dirname, 'game-preload.js') },
   });
   gameWins.set(id, win);
   win.loadURL(home);
@@ -290,6 +291,14 @@ async function launch(id) {
   libWin?.webContents.send('running', [...gameWins.keys()]);
   return { ok: true };
 }
+
+// ---------- your account ----------
+// The library page tells us who's signed in; game windows ask for it before they start (game-preload.js).
+// Kept next to the library list so games are signed in even before the library window has loaded.
+ipcMain.on('account-set', (_e, a) => { lib.account = a && a.code && a.tag ? { code: String(a.code), tag: String(a.tag), staffkey: String(a.staffkey || ''), friends: Array.isArray(a.friends) ? a.friends.map(String).slice(0, 200) : [] } : null; saveLib(lib); });
+ipcMain.on('account-get', (e) => { e.returnValue = lib.account || null; });
+// a game window added a friend from a leaderboard: the library keeps the list
+ipcMain.on('friends-set', (_e, list) => { if (lib.account && Array.isArray(list)) { lib.account.friends = list.map(String).slice(0, 200); saveLib(lib); } libWin?.webContents.send('friends-set', lib.account?.friends || []); });
 
 // ---------- IPC ----------
 ipcMain.handle('list', () => { refreshMeta(); return { root: lib.root, games: lib.games.map(publicGame), running: [...gameWins.keys()] }; });

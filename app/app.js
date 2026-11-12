@@ -66,9 +66,12 @@ function renderFeed() {
   if (!posts.length) { const p = document.createElement('p'); p.className = 'empty'; p.textContent = 'No updates yet. Add an updates.json to a game folder to post one.'; feed.append(p); return; }
   for (const { u, g } of posts) feed.append(updateEl(u, g));
 }
+// every page is a <main>: show one at a time
+function hideViews() { document.querySelectorAll('main[id$="-view"]').forEach(m => { m.hidden = true; }); }
+
 function showFeed() {
   current = null; document.title = 'Updates — Game Library';
-  $('#grid-view').hidden = true; $('#detail-view').hidden = true; $('#profile-view').hidden = true; $('#updates-view').hidden = false;
+  hideViews(); $('#updates-view').hidden = false;
   renderFeed(); markSeen(games); renderGrid(); window.scrollTo(0, 0);
 }
 
@@ -152,12 +155,12 @@ function showDetail(id) {
   current = id;
   const g = games.find(x => x.id === id);
   renderDetail(g); markSeen([g]);
-  $('#grid-view').hidden = true; $('#updates-view').hidden = true; $('#profile-view').hidden = true; $('#detail-view').hidden = false;
+  hideViews(); $('#detail-view').hidden = false;
   window.scrollTo(0, 0);
 }
 function showGrid() {
   current = null; document.title = 'Game Library';
-  $('#detail-view').hidden = true; $('#updates-view').hidden = true; $('#profile-view').hidden = true; $('#grid-view').hidden = false;
+  hideViews(); $('#grid-view').hidden = false;
   renderGrid();
 }
 
@@ -171,7 +174,7 @@ $('#back').onclick = showGrid;
 $('#newsBtn').onclick = showFeed;
 $('#newsBack').onclick = showGrid;
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && (current || !$('#updates-view').hidden)) showGrid();
+  if (e.key === 'Escape' && !document.querySelector('.acct-modal, .gs-wrap') && $('#grid-view').hidden) showGrid();
   if (e.key === '/' && document.activeElement !== $('#search')) { e.preventDefault(); $('#search').focus(); }
 });
 document.addEventListener('mouseup', e => { if (e.button === 3 && (current || !$('#updates-view').hidden)) showGrid(); }); // mouse back button

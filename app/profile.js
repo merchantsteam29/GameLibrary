@@ -62,19 +62,29 @@
     const tally = document.createElement('div'); tally.className = 'psub ptally'; tally.textContent = `${got} of ${all} achievements`;
     box.append(head, tally);
     for (const [, c] of cards.sort((a, b) => b[0] - a[0])) box.append(c);
-    if (!document.body.classList.contains('web')) {
+    if (!document.body.classList.contains('web') && !window.Acct?.tag?.()) {
       const p = document.createElement('p'); p.className = 'pnone';
-      p.textContent = 'In the PC app each game keeps its own saves, so this page only shows what you played on the website.';
+      p.textContent = 'In the PC app each game keeps its own saves. Sign in to your account to see your progress from every game and device here.';
       box.prepend(p);
     }
+  }
+  // for your public profile: achievements per game
+  function summary() {
+    let got = 0; const out = [];
+    for (const g of games) {
+      const def = GAMES[g.id]; if (!def || !def.ach) continue;
+      const have = read('gamesach.' + def.ach) || {}, n = def.list.filter(([id]) => have[id]).length;
+      got += n; out.push({ n: g.title, a: n, of: def.list.length });
+    }
+    return { got, games: out.sort((a, b) => b.a - a.a) };
   }
   function showProfile() {
     current = null; document.title = 'Profile — Game Library';
     if ($('#shop-view')) $('#shop-view').hidden = true;
-    $('#grid-view').hidden = true; $('#detail-view').hidden = true; $('#updates-view').hidden = true; $('#profile-view').hidden = false;
+    for (const id of ['#grid-view', '#detail-view', '#updates-view', '#staff-view', '#friends-view']) { const el = $(id); if (el) el.hidden = true; } $('#profile-view').hidden = false;
     render(); window.scrollTo(0, 0);
   }
   $('#profileBtn').onclick = showProfile;
-  window.Profile = { render, show: showProfile };
+  window.Profile = { render, show: showProfile, summary };
   $('#profileBack').onclick = () => { $('#profile-view').hidden = true; showGrid(); };
 })();
