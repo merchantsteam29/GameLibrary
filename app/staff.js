@@ -106,8 +106,8 @@
         <p class="dim small">Give coins (or take them, with a minus number) and shop items to a gamertag. They get it next time they open the library.</p>
         <div class="srow"><input id="g-tag" placeholder="Name#1234" maxlength="16"><input id="g-coins" type="number" placeholder="Coins" step="50"><select id="g-item"><option value="">No item</option>${items.map((i) => `<option value="${esc(i.id)}">${esc(i.name)} (${i.type === 'pfp' ? 'picture' : 'banner'})</option>`).join('')}</select></div>
         <div class="srow"><input id="g-note" placeholder="Note (they see it)" maxlength="80"><button class="ghost primary" data-a="gift">Give</button></div></div>` : ''}
-      <div class="spanel"><h3>This browser</h3><div class="srow"><button class="ghost danger" data-a="forget">Remove my staff key</button></div>
-        <p class="dim small">Your key syncs to your signed-in devices; removing it removes it from all of them.${owner ? ' Keep GameLibrary-OWNER-KEY.txt safe: it is how you get the owner tools back.' : ''}</p></div>`;
+      ${!(localStorage.getItem('gamelib.staffkey') || '').trim() ? (owner ? '<p class="dim small">You have the owner tools because you are signed in as ' + esc(me.tag) + '. Keep GameLibrary-OWNER-KEY.txt safe anyway: it is the backup if you ever lose the account.</p>' : '') : `<div class="spanel"><h3>This browser</h3><div class="srow"><button class="ghost danger" data-a="forget">Remove my staff key</button></div>
+        <p class="dim small">Your key syncs to your signed-in devices; removing it removes it from all of them.${owner ? ' Keep GameLibrary-OWNER-KEY.txt safe: it is how you get the owner tools back.' : ''}</p></div>`}`;
     box.onclick = (e) => act(e, owner);
   }
   const tagOk = (t) => /^[A-Za-z0-9_]{3,11}#\d{4}$/.test(t);
