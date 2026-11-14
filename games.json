@@ -749,6 +749,20 @@
     "added": 1794676622832,
     "updates": [
       {
+        "version": "1.1",
+        "date": "2026-11-14",
+        "title": "Scarier",
+        "notes": [
+          "Something stands at the edge of your light now: at the end of a hall, in a doorway. Shine the light on it and it is gone. Look away and look back, and it is gone.",
+          "Stand still in the dark too long and you may hear breathing right behind your head.",
+          "It talks while it looks for you: in Lily's voice, in Claire's, in yours.",
+          "Hide, and sometimes it comes to the wardrobe and stands there, listening. Hold your breath.",
+          "Your flashlight dies when it is close and hasn't seen you yet. Doors close behind you when you aren't looking.",
+          "It moves wrong now: it stops dead and its head turns all the way round towards you, and when it chases you it moves like stop-motion and lunges.",
+          "New moments in the night: the monitor in your bedroom, crying from Lily's closet, something dragging across the ceiling."
+        ]
+      },
+      {
         "version": "1.0",
         "date": "2026-11-14",
         "title": "Release",
