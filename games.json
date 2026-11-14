@@ -749,6 +749,19 @@
     "added": 1794676622832,
     "updates": [
       {
+        "version": "1.2",
+        "date": "2026-11-14",
+        "title": "Together",
+        "notes": [
+          "Play together: up to four of you in the same house on the same night. Host a room, send the code or the invite link.",
+          "Proximity voice chat: you hear each other when you are close, muffled through walls and floors. Choose clear or 3D voices.",
+          "It can hear you talking. And it listens: it keeps pieces of what you say and plays them back from the dark, in your friends' voices. It knows your names, too.",
+          "Caught? You are not dead yet. You wait in the dark, hearing the others, then wake up in your bed. It is still 3:17.",
+          "Your own nightmares: what you see, your friends do not. Sometimes you see one of them at the end of the hall, with their back to you, when they are on the other side of the house.",
+          "Scarier alone too: it comes closer with every flash of lightning, it lies flat on the ceiling above you, little bare feet follow yours, and sometimes something is already in the wardrobe with you."
+        ]
+      },
+      {
         "version": "1.1",
         "date": "2026-11-14",
         "title": "Scarier",
