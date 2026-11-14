@@ -475,6 +475,32 @@
     "added": 1794368112365,
     "updates": [
       {
+        "version": "2.0",
+        "date": "2026-11-12",
+        "title": "Longer runs, three new chapters, the grapple",
+        "notes": [
+          "Three new chapters: The Drowned Line (the flooded metro), Glasshouse (the hanging gardens) and The Choir (inside the Spire, three lock-in halls back to back). Nine chapters now.",
+          "Every chapter is about three times longer, and the routes turn corners, climb and drop instead of running in one straight line.",
+          "Grapple: look at a glowing ring and press E (middle click, Y / triangle, or HOOK on touch). It pulls you in and throws you on.",
+          "Ziplines: jump up into a cable and ride it. Jump to let go.",
+          "Lock-in arenas: energy gates shut behind you and the wardens come in waves. Clear every wave to open the way.",
+          "New wardens: Heavies (armoured, take three bullets or one cut, fire a 5-shot spread), Seekers (small drones that dive at you and burst) and Mortars (a red ring on the ground shows where the shell lands; shells hurt wardens too).",
+          "Harder fights: gunners strafe while they shoot, shields and heavies walk at you, and everyone fires a bit faster.",
+          "HALCYON calls down seekers every time you break a pylon.",
+          "Your unlocked chapters carry over. Best times start fresh, since the chapters are new lengths."
+        ]
+      },
+      {
+        "version": "1.2.1",
+        "date": "2026-11-11",
+        "title": "Smoother fights",
+        "notes": [
+          "Fights run much smoother: sparks, bullet glows and bullets are now drawn together instead of one by one (the boss fight runs about 45% faster on slower PCs, with a third fewer draw calls).",
+          "Fixed slowly building up memory during long fights (every enemy shot left a little behind).",
+          "Rain and the see-through shields, blade glow and exit beam cost less to draw."
+        ]
+      },
+      {
         "version": "1.2",
         "date": "2026-11-11",
         "title": "Voices, surround sound and new models",
@@ -710,6 +736,28 @@
           "Swap chains: switch weapons between hits for style and extra damage.",
           "New enemies RAM, BURROWER and MENDER, and two new duels.",
           "Controller and touch support, and the PRACTICE ROOM (v0.9)."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stillhome",
+    "title": "STILL HOME",
+    "desc": "3:17 AM. The power is out. Your daughter has been gone for fourteen months. The baby monitor just turned on. A first-person horror game set in your own dark house.",
+    "url": "https://merchantsteam29.github.io/still-home/",
+    "thumb": "thumbs/stillhome.png",
+    "added": 1794676622832,
+    "updates": [
+      {
+        "version": "1.0",
+        "date": "2026-11-14",
+        "title": "Release",
+        "notes": [
+          "3:17 AM. The power is out, the baby monitor in your missing daughter's room has turned itself on, and something in the house is wearing her nightgown.",
+          "Explore your own house in the dark with a flashlight and a few batteries: four floors from the basement to the attic.",
+          "It hears you run and sees your light. Hide in wardrobes, under beds and in the car, and hold your breath when it comes close.",
+          "Find the three fuses you hid, read what happened, and choose how the night ends. Two endings.",
+          "Controllers (Xbox, PlayStation, Steam Deck) and touch screens work. Installable as an app."
         ]
       }
     ]
