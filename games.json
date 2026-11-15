@@ -860,6 +860,21 @@
     "added": 1794766071734,
     "updates": [
       {
+        "version": "1.5",
+        "date": "2026-11-15",
+        "title": "Season mode",
+        "notes": [
+          "Career: a 10-chapter rookie season with a coach, a rival and a championship game",
+          "Trick Contest: spin moves, between the legs, combos and three judges' cards",
+          "New shooting games: 21 and Around the World; 2v2 games count passes, assists and steals",
+          "Calibrate a player in 1 minute so calls fit how they move",
+          "\"Bad call\" button saves the replay and what the ref saw, so wrong calls can be fixed",
+          "Side camera: a second phone filming from the side takes over travel calls",
+          "Voice commands, a phone remote control, and online leagues with friends",
+          "Fix: some buttons in setup were drawn in the wrong place"
+        ]
+      },
+      {
         "version": "1.4",
         "date": "2026-11-15",
         "title": "Coach in a box",
