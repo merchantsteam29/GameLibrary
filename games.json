@@ -860,6 +860,21 @@
     "added": 1794766071734,
     "updates": [
       {
+        "version": "1.4",
+        "date": "2026-11-15",
+        "title": "Coach in a box",
+        "notes": [
+          "New drills: Weak Hand 30, Crossovers 30, Between the Legs, Layup Lines, Defensive Slides",
+          "Today's challenge with day streaks, and Beat the Pro ghost bars to race",
+          "Practice plans that run a whole practice: stations, rest countdowns and voice cues",
+          "Instant replay in slow motion with the skeleton drawn on",
+          "Shot chart over your own court, team mode with printable reports, and shareable parent reports",
+          "A second phone or tablet can be the big scoreboard",
+          "Arena mode (crowd, buzzer, intros) and unlockable themes, whistles and celebrations",
+          "Play offline, plus a battery saver"
+        ]
+      },
+      {
         "version": "1.3",
         "date": "2026-11-15",
         "title": "Full court",
