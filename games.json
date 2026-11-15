@@ -850,5 +850,27 @@
         ]
       }
     ]
+  },
+  {
+    "id": "whistle",
+    "title": "WHISTLE · Basketball Ref & Coach",
+    "desc": "A basketball ref and coach for kids. Point a camera at a player: it counts dribbles, calls traveling and double dribbles, tracks makes, and awards XP, levels and badges.",
+    "url": "https://merchantsteam29.github.io/whistle/",
+    "thumb": "thumbs/whistle.png",
+    "added": 1794766071734,
+    "updates": [
+      {
+        "version": "1.0",
+        "date": "2026-11-15",
+        "title": "Tip-off",
+        "notes": [
+          "Point a phone or laptop camera at a player and WHISTLE refs them live",
+          "Calls traveling (2 steps, or 3 in Beginner, plus pivot-foot rules) and double dribbles, with a whistle and a voice call",
+          "Counts dribbles and streaks, and scores shots through a hoop you mark on screen",
+          "XP, 10 levels from Rookie to Hall of Fame, 16 badges, and player profiles",
+          "Drills: Handles 30 and Ten Shots, with personal bests"
+        ]
+      }
+    ]
   }
 ]
