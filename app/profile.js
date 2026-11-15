@@ -24,6 +24,9 @@
     hollowbadge: { ach: 'hollowbadge', list: [['c1', 'Case 01 closed'], ['c2', 'Case 02 closed'], ['c3', 'Case 03 closed'], ['c4', 'Case 04 closed'], ['hard', 'By the book'], ['lilies', 'White lilies']],
       stats: () => { const r = read('hb_results') || {}; const n = ['cmary', 'wing', 'harrow', 'ash'].filter((k) => r[k] === 'solved').length; return [Object.keys(r).length && ['Cases solved', n + ' / 4']]; } },
     happymeadow: { ach: 'meadow', list: [['garden', 'Into the garden'], ['escape', 'Out of the meadow']], stats: () => [] },
+    whistle: { ach: 'whistle', list: [['first', 'First Bucket'], ['handles', 'Handles'], ['sharp', 'Sharpshooter'], ['form9', 'Pure Form'], ['win', 'Winner'], ['horse', 'Horse Master'], ['k1', '1K Club'], ['rat', 'Gym Rat']],
+      stats: () => { const d = read('whistle.v1') || {}, ps = d.players || [], dr = ps.reduce((a, p) => a + ((p.stats || {}).dribbles || 0), 0), best = ps.reduce((m, p) => Math.max(m, p.xp || 0), 0);
+        return [ps.length && ['Players', ps.map((p) => p.name).join(', ')], dr && ['Dribbles', num(dr)], best && ['Top XP', num(best)]]; } },
     bonkbowl: { ach: 'bonkbowl', list: [['champ', 'Champion'], ['bonk10', 'Bonk-off'], ['bonk100', 'Bowling ball'], ['online', 'Long distance'], ['regular', 'Regular']],
       stats: () => { const s = read('bonkbowl.stats') || {}; return [s.matches && ['Matches', num(s.matches) + ' · ' + num(s.wins) + ' won'], s.bonkoffs && ['Bonk-offs', num(s.bonkoffs)]]; } },
     'lifewillend': { ach: 'lifewillend', list: [['ch1', 'Last delivery'], ['ch3', 'Under the Ring'], ['ch5', "Don't look down"], ['end', 'Life did not end'], ['flawless', 'Untouched'], ['srank', 'Courier of the year'], ['deflect10', 'Return to sender'], ['blade50', 'Edge of the world']],
