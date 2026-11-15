@@ -860,6 +860,19 @@
     "added": 1794766071734,
     "updates": [
       {
+        "version": "1.2",
+        "date": "2026-11-15",
+        "title": "Sharper eyes",
+        "notes": [
+          "Learns your ball by itself: hold it up in both hands for a second (works for brown, faded, red or any coloured ball)",
+          "Follows a shot all the way to the rim, even when the ball leaves the top of the picture",
+          "Ignores other people's balls and the orange rim itself; a ball near the hoop can look small and still count",
+          "A ball held up to shoot is no longer mistaken for the face",
+          "No more double-counted dribbles when the ball is hidden for part of a bounce",
+          "Tested on real footage: made shots now score, and a long dribbling clip has no false calls"
+        ]
+      },
+      {
         "version": "1.1",
         "date": "2026-11-15",
         "title": "Game day",
