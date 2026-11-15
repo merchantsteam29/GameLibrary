@@ -860,6 +860,19 @@
     "added": 1794766071734,
     "updates": [
       {
+        "version": "1.1",
+        "date": "2026-11-15",
+        "title": "Game day",
+        "notes": [
+          "Game mode: 1v1 or 2v2 on one camera. Fouls, 2s and 3s, free throws, and-ones, bonus, foul-outs and a box score",
+          "Better tracking: it ignores skin, shirts and background spots that look like the ball, and checks the ball is the right size",
+          "Calls keep working when the ball is hidden in the hands or blurred mid-dribble",
+          "Any ball: tap it to learn its colour. White or grey balls are found by motion",
+          "Faster: it tracks once per camera frame at a lighter resolution, and drops to Fast mode if a device can't keep up",
+          "Ref a recorded video from setup, plus a Tracking view to see what it sees"
+        ]
+      },
+      {
         "version": "1.0",
         "date": "2026-11-15",
         "title": "Tip-off",
