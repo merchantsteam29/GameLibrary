@@ -188,6 +188,18 @@
     "added": 1794865315788,
     "updates": [
       {
+        "version": "1.1",
+        "date": "2026-11-16",
+        "title": "Chaos update",
+        "notes": [
+          "Ragdolls: get hit and you go flying the way it came from, limbs flailing.",
+          "Emotes: hold Z and flick the mouse (D-pad on a controller, EMOTE on phones): wave, point, dance, sit, scream, flex. Viewers love them.",
+          "Carry and revive: pick up a dead friend (E), carry or throw them, and a few seconds at the van brings them back to life.",
+          "Donations: viewers pay you to film something specific. The first camcorder to do it gets the bonus views.",
+          "Blood rain: some nights the sky turns red. Outside it drains your stamina and battery, but everything you film in it is worth double."
+        ]
+      },
+      {
         "version": "1.0",
         "date": "2026-11-16",
         "title": "First upload",
