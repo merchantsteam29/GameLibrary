@@ -180,6 +180,28 @@
     ]
   },
   {
+    "id": "deadair",
+    "title": "DEAD AIR",
+    "desc": "A free co-op ghost-hunting game in your browser. Film the weird stuff, get views, try not to get taken. Alone or up to 4 friends with proximity voice chat.",
+    "url": "https://merchantsteam29.github.io/dead-air/",
+    "thumb": "thumbs/deadair.png",
+    "added": 1794865315788,
+    "updates": [
+      {
+        "version": "1.0",
+        "date": "2026-11-16",
+        "title": "First upload",
+        "notes": [
+          "A new co-op game for 1 to 4 players with proximity voice chat: film the weird stuff, get views, get the tapes back to the van.",
+          "Six anomalies to film, plus Mr. Applause (he hears you) and the hand (it steals).",
+          "Pick up and throw almost anything. Bonk your friends. Bonk the monsters.",
+          "The best 8 seconds of every tape play after the night, with sound.",
+          "Three nights a season, a view quota, and the channel gets terminated if you miss it."
+        ]
+      }
+    ]
+  },
+  {
     "id": "gun-game-fun",
     "title": "Trigger Happy",
     "desc": "(Formerly Gun Game 3D.) A browser-based 3D multiplayer shooter (Three.js + WebRTC) to play with friends, with bots.",
