@@ -188,6 +188,17 @@
     "added": 1794865315788,
     "updates": [
       {
+        "version": "1.7",
+        "date": "2026-11-16",
+        "title": "Gadgets, roles, new looks, van upgrades",
+        "notes": [
+          "The van has kit every night: two walkie-talkies (hold one and talk: whoever has the other hears you anywhere, but monsters hear the static), an EMF meter (lights up and beeps faster near weird stuff), a flash camera (3 shots, stuns whatever is in front of you and makes the Critic vanish) and a spare battery (click next to a camcorder).",
+          "Roles (pick in the lobby or on the title screen): Camera op (battery lasts longer), Host (talking on camera earns 3x), Runner (more stamina, faster), Tech (EMF meter built in, sees the Critic up close without a camera).",
+          "New looks: outfits (hoodie, suit, hazmat, overalls), hats (top hat, party hat, headphones, crown) and extras (glasses, mustache, scarf, backpack).",
+          "Your van grows with your channel (Your channel shows the next level): stickers at 5k views, fairy lights and a brighter van light at 15k, a neon sign and a spare battery at 30k, flames and a bigger zone to leave from at 60k, gold trim and a second flash camera at 120k. In a crew, it is the host's channel that counts."
+        ]
+      },
+      {
         "version": "1.6",
         "date": "2026-11-16",
         "title": "The Critic and haunted junk",
