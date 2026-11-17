@@ -188,6 +188,15 @@
     "added": 1794865315788,
     "updates": [
       {
+        "version": "1.8",
+        "date": "2026-11-16",
+        "title": "Endless night and Play as the monster",
+        "notes": [
+          "Endless night (title screen alone, or Mode in the lobby): one night that never ends. Every 3 minutes the network checks in: your tapes need to have hit a rising view target or the channel is cancelled on the spot. Each check-in brings something new out there. Drive away whenever you like to bank what you have. Your best run shows on the title screen.",
+          "Play as the monster (Mode in the lobby, 2+ players): one of you, picked at random, is Mr. Applause in first person. He sees the dark better, the crew shows up as red rings through walls when they talk or run, click grabs, right click takes a bow. Thrown junk and the flash camera stun him. His voice comes from where he is... The crew wins if more than half of them get away."
+        ]
+      },
+      {
         "version": "1.7",
         "date": "2026-11-16",
         "title": "Gadgets, roles, new looks, van upgrades",
