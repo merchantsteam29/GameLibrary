@@ -188,6 +188,18 @@
     "added": 1794865315788,
     "updates": [
       {
+        "version": "1.4",
+        "date": "2026-11-16",
+        "title": "Polish: tutorial, push to talk, bigger maps",
+        "notes": [
+          "A short tutorial on your first night alone: grab the camcorder, film the floating chair, throw something, do an emote, then how to leave. The monsters wait a little longer while it runs. Replay it from How to play.",
+          "Push to talk: Settings > Microphone. Hold V (R3 on a controller, TALK on phones) to talk. Mr. Applause can only hear you while you hold it.",
+          "Test mic in Settings: a live level bar so you know your mic works before you go out.",
+          "Bigger maps: more ground, one more building on lots, and bigger malls, hospitals and schools.",
+          "Brighter: lamp posts outside, lit windows, ceiling lights in every room. Lot rooms are furnished now (tables, sofas, cabinets)."
+        ]
+      },
+      {
         "version": "1.3",
         "date": "2026-11-16",
         "title": "New places, night events, your channel",
