@@ -188,6 +188,17 @@
     "added": 1794865315788,
     "updates": [
       {
+        "version": "1.2",
+        "date": "2026-11-16",
+        "title": "New creatures",
+        "notes": [
+          "The Intern (2+ players): it looks like one of your friends and walks with the crew. Wander off alone and it comes for you. Its headlamp is off and its mouth never moves, and through the camcorder you see its real face. Film it to expose it (then run).",
+          "The Mascot: a giant hot dog slumped in a chair. Wake it up and it only moves while no camcorder is pointed at it. Keep filming.",
+          "Four new things to film: a phone that rings and answers itself, a bathtub that fills up red, a portrait that changes when nobody is looking, and a ghost dog that plays fetch with anything you throw.",
+          "Up to 7 weird things a night now."
+        ]
+      },
+      {
         "version": "1.1",
         "date": "2026-11-16",
         "title": "Chaos update",
