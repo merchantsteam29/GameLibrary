@@ -188,6 +188,15 @@
     "added": 1794865315788,
     "updates": [
       {
+        "version": "1.5",
+        "date": "2026-11-16",
+        "title": "Quick Play and rejoining",
+        "notes": [
+          "Quick Play (title screen): see public crews, how full they are and whether they are out filming, and join with one click. Or host a public crew so strangers can find you. Private crews with a code still work as before.",
+          "Dropped mid-night? The game gets you back into the same night by itself, standing where you were. The host keeps your place for 45 seconds."
+        ]
+      },
+      {
         "version": "1.4.1",
         "date": "2026-11-16",
         "title": "Runs faster",
