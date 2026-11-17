@@ -188,6 +188,18 @@
     "added": 1794865315788,
     "updates": [
       {
+        "version": "1.3",
+        "date": "2026-11-16",
+        "title": "New places, night events, your channel",
+        "notes": [
+          "New places: malls, hospitals and schools. One big building full of rooms, with shelves, beds or desks, and their own junk to throw.",
+          "Something only each place has: a shopping cart that rolls at you (mall), an X-ray where the skeleton waves (hospital), and a chalkboard that writes messages with your names on them (school).",
+          "Ceiling lights in every room. Some are dead, some flicker.",
+          "Night events, one a night: thick fog (footage x1.3), a lightning storm, a power cut, a BLOOD MOON (everything faster, every view x2), or blood rain.",
+          "Your channel (title screen): subscribers, total views, best night, longest run, times taken and revived, and every upload you have made. Only on this device, nothing to unlock."
+        ]
+      },
+      {
         "version": "1.2",
         "date": "2026-11-16",
         "title": "New creatures",
