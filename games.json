@@ -188,6 +188,16 @@
     "added": 1794865315788,
     "updates": [
       {
+        "version": "1.4.1",
+        "date": "2026-11-16",
+        "title": "Runs faster",
+        "notes": [
+          "Smoother on slower PCs and phones: in tests a frame takes about a third less time walking around, and filming is up to three times faster.",
+          "The viewfinder draws at a lower resolution (you cannot tell under the grain), fewer lights per pixel, simpler shadows.",
+          "Windows, lights and doorways are drawn in batches: about half the draw calls outdoors."
+        ]
+      },
+      {
         "version": "1.4",
         "date": "2026-11-16",
         "title": "Polish: tutorial, push to talk, bigger maps",
