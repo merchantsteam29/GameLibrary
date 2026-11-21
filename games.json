@@ -866,6 +866,16 @@
     "added": 1795238971832,
     "updates": [
       {
+        "version": "1.0.1",
+        "date": "2026-11-21",
+        "title": "Smoother",
+        "notes": [
+          "Much less lag: every person is one mesh now, the scenery merges into far fewer pieces, and shadows update less often. Less than half the draw calls on the street.",
+          "Medium graphics renders at your screen's real resolution and uses one less room light. Low uses cheaper lighting.",
+          "If the game is still slow at the lowest resolution, it drops to a lower graphics setting by itself and tells you."
+        ]
+      },
+      {
         "version": "1.0",
         "date": "2026-11-20",
         "title": "7:00 AM",
