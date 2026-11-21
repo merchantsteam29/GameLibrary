@@ -941,6 +941,28 @@
     ]
   },
   {
+    "id": "trickortreat",
+    "title": "TRICK OR TREAT",
+    "desc": "Halloween, 1990. You let go of your little brother for one second on Hollow Lane, and he was gone. Follow his candy from house to house. Something tall with a candle in its head is following you. A first-person horror game.",
+    "url": "https://merchantsteam29.github.io/trick-or-treat/",
+    "thumb": "thumbs/trickortreat.png",
+    "added": 1795246079014,
+    "updates": [
+      {
+        "version": "1.0",
+        "date": "2026-11-21",
+        "title": "TRICK OR TREAT",
+        "notes": [
+          "Halloween, 1990. Your little brother Toby is taken on Hollow Lane. Follow his candy from house to house.",
+          "The Tall Pumpkin Man hunts by sight and sound: crouch, keep your flashlight off, hide, and hold your breath. Your walkie-talkie hisses when he's close.",
+          "Neighbours in masks on every porch, who scream for him. The Ferrises, who only move when you aren't looking. A haunted garage with a real guillotine.",
+          "Three named jack-o'-lanterns to blow out, four endings, five ways to die.",
+          "Full gore by default (Quick cut in Settings). Checkpoints, controllers, touch, and installable as an app."
+        ]
+      }
+    ]
+  },
+  {
     "id": "wardnine",
     "title": "Ward Nine",
     "desc": "",
