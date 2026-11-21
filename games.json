@@ -949,6 +949,17 @@
     "added": 1795246079014,
     "updates": [
       {
+        "version": "1.0.1",
+        "date": "2026-11-21",
+        "title": "Much less lag",
+        "notes": [
+          "The corn field and the fallen leaves were being drawn across the whole map, even from the bottom of the lane. Now they are drawn in small pieces, only near you, and the corn is thinner.",
+          "The game no longer draws anything past where the fog hides it.",
+          "People far away in the fog are skipped.",
+          "Fixed a rare freeze when he went to check on a noise."
+        ]
+      },
+      {
         "version": "1.0",
         "date": "2026-11-21",
         "title": "TRICK OR TREAT",
