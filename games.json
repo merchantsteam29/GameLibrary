@@ -858,6 +858,30 @@
     ]
   },
   {
+    "id": "sevenam",
+    "title": "7:00 AM",
+    "desc": "Owen Hale wakes up at 7:00 AM. He dies before 7:40. He wakes up at 7:00 AM. Every time he fixes what killed him, the world gets a little more wrong. A first-person horror game about a loop, a road, and a man with no face.",
+    "url": "https://merchantsteam29.github.io/seven-am/",
+    "thumb": "thumbs/sevenam.png",
+    "added": 1795238971832,
+    "updates": [
+      {
+        "version": "1.0",
+        "date": "2026-11-20",
+        "title": "7:00 AM",
+        "notes": [
+          "Owen Hale wakes up at 7:00 AM. He has to catch the 7:40 bus. Something kills him first, and he wakes up at 7:00 again.",
+          "Eight ways to die, and a fix for every one. You remember what killed you; the game remembers too.",
+          "Every morning you survive longer, the world goes more wrong: faces fade from photographs, the stairs go round once too often, the neighbours face the wall, and a man with no face gets closer.",
+          "The night before: an opening cutscene on Route 9, in the rain.",
+          "Three endings. One of them needs you to remember what happened last night.",
+          "Gore setting: Quick cut (default) or Full.",
+          "Keyboard and mouse, Xbox, PlayStation, Steam Deck controllers, and touch. Installable as an app."
+        ]
+      }
+    ]
+  },
+  {
     "id": "stillhome",
     "title": "STILL HOME",
     "desc": "3:17 AM. The power is out. Your daughter has been gone for fourteen months. The baby monitor just turned on. A first-person horror game set in your own dark house.",
