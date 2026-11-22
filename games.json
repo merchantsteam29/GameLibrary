@@ -730,11 +730,25 @@
   {
     "id": "remission",
     "title": "REMISSION",
-    "desc": "Dr. Adrian Hale made a cure for cancer. Then the patients died, and got back up. An open-world zombie horror shooter: an overrun city, a day and night cycle, five guns, and a gore slider.",
+    "desc": "Dr. Adrian Hale made a cure for cancer. Then the patients died, and got back up. An open-world zombie horror shooter: an overrun city, a day and night cycle, five guns, a gore slider, and a survival mode for up to 4 players with voice chat, on PC and phones.",
     "url": "https://merchantsteam29.github.io/remission/",
     "thumb": "thumbs/remission.png",
     "added": 1795304114038,
     "updates": [
+      {
+        "version": "1.1",
+        "date": "2026-11-21",
+        "title": "Survival, co-op and phones",
+        "notes": [
+          "New SURVIVAL mode on the title screen: no story, the whole city, as many nights as you can last. Scavenge by day; at 8 PM the waves start, and every night they are bigger and faster.",
+          "Play it alone or with up to 4 friends: host a room and share the 4-letter code (or the invite link). Phones and PCs can play together.",
+          "Proximity voice chat: friends are loud up close and fade across the city. The dead can hear you talking.",
+          "Go down and your friends have 30 seconds to pick you up. Bleed out and you watch until dawn. When everyone is down, it is over.",
+          "Gun caches at the precinct, the checkpoint, Harrow Court and the helicopter, with fresh ammo every day.",
+          "Phones: lighter graphics and fewer zombies on phones, bigger buttons, aim assist, auto-fire (fires when one is in your sights), and tap the prompt to use things.",
+          "Aim assist for controllers too (Settings)."
+        ]
+      },
       {
         "version": "1.0",
         "date": "2026-11-21",
