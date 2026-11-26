@@ -188,6 +188,22 @@
     "added": 1795725292919,
     "updates": [
       {
+        "version": "1.2",
+        "date": "2026-11-26",
+        "title": "Graphics, guns, soldiers and feel",
+        "notes": [
+          "A real sky: physically based scattering, drifting clouds, and light from the sky on everything (metal and plastic now reflect it).",
+          "Post-processing: colour grading, vignette, film grain and lens fringing; bloom on muzzle flashes and explosions (High); ambient occlusion for soft contact shadows (new Ultra setting). Being hurt drains the colour and darkens the edges; rounds snapping past smear the edges of your view.",
+          "Guns rebuilt with rounded parts and real detail: rail teeth, M-LOK slots, charging handles, ejection ports, forward assists, triggers and guards, ribbed magazines, slide serrations, scope rings, sling swivels.",
+          "Soldiers rebuilt: rounded bodies with faces and ears, plate carriers with cummerbunds, loaded magazine pouches, radios, hydration packs, a holstered pistol, cargo pockets, knee pads and proper boots; helmets with rails, NVG mounts and chin straps.",
+          "Better animation: legs step the way you are actually moving when strafing or backing up, the body leans into a sprint, hips sway, soldiers breathe when standing still.",
+          "The maps are lived in: window frames and sills, painted shutters and open doors, water tanks and satellite dishes on the roofs, AC units on the walls, oil drums, tyres, rubble, dry scrub, rubbish, better palm trees; at the port, jersey barriers, pallet stacks, cable reels, puddles and lane markings.",
+          "Effects: a 3D muzzle flash, glowing tracers, chips of plaster, wood and concrete that fly off walls and bounce, and explosions with a fireball, a shockwave ring, flying dirt and a column of smoke.",
+          "Feel: recoil kicks and springs back, a short camera punch per shot, the gun rolls as you strafe and dips when you land.",
+          "Faster despite all that: whole soldiers, guns and scenery are merged into a few draw calls each. Low and Medium stay light for weaker PCs."
+        ]
+      },
+      {
         "version": "1.1",
         "date": "2026-11-26",
         "title": "Real gunshots",
