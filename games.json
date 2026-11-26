@@ -188,6 +188,18 @@
     "added": 1795725292919,
     "updates": [
       {
+        "version": "1.3",
+        "date": "2026-11-26",
+        "title": "Smooth on PC, playable on phones",
+        "notes": [
+          "Much smoother: the stutters are gone. Gun models are built once and copied (a gun appearing used to freeze the game for a moment), soldiers share their body meshes, bot path-finding is several times faster and spread out, textures no longer stall the graphics card, and every shader is compiled while the match loads instead of mid-fight.",
+          "Low is now properly light: no shadows, no anti-aliasing, a shorter view distance. Medium redraws shadows every other frame. Shadows only cover the area around you, and far-away soldiers do not cast them.",
+          "New players start on Medium (phones on Low). Anti-aliasing changes after a reload.",
+          "Phones: on-screen controls. A stick wherever your left thumb lands, drag the right side to look, and buttons for fire, aim, reload, jump, crouch, sprint, swap, melee, throw (and grenade type), first aid, buy, scores, fire mode, light and pause. A TAKE GUN button pops up by dropped guns.",
+          "Phones get gentle aim assist (stronger while aiming), fullscreen landscape when you deploy, a smaller HUD and menus that fit, and a reminder to turn the phone sideways. Phones and PCs play in the same matches."
+        ]
+      },
+      {
         "version": "1.2",
         "date": "2026-11-26",
         "title": "Graphics, guns, soldiers and feel",
