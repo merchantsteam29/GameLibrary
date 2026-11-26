@@ -1,1167 +1,1190 @@
 [
-  {
-    "id": "afterhours",
-    "title": "Willowmere After Hours",
-    "desc": "Night-shift horror at an animal hospital. Keep the patients calm. Keep the doors ready. Survive until 6 AM.",
-    "url": "https://merchantsteam29.github.io/after-hours/",
-    "thumb": "thumbs/afterhours.png",
-    "added": 1794111849501,
-    "updates": [
-      {
-        "version": "1.4",
-        "date": "2026-11-11",
-        "title": "Achievements",
-        "notes": [
-          "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page.",
-          "Your progress syncs between devices too (☁ Sync)."
+    {
+        "id": "afterhours",
+        "title": "Willowmere After Hours",
+        "desc": "Night-shift horror at an animal hospital. Keep the patients calm. Keep the doors ready. Survive until 6 AM.",
+        "url": "https://merchantsteam29.github.io/after-hours/",
+        "thumb": "thumbs/afterhours.png",
+        "added": 1794111849501,
+        "updates": [
+            {
+                "version": "1.4",
+                "date": "2026-11-11",
+                "title": "Achievements",
+                "notes": [
+                    "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page.",
+                    "Your progress syncs between devices too (☁ Sync)."
+                ]
+            },
+            {
+                "version": "1.3",
+                "date": "2026-11-11",
+                "title": "Overtime",
+                "notes": [
+                    "New: Night 6 · Overtime, unlocked once you finish night 5. A new patient, Ziggy the ferret, lives in a pen in the lobby (camera 4).",
+                    "Ziggy doesn't use the halls. If he turns, he's in the walls: listen for his chitter on the left, the right or the vent, and shut that one fast.",
+                    "The generator surges on Overtime: every door pops open and the cameras reboot.",
+                    "Nights: replay any night you've reached and earn up to 3 stars (survive · keep 25% power · nobody turns).",
+                    "Custom Night challenges (Pack Animals, Birdwatching, Runners, Skeleton Crew), ticked off when you beat them. Ziggy can join Custom Night too.",
+                    "Patient files: every patient's chart, how many times they got you, and how many correct doses you've given them.",
+                    "Sync: keep your progress on all your devices (☁ SYNC on the menu)."
+                ]
+            },
+            {
+                "version": "1.2",
+                "date": "2026-11-10",
+                "title": "Controllers and phones",
+                "notes": [
+                    "Play with a controller: the left stick looks around, the bumpers shut the doors, the triggers work the lights, and A raises the cameras. Menus work with the D-pad.",
+                    "Play on a phone: drag to look around, tap the buttons along the bottom for the doors, lights and vent, and tap the phone box to answer calls.",
+                    "More settings: screen shake and flashes (full, reduced or off), auto resolution, fullscreen and controllers. Settings can now be opened from the pause menu."
+                ]
+            },
+            {
+                "version": "1.1",
+                "date": "2026-11-09",
+                "title": "Install as an app",
+                "notes": [
+                    "Willowmere After Hours can be installed as an app from the menu (INSTALL AS APP), with its own icon. It opens fullscreen and works offline once it has loaded."
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-07",
+                "title": "Release",
+                "notes": [
+                    "Night-shift horror at Willowmere animal hospital: five nights, plus a Custom Night.",
+                    "Keep Biscuit, Mittens, Hoppy and Pepper calm on the cameras: feed them, play them music, or dose them at the medication station.",
+                    "Let a patient's stress reach 100 and it turns, and comes for you.",
+                    "From night 4, the Stray only moves when nobody is watching it."
+                ]
+            }
         ]
-      },
-      {
-        "version": "1.3",
-        "date": "2026-11-11",
-        "title": "Overtime",
-        "notes": [
-          "New: Night 6 · Overtime, unlocked once you finish night 5. A new patient, Ziggy the ferret, lives in a pen in the lobby (camera 4).",
-          "Ziggy doesn't use the halls. If he turns, he's in the walls: listen for his chitter on the left, the right or the vent, and shut that one fast.",
-          "The generator surges on Overtime: every door pops open and the cameras reboot.",
-          "Nights: replay any night you've reached and earn up to 3 stars (survive · keep 25% power · nobody turns).",
-          "Custom Night challenges (Pack Animals, Birdwatching, Runners, Skeleton Crew), ticked off when you beat them. Ziggy can join Custom Night too.",
-          "Patient files: every patient's chart, how many times they got you, and how many correct doses you've given them.",
-          "Sync: keep your progress on all your devices (☁ SYNC on the menu)."
+    },
+    {
+        "id": "bonkbowl",
+        "title": "Bonk Bowl",
+        "desc": "3-player party game on one keyboard. Dash into your friends and bonk them off a crumbling hex arena. Last blob standing wins.",
+        "url": "https://merchantsteam29.github.io/bonk-bowl/",
+        "thumb": "thumbs/bonkbowl.png",
+        "added": 1794177554852,
+        "updates": [
+            {
+                "version": "1.4",
+                "date": "2026-11-11",
+                "title": "Carousel, Factory Floor, magnets and bananas",
+                "notes": [
+                    "New arena: Carousel. The whole bowl turns and carries you with it.",
+                    "New arena: Factory Floor. Conveyor belts push you sideways: ride them into a bonk, or fight them.",
+                    "New power-ups: MAGNET pulls everyone toward you, BANANA drops a peel that sends whoever steps on it spinning.",
+                    "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page."
+                ]
+            },
+            {
+                "version": "1.3",
+                "date": "2026-11-11",
+                "title": "Online",
+                "notes": [
+                    "Play online: press 🌐 Online in the lobby. One of you hosts and shares the 4-letter code (or the link); friends join from their own computers.",
+                    "Friends take the free slots; the host can still add CPUs and local players on the same keyboard.",
+                    "If a friend drops out mid-match, a CPU takes over their blob.",
+                    "Settings: volume, screen shake, auto resolution and fullscreen. Big bonks freeze for a split second and the winning knock-off plays in slow motion."
+                ]
+            },
+            {
+                "version": "1.2",
+                "date": "2026-11-09",
+                "title": "Install as an app",
+                "notes": [
+                    "Bonk Bowl can be installed as an app from the lobby (Install as an app), with its own icon. It opens fullscreen and works offline once it has loaded."
+                ]
+            },
+            {
+                "version": "1.1",
+                "date": "2026-11-08",
+                "title": "New maps, and easier to play",
+                "notes": [
+                    "Four new maps: Donut Dunes, Three Isles, Bumper Park and Frozen Pond, plus Random each round.",
+                    "Snappier movement with less sliding, softer knockback and a quicker dash recharge.",
+                    "A small edge lip: you wobble on the edge before you fall.",
+                    "The floor starts crumbling later and slower.",
+                    "CPU difficulty: Easy, Normal or Hard (Easy by default)."
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-08",
+                "title": "Release",
+                "notes": [
+                    "Three blobs, one keyboard, one crumbling bowl: dash into your friends and knock them off.",
+                    "CPU players fill any empty seats.",
+                    "Pickups: MEGA, ZOOM and QUAKE.",
+                    "First to 3, 5 or 7 rounds wins."
+                ]
+            }
         ]
-      },
-      {
-        "version": "1.2",
-        "date": "2026-11-10",
-        "title": "Controllers and phones",
-        "notes": [
-          "Play with a controller: the left stick looks around, the bumpers shut the doors, the triggers work the lights, and A raises the cameras. Menus work with the D-pad.",
-          "Play on a phone: drag to look around, tap the buttons along the bottom for the doors, lights and vent, and tap the phone box to answer calls.",
-          "More settings: screen shake and flashes (full, reduced or off), auto resolution, fullscreen and controllers. Settings can now be opened from the pause menu."
+    },
+    {
+        "id": "breachzero",
+        "title": "BREACH: ZERO",
+        "desc": "A dark first-person horror shooter. You are trapped five floors under Ardent Biolabs after a containment breach. Find keycards, outrun the Stalker, kill THE HOST, and get to the surface lift.",
+        "url": "https://merchantsteam29.github.io/breach-zero/",
+        "thumb": "thumbs/breachzero.png",
+        "added": 1794192138733,
+        "updates": [
+            {
+                "version": "2.1",
+                "date": "2026-11-11",
+                "title": "The incinerator and the Burster",
+                "notes": [
+                    "New weapon: the INCINERATOR [5]. Hold the trigger for a cone of fire that sets things alight. Find it on Sublevel 3; fuel cans refill it. You start Survival with it.",
+                    "New enemy: the BURSTER, a swollen husk that waddles up and bursts in acid. Shoot it early, or pop it next to its friends: the blast hurts them too. From Sublevel 3, and in Survival from wave 3.",
+                    "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page."
+                ]
+            },
+            {
+                "version": "2.0",
+                "date": "2026-11-09",
+                "title": "Five floors down",
+                "notes": [
+                    "Two new floors before the reactor: the flooded Pump Station and the overrun Security Wing.",
+                    "The Stalker: something tall, pale and unkillable hunts you in set scenes on floors 2 to 4. Run.",
+                    "THE HOST: pull the reactor breaker and the lab's nest wakes up. Kill it to call the freight lift.",
+                    "New weapons: an SMG, and a crowbar that's always with you (quiet, no ammo, quick bash on V / RB).",
+                    "Scripted scares: dying lights, a runner in the dark, a body that wasn't there, footsteps, a door slammed shut.",
+                    "Survival mode: endless waves in the Containment Hall, with THE HOST every fifth wave.",
+                    "Records screen and four unlockable extras: VHS filter, noir filter, infinite flashlight, golden guns.",
+                    "Controller support (wheels and joysticks are ignored so the view never spins on its own).",
+                    "Menus remade as a CRT security terminal; the HUD is now a wrist bio-monitor with a live heartbeat."
+                ]
+            },
+            {
+                "version": "1.1",
+                "date": "2026-11-09",
+                "title": "Performance update",
+                "notes": [
+                    "Far fewer draw calls: monsters, walls, decals and guns are batched together.",
+                    "Cheaper glow and post-processing, one less light on every pixel, and a pixel cap for big screens.",
+                    "New Auto resolution setting lowers the render resolution when the frame rate drops.",
+                    "Shaders are prepared when a floor loads, so new monsters no longer cause a hitch."
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-08",
+                "title": "Release",
+                "notes": [
+                    "Three floors under Ardent Biolabs, four monster types, pistol and shotgun, nine audio logs and the reactor finale."
+                ]
+            }
         ]
-      },
-      {
-        "version": "1.1",
-        "date": "2026-11-09",
-        "title": "Install as an app",
-        "notes": [
-          "Willowmere After Hours can be installed as an app from the menu (INSTALL AS APP), with its own icon. It opens fullscreen and works offline once it has loaded."
+    },
+    {
+        "id": "coldbore",
+        "title": "COLD BORE",
+        "desc": "A realistic online multiplayer FPS. Real guns at their real prices, earned from kills. Body-part damage, armour levels, penetration, bleeding, realistic gore with a slider. Free-for-all, Team Deathmatch and Domination, filled with bots when there aren",
+        "url": "https://merchantsteam29.github.io/cold-bore/",
+        "thumb": "thumbs/coldbore.png",
+        "added": 1795725292919,
+        "updates": [
+            {
+                "version": "1.0",
+                "date": "2026-11-26",
+                "title": "COLD BORE",
+                "notes": [
+                    "A realistic online multiplayer FPS: Free-for-all, Team Deathmatch and Domination on two maps (Al-Hadra, a desert town, and Kessel Freight Yard, a container port).",
+                    "Quick Play finds an online match; if there isn't one, you host one and bots fill the empty places. Bots leave as real players join. Server browser, private matches with a code, and offline vs bots.",
+                    "27 real guns at their real prices (a Glock 17 is $550, an M4 $1,150, a Barrett M82 $9,500), real attachments (EOTech, ACOG, suppressors with the $200 tax stamp), melee weapons, grenades, first aid and armour. Kills pay $500 (+$250 headshot) and the money is yours for the match.",
+                    "Ballistics: bullet drop, travel time, penetration through walls and bodies, armour levels IIIA / III / IV and helmets that stop what they would really stop.",
+                    "Wounds where the rounds land, bleeding you have to treat (bandage, tourniquet, IFAK), limping on a leg hit, shaking aim on an arm hit. Ragdolls. Realistic gore with a slider from 0 (none) to 100.",
+                    "Your bank (every dollar you earn) buys uniforms and Cerakote finishes in the Armory. Controllers (Xbox, PlayStation, Steam Deck), installable as an app."
+                ]
+            }
         ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-07",
-        "title": "Release",
-        "notes": [
-          "Night-shift horror at Willowmere animal hospital: five nights, plus a Custom Night.",
-          "Keep Biscuit, Mittens, Hoppy and Pepper calm on the cameras: feed them, play them music, or dose them at the medication station.",
-          "Let a patient's stress reach 100 and it turns, and comes for you.",
-          "From night 4, the Stray only moves when nobody is watching it."
+    },
+    {
+        "id": "deadair",
+        "title": "DEAD AIR",
+        "desc": "A free co-op ghost-hunting game in your browser. Film the weird stuff, get views, try not to get taken. Alone or up to 4 friends with proximity voice chat.",
+        "url": "https://merchantsteam29.github.io/dead-air/",
+        "thumb": "thumbs/deadair.png",
+        "added": 1794865315788,
+        "updates": [
+            {
+                "version": "1.8",
+                "date": "2026-11-16",
+                "title": "Endless night and Play as the monster",
+                "notes": [
+                    "Endless night (title screen alone, or Mode in the lobby): one night that never ends. Every 3 minutes the network checks in: your tapes need to have hit a rising view target or the channel is cancelled on the spot. Each check-in brings something new out there. Drive away whenever you like to bank what you have. Your best run shows on the title screen.",
+                    "Play as the monster (Mode in the lobby, 2+ players): one of you, picked at random, is Mr. Applause in first person. He sees the dark better, the crew shows up as red rings through walls when they talk or run, click grabs, right click takes a bow. Thrown junk and the flash camera stun him. His voice comes from where he is... The crew wins if more than half of them get away."
+                ]
+            },
+            {
+                "version": "1.7",
+                "date": "2026-11-16",
+                "title": "Gadgets, roles, new looks, van upgrades",
+                "notes": [
+                    "The van has kit every night: two walkie-talkies (hold one and talk: whoever has the other hears you anywhere, but monsters hear the static), an EMF meter (lights up and beeps faster near weird stuff), a flash camera (3 shots, stuns whatever is in front of you and makes the Critic vanish) and a spare battery (click next to a camcorder).",
+                    "Roles (pick in the lobby or on the title screen): Camera op (battery lasts longer), Host (talking on camera earns 3x), Runner (more stamina, faster), Tech (EMF meter built in, sees the Critic up close without a camera).",
+                    "New looks: outfits (hoodie, suit, hazmat, overalls), hats (top hat, party hat, headphones, crown) and extras (glasses, mustache, scarf, backpack).",
+                    "Your van grows with your channel (Your channel shows the next level): stickers at 5k views, fairy lights and a brighter van light at 15k, a neon sign and a spare battery at 30k, flames and a bigger zone to leave from at 60k, gold trim and a second flash camera at 120k. In a crew, it is the host's channel that counts."
+                ]
+            },
+            {
+                "version": "1.6",
+                "date": "2026-11-16",
+                "title": "The Critic and haunted junk",
+                "notes": [
+                    "The Critic: a figure in a coat that only exists through the camcorder. A couple of seconds of it are great footage. Keep filming and it starts taking views off your tape, and it walks toward you while you film. If it reaches you, you get CANCELLED: knocked over and a quarter of the tape gone. Filming a friend getting cancelled, though, is gold.",
+                    "Haunted junk: a few things each night are possessed. They wake when you get close, float after you, and throw themselves at people. Grab one out of the air and throw it back. Worth views on camera, more mid-throw."
+                ]
+            },
+            {
+                "version": "1.5",
+                "date": "2026-11-16",
+                "title": "Quick Play and rejoining",
+                "notes": [
+                    "Quick Play (title screen): see public crews, how full they are and whether they are out filming, and join with one click. Or host a public crew so strangers can find you. Private crews with a code still work as before.",
+                    "Dropped mid-night? The game gets you back into the same night by itself, standing where you were. The host keeps your place for 45 seconds."
+                ]
+            },
+            {
+                "version": "1.4.1",
+                "date": "2026-11-16",
+                "title": "Runs faster",
+                "notes": [
+                    "Smoother on slower PCs and phones: in tests a frame takes about a third less time walking around, and filming is up to three times faster.",
+                    "The viewfinder draws at a lower resolution (you cannot tell under the grain), fewer lights per pixel, simpler shadows.",
+                    "Windows, lights and doorways are drawn in batches: about half the draw calls outdoors."
+                ]
+            },
+            {
+                "version": "1.4",
+                "date": "2026-11-16",
+                "title": "Polish: tutorial, push to talk, bigger maps",
+                "notes": [
+                    "A short tutorial on your first night alone: grab the camcorder, film the floating chair, throw something, do an emote, then how to leave. The monsters wait a little longer while it runs. Replay it from How to play.",
+                    "Push to talk: Settings > Microphone. Hold V (R3 on a controller, TALK on phones) to talk. Mr. Applause can only hear you while you hold it.",
+                    "Test mic in Settings: a live level bar so you know your mic works before you go out.",
+                    "Bigger maps: more ground, one more building on lots, and bigger malls, hospitals and schools.",
+                    "Brighter: lamp posts outside, lit windows, ceiling lights in every room. Lot rooms are furnished now (tables, sofas, cabinets)."
+                ]
+            },
+            {
+                "version": "1.3",
+                "date": "2026-11-16",
+                "title": "New places, night events, your channel",
+                "notes": [
+                    "New places: malls, hospitals and schools. One big building full of rooms, with shelves, beds or desks, and their own junk to throw.",
+                    "Something only each place has: a shopping cart that rolls at you (mall), an X-ray where the skeleton waves (hospital), and a chalkboard that writes messages with your names on them (school).",
+                    "Ceiling lights in every room. Some are dead, some flicker.",
+                    "Night events, one a night: thick fog (footage x1.3), a lightning storm, a power cut, a BLOOD MOON (everything faster, every view x2), or blood rain.",
+                    "Your channel (title screen): subscribers, total views, best night, longest run, times taken and revived, and every upload you have made. Only on this device, nothing to unlock."
+                ]
+            },
+            {
+                "version": "1.2",
+                "date": "2026-11-16",
+                "title": "New creatures",
+                "notes": [
+                    "The Intern (2+ players): it looks like one of your friends and walks with the crew. Wander off alone and it comes for you. Its headlamp is off and its mouth never moves, and through the camcorder you see its real face. Film it to expose it (then run).",
+                    "The Mascot: a giant hot dog slumped in a chair. Wake it up and it only moves while no camcorder is pointed at it. Keep filming.",
+                    "Four new things to film: a phone that rings and answers itself, a bathtub that fills up red, a portrait that changes when nobody is looking, and a ghost dog that plays fetch with anything you throw.",
+                    "Up to 7 weird things a night now."
+                ]
+            },
+            {
+                "version": "1.1",
+                "date": "2026-11-16",
+                "title": "Chaos update",
+                "notes": [
+                    "Ragdolls: get hit and you go flying the way it came from, limbs flailing.",
+                    "Emotes: hold Z and flick the mouse (D-pad on a controller, EMOTE on phones): wave, point, dance, sit, scream, flex. Viewers love them.",
+                    "Carry and revive: pick up a dead friend (E), carry or throw them, and a few seconds at the van brings them back to life.",
+                    "Donations: viewers pay you to film something specific. The first camcorder to do it gets the bonus views.",
+                    "Blood rain: some nights the sky turns red. Outside it drains your stamina and battery, but everything you film in it is worth double."
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-16",
+                "title": "First upload",
+                "notes": [
+                    "A new co-op game for 1 to 4 players with proximity voice chat: film the weird stuff, get views, get the tapes back to the van.",
+                    "Six anomalies to film, plus Mr. Applause (he hears you) and the hand (it steals).",
+                    "Pick up and throw almost anything. Bonk your friends. Bonk the monsters.",
+                    "The best 8 seconds of every tape play after the night, with sound.",
+                    "Three nights a season, a view quota, and the channel gets terminated if you miss it."
+                ]
+            }
         ]
-      }
-    ]
-  },
-  {
-    "id": "bonkbowl",
-    "title": "Bonk Bowl",
-    "desc": "3-player party game on one keyboard. Dash into your friends and bonk them off a crumbling hex arena. Last blob standing wins.",
-    "url": "https://merchantsteam29.github.io/bonk-bowl/",
-    "thumb": "thumbs/bonkbowl.png",
-    "added": 1794177554852,
-    "updates": [
-      {
-        "version": "1.4",
-        "date": "2026-11-11",
-        "title": "Carousel, Factory Floor, magnets and bananas",
-        "notes": [
-          "New arena: Carousel. The whole bowl turns and carries you with it.",
-          "New arena: Factory Floor. Conveyor belts push you sideways: ride them into a bonk, or fight them.",
-          "New power-ups: MAGNET pulls everyone toward you, BANANA drops a peel that sends whoever steps on it spinning.",
-          "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page."
+    },
+    {
+        "id": "gun-game-fun",
+        "title": "Trigger Happy",
+        "desc": "(Formerly Gun Game 3D.) A browser-based 3D multiplayer shooter (Three.js + WebRTC) to play with friends, with bots.",
+        "url": "https://merchantsteam29.github.io/trigger-happy/",
+        "thumb": "thumbs/gun-game-fun.png",
+        "added": 1792100523377,
+        "updates": [
+            {
+                "version": "2026.10.16.10",
+                "date": "2026-10-16",
+                "title": "In Motion",
+                "notes": [
+                    "Moderator looks",
+                    "Fixes",
+                    "New Banner"
+                ]
+            },
+            {
+                "version": "2026.10.15.38",
+                "date": "2026-10-15",
+                "title": "New Look",
+                "notes": [
+                    "Menus",
+                    "Play",
+                    "Locker Room",
+                    "Shop",
+                    "Friends",
+                    "New Banner",
+                    "Phones: a cleaner menu",
+                    "Fixes"
+                ]
+            },
+            {
+                "version": "2026.10.15.35",
+                "date": "2026-10-15",
+                "title": "Play Together",
+                "notes": [
+                    "Play Hour",
+                    "Join GIGACHAD",
+                    "Welcome Back",
+                    "New Banner"
+                ]
+            },
+            {
+                "version": "2026.10.15.34",
+                "date": "2026-10-15",
+                "title": "Costume Party 2",
+                "notes": [
+                    "Costumes",
+                    "Gun Skins",
+                    "Banners",
+                    "Name Tags",
+                    "Kill Effects",
+                    "More Costumes",
+                    "More Gun Skins",
+                    "More Banners, Name Tags and Kill Effects",
+                    "Poses and Emotes"
+                ]
+            },
+            {
+                "version": "2026.10.15.32",
+                "date": "2026-10-15",
+                "title": "Armory",
+                "notes": [
+                    "Gun Skins",
+                    "Animated Wraps",
+                    "New Banner"
+                ]
+            },
+            {
+                "version": "2026.10.15.31",
+                "date": "2026-10-15",
+                "title": "Costume Party",
+                "notes": [
+                    "Costumes",
+                    "New Banner",
+                    "Fixes",
+                    "More Costumes",
+                    "Blood Machine Remake"
+                ]
+            },
+            {
+                "version": "2026.10.15.27",
+                "date": "2026-10-15",
+                "title": "Staff HQ Update",
+                "notes": [
+                    "One Big Update Log",
+                    "4 New Banners",
+                    "Staff Permissions",
+                    "Trial Moderators",
+                    "Suspect Alerts",
+                    "Ban Evasion Finder",
+                    "Evidence Clips",
+                    "Aim-Snap Detector",
+                    "Report Claiming",
+                    "Quick Actions on Reports",
+                    "Repeat Offenders",
+                    "Report Trends",
+                    "Live Matches for Staff",
+                    "Chat Lock Everywhere",
+                    "Go To Player",
+                    "Punishment Ladder",
+                    "Ranked Bans",
+                    "Gift Freeze",
+                    "Map Publish Ban",
+                    "Undo",
+                    "Owner Override Log",
+                    "Owner Gifts",
+                    "Live Events",
+                    "Owner Stats",
+                    "Message of the Day",
+                    "Shop Spotlight",
+                    "Update Countdown",
+                    "Staff Test Servers"
+                ]
+            },
+            {
+                "version": "2026.10.14.26",
+                "date": "2026-10-14",
+                "title": "The Mega Update",
+                "notes": [
+                    "Smoother Replays",
+                    "Ranked Revival",
+                    "Smarter Bots",
+                    "Replays for Staff",
+                    "Moderation Tools",
+                    "Your Reports",
+                    "Match History",
+                    "Name Tags",
+                    "Weapon Charms",
+                    "Your Own Spray",
+                    "3D Character",
+                    "Party Up",
+                    "Friend Challenges",
+                    "Clan Bases",
+                    "Day and Night",
+                    "Glass",
+                    "Foundry"
+                ]
+            }
         ]
-      },
-      {
-        "version": "1.3",
-        "date": "2026-11-11",
-        "title": "Online",
-        "notes": [
-          "Play online: press 🌐 Online in the lobby. One of you hosts and shares the 4-letter code (or the link); friends join from their own computers.",
-          "Friends take the free slots; the host can still add CPUs and local players on the same keyboard.",
-          "If a friend drops out mid-match, a CPU takes over their blob.",
-          "Settings: volume, screen shake, auto resolution and fullscreen. Big bonks freeze for a split second and the winning knock-off plays in slow motion."
+    },
+    {
+        "id": "happymeadow",
+        "title": "Mochi's Happy Meadow",
+        "desc": "A super cute little bunny platformer! Collect carrots with your friends in the sunny meadow ♥",
+        "url": "https://merchantsteam29.github.io/happy-meadow/",
+        "thumb": "thumbs/happymeadow.png",
+        "added": 1794161818116,
+        "updates": [
+            {
+                "version": "1.4",
+                "date": "2026-11-11",
+                "title": "Achievements",
+                "notes": [
+                    "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page.",
+                    "Your progress syncs between devices too (☁ Sync)."
+                ]
+            },
+            {
+                "version": "1.3",
+                "date": "2026-11-09",
+                "title": "Install as an app",
+                "notes": [
+                    "Mochi's Happy Meadow can be installed as an app from the title screen (Install app ♥), with its own bunny icon. It opens fullscreen and works offline once it has loaded."
+                ]
+            },
+            {
+                "version": "1.2",
+                "date": "2026-11-08",
+                "title": "Realistic 3D garden",
+                "notes": [
+                    "The garden is far more realistic: flashlight shadows, a light beam through dust and mist, film grain and motion blur.",
+                    "Dead twisted trees, tens of thousands of grass blades moving in the wind, and much worse flowers.",
+                    "Sunny is new: hunched, starved, in a torn costume and a cracked porcelain mask.",
+                    "Heavier movement: head-bob, stumbles and breath fog.",
+                    "A Graphics setting (Auto, High, Low)."
+                ]
+            },
+            {
+                "version": "1.1",
+                "date": "2026-11-08",
+                "title": "Scarier, and on phones",
+                "notes": [
+                    "Sunny's footsteps move around you, and Sunny speaks.",
+                    "Panic breathing, a lights-out scare, fake footsteps behind you, and a red garden in the final chase.",
+                    "Phone controls: buttons in the 2D part, and a joystick, drag-to-look and action buttons in 3D."
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-08",
+                "title": "Release",
+                "notes": [
+                    "A super cute bunny platformer. Collect carrots in the sunny meadow. Day 1, Day 2, Day 3...",
+                    "Something is wrong with the meadow."
+                ]
+            }
         ]
-      },
-      {
-        "version": "1.2",
-        "date": "2026-11-09",
-        "title": "Install as an app",
-        "notes": [
-          "Bonk Bowl can be installed as an app from the lobby (Install as an app), with its own icon. It opens fullscreen and works offline once it has loaded."
+    },
+    {
+        "id": "hollowbadge",
+        "title": "Hollow Badge",
+        "desc": "A dark first-person detective game in your browser. Four cases, one collector. Free, no download. Contains disturbing themes.",
+        "url": "https://merchantsteam29.github.io/hollow-badge/",
+        "thumb": "thumbs/hollowbadge.png",
+        "added": 1794105674503,
+        "updates": [
+            {
+                "version": "4.3",
+                "date": "2026-11-11",
+                "title": "Sync and achievements",
+                "notes": [
+                    "Sync: keep your case results and lilies on all your devices. Press ☁ Sync on the menu, then enter the code on your other device. No account or email.",
+                    "Achievements: close each case, solve one on hard, find all three white lilies. A 🏆 pops up when you get one, and the Game Library's Profile page shows them all."
+                ]
+            },
+            {
+                "version": "4.2.1",
+                "date": "2026-11-09",
+                "title": "Download for PC",
+                "notes": [
+                    "A Download for PC button on the menu: it opens the Game Library page, where one click installs the library as a PC app with Hollow Badge and all the other games in one place. It is hidden on phones."
+                ]
+            },
+            {
+                "version": "4.2",
+                "date": "2026-11-09",
+                "title": "Install as an app",
+                "notes": [
+                    "Hollow Badge can be installed as an app: press Install as app on the menu (Chrome / Edge / Android), or Share > Add to Home Screen on iPhone. It gets its own icon, opens fullscreen and works offline once it has loaded."
+                ]
+            },
+            {
+                "version": "4.1",
+                "date": "2026-11-07",
+                "title": "Clean-up",
+                "notes": [
+                    "Phones: the ending screen scrolls, so Go home and Epilogue can no longer end up off the bottom of a landscape phone.",
+                    "Phones: presenting evidence in an interview scrolls the clue list into view, and the LIGHT and NOTES buttons now tick off the how-to-play checklist.",
+                    "The menu buttons no longer overlap the tagline.",
+                    "The epilogue morning looks like morning: the rain on your window has stopped.",
+                    "The unused voice-acting system has been removed. The game stays fully subtitled.",
+                    "Links to the game now show a proper preview image, and the browser tab has a badge icon.",
+                    "Behind the scenes: tidier code, a saved suite of automated playtests (desktop and phone), and a licence."
+                ]
+            },
+            {
+                "version": "4.0.1",
+                "date": "2026-11-07",
+                "title": "Fully subtitled",
+                "notes": [
+                    "Hollow Badge is fully subtitled with no spoken dialogue. The voice-actor recording link has been removed from the menu."
+                ]
+            },
+            {
+                "version": "4.0",
+                "date": "2026-11-07",
+                "title": "The Final Cut",
+                "notes": [
+                    "A living title screen: the menu drifts down a rainy Ashgrove street at night.",
+                    "An epilogue after the finale, and a credits roll.",
+                    "A white lily is hidden somewhere off the path in Cases 01, 02 and 03. Find all three for the true ending.",
+                    "Reduce flashing (on the content warning and in settings): calms lightning, jumpscare flashes, police lights, flickering lamps and screen shake.",
+                    "New settings: subtitle size, field of view, invert look, controllers on/off. A short how-to-play checklist the first time you play.",
+                    "Gamepad support: left stick to move, right stick to look, A to examine, X flashlight, Y notebook, LT to hold your breath, Start to pause, and the D-pad works every menu."
+                ]
+            },
+            {
+                "version": "3.0.2",
+                "date": "2026-11-07",
+                "title": "Fix: home objectives",
+                "notes": [
+                    "The apartment now follows what you have done: messages, mail, then the case wall. With Cases 01 to 03 finished, the payphone downstairs rings and the door takes you straight into Case 04."
+                ]
+            },
+            {
+                "version": "3.0.1",
+                "date": "2026-11-07",
+                "title": "Fix: your car in Case 04",
+                "notes": [
+                    "Your car in Ashgrove is now parked outside your building with its headlights on, and walking up to it opens the case board (it used to do nothing)."
+                ]
+            }
         ]
-      },
-      {
-        "version": "1.1",
-        "date": "2026-11-08",
-        "title": "New maps, and easier to play",
-        "notes": [
-          "Four new maps: Donut Dunes, Three Isles, Bumper Park and Frozen Pond, plus Random each round.",
-          "Snappier movement with less sliding, softer knockback and a quicker dash recharge.",
-          "A small edge lip: you wobble on the edge before you fall.",
-          "The floor starts crumbling later and slower.",
-          "CPU difficulty: Easy, Normal or Hard (Easy by default)."
+    },
+    {
+        "id": "lifewillend",
+        "title": "LIFE WILL END: NOW RUN",
+        "desc": "A first-person parkour shooter in a drowned neon city. Run the walls, cut the bullets, climb the Spire before dawn.",
+        "url": "https://merchantsteam29.github.io/life-will-end-NOW-RUN/",
+        "thumb": "thumbs/lifewillend.png",
+        "added": 1794368112365,
+        "updates": [
+            {
+                "version": "2.0",
+                "date": "2026-11-12",
+                "title": "Longer runs, three new chapters, the grapple",
+                "notes": [
+                    "Three new chapters: The Drowned Line (the flooded metro), Glasshouse (the hanging gardens) and The Choir (inside the Spire, three lock-in halls back to back). Nine chapters now.",
+                    "Every chapter is about three times longer, and the routes turn corners, climb and drop instead of running in one straight line.",
+                    "Grapple: look at a glowing ring and press E (middle click, Y / triangle, or HOOK on touch). It pulls you in and throws you on.",
+                    "Ziplines: jump up into a cable and ride it. Jump to let go.",
+                    "Lock-in arenas: energy gates shut behind you and the wardens come in waves. Clear every wave to open the way.",
+                    "New wardens: Heavies (armoured, take three bullets or one cut, fire a 5-shot spread), Seekers (small drones that dive at you and burst) and Mortars (a red ring on the ground shows where the shell lands; shells hurt wardens too).",
+                    "Harder fights: gunners strafe while they shoot, shields and heavies walk at you, and everyone fires a bit faster.",
+                    "HALCYON calls down seekers every time you break a pylon.",
+                    "Your unlocked chapters carry over. Best times start fresh, since the chapters are new lengths."
+                ]
+            },
+            {
+                "version": "1.2.1",
+                "date": "2026-11-11",
+                "title": "Smoother fights",
+                "notes": [
+                    "Fights run much smoother: sparks, bullet glows and bullets are now drawn together instead of one by one (the boss fight runs about 45% faster on slower PCs, with a third fewer draw calls).",
+                    "Fixed slowly building up memory during long fights (every enemy shot left a little behind).",
+                    "Rain and the see-through shields, blade glow and exit beam cost less to draw."
+                ]
+            },
+            {
+                "version": "1.2",
+                "date": "2026-11-11",
+                "title": "Voices, surround sound and new models",
+                "notes": [
+                    "Voices: Wren, HALCYON and the courier now speak their radio lines out loud (your system's text to speech), each with their own voice. The ending is read out too. Turn it off or set its volume in Settings.",
+                    "Surround sound: enemy shots, their charge-up before firing, bullets whizzing past, charger footsteps, impacts and kills come from where they happen. Best on headphones; switch it off in Settings.",
+                    "Every model rebuilt: armoured wardens with helmets, visors and shoulder plates, a hooded long-rifle sniper, a riot-shield warden, a hunched blade-armed charger, rotor drones, twin-barrel turrets, crystal pylons and a new HALCYON core with an iris.",
+                    "The wardens move now: they aim at you, recoil when they fire, breathe while they wait and run on two legs.",
+                    "Your gun, blade and gloved hands rebuilt, with a glowing edge that flares when you cut."
+                ]
+            },
+            {
+                "version": "1.1",
+                "date": "2026-11-11",
+                "title": "Every controller, and phones",
+                "notes": [
+                    "Controllers: Xbox, PlayStation (DualShock 4 and DualSense), Steam Deck and the Steam Controller all work, in Chrome, Edge and Firefox, with or without Steam running.",
+                    "Button names follow the pad you are holding: A / B / LB / RT on Xbox, ✕ / ○ / L1 / R2 on PlayStation, L1 / R2 on Steam Deck. Wren's tips use them too.",
+                    "Vibration on pads that support it, a little aim help on sticks, and menus you can drive with the D-pad.",
+                    "Phones and tablets: a thumb stick, drag to look, and buttons for jump, slide, dash, fire, blade and focus. Play it sideways.",
+                    "Settings: controller vibration on or off, touch look speed."
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-11",
+                "title": "Release",
+                "notes": [
+                    "A new game: a first-person parkour shooter in a drowned neon megacity. HALCYON is opening the sea gates at dawn. Climb the Spire and stop it.",
+                    "Run the walls, slide under pipes, dash and double-jump. One hit kills you, and one hit kills them, but you're straight back at the last checkpoint.",
+                    "A gun with six shots and a blade that cuts wardens down and sends their bullets back at them. Hold Q to slow time.",
+                    "Six chapters with a story over the radio, a boss at the top of the Spire, times and ranks for every chapter.",
+                    "Controller support, settings, achievements and ☁ Sync between your devices."
+                ]
+            }
         ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-08",
-        "title": "Release",
-        "notes": [
-          "Three blobs, one keyboard, one crumbling bowl: dash into your friends and knock them off.",
-          "CPU players fill any empty seats.",
-          "Pickups: MEGA, ZOOM and QUAKE.",
-          "First to 3, 5 or 7 rounds wins."
+    },
+    {
+        "id": "mimic",
+        "title": "Mimic",
+        "desc": "A free first-person horror game in your browser. It records your voice and uses it to lure you, and your friends, into the dark.",
+        "url": "https://merchantsteam29.github.io/mimic/",
+        "thumb": "thumbs/mimic.png",
+        "added": 1793328914384,
+        "updates": [
+            {
+                "version": "Beta 1",
+                "date": "2026-10-29",
+                "title": "It listens first",
+                "notes": [
+                    "The mimic sorts what it hears (screams, calls, help, laughs, whispers) and uses the right one at the right moment.",
+                    "It calls from the dark near what you're looking for, sounds like the friend you split from, and answers when you shout for someone.",
+                    "Each night it starts by listening, then copies, then hunts.",
+                    "Learn its tells: a wet click in its throat before it speaks, and your flashlight dips twice when it's close."
+                ]
+            },
+            {
+                "version": "Beta",
+                "date": "2026-10-28",
+                "title": "Nearly finished",
+                "notes": [
+                    "Mimic is in beta: fourteen places, three stories and every mode, so now it's fixing and polishing.",
+                    "New places: a lighthouse island, the sewers, a liner in a storm, a snow research station and an old mine.",
+                    "A third story, The Babysitter, in five chapters.",
+                    "Endless descent: floor after floor, each worse than the last.",
+                    "The patient, the rat swarm, and a new mode, Imposter voices.",
+                    "It walks like you, and its copies of your voice get better as the night goes on.",
+                    "Kill-cam replays, simpler menus, bigger-text and colour-blind settings, and a Potato graphics setting for old machines."
+                ]
+            },
+            {
+                "version": "Alpha",
+                "date": "2026-10-27",
+                "title": "Alpha",
+                "notes": [
+                    "An abandoned fairground with a ghost train, a hall of mirrors and the clown.",
+                    "Spliced sentences: it cuts your words up and makes you say things you never said.",
+                    "A closed subway station, the Mother, and four new classes: Sound guy, Priest, Scout and Mechanic.",
+                    "Quick Play shows open public rooms, and the voice that fooled you can be saved as a video.",
+                    "Escort mode, map picking, a scarier-looking mimic and a sound pass for every place."
+                ]
+            },
+            {
+                "version": "",
+                "date": "2026-10-26",
+                "title": "The big expansion",
+                "notes": [
+                    "New places: the church, the asylum, the mall, the school, the hotel and the woods.",
+                    "New creatures: the Double, the Listener, the Stalker, the Shadow and the Caller.",
+                    "New modes: Night Shift, Versus, Hide and seek, and a second story, The Operator.",
+                    "Tape-recorder decoys, walkie-talkies, new hiding spots and things to throw.",
+                    "A tutorial, sound captions, auto graphics, an end-of-round recap, and rejoining after a drop.",
+                    "Moods and twists, so no two nights are the same."
+                ]
+            },
+            {
+                "version": "",
+                "date": "2026-10-25",
+                "title": "Release",
+                "notes": [
+                    "A horror game that records your voice and uses it to lure you into the dark.",
+                    "Up to 4 players online with proximity voice chat.",
+                    "Story mode with Ellie, and an online story, The Signal, with a secret traitor.",
+                    "Hunt mode (one player is the mimic), the hospital and the skinwalker.",
+                    "Controller and touch support, and it can be installed as an app."
+                ]
+            }
         ]
-      }
-    ]
-  },
-  {
-    "id": "breachzero",
-    "title": "BREACH: ZERO",
-    "desc": "A dark first-person horror shooter. You are trapped five floors under Ardent Biolabs after a containment breach. Find keycards, outrun the Stalker, kill THE HOST, and get to the surface lift.",
-    "url": "https://merchantsteam29.github.io/breach-zero/",
-    "thumb": "thumbs/breachzero.png",
-    "added": 1794192138733,
-    "updates": [
-      {
-        "version": "2.1",
-        "date": "2026-11-11",
-        "title": "The incinerator and the Burster",
-        "notes": [
-          "New weapon: the INCINERATOR [5]. Hold the trigger for a cone of fire that sets things alight. Find it on Sublevel 3; fuel cans refill it. You start Survival with it.",
-          "New enemy: the BURSTER, a swollen husk that waddles up and bursts in acid. Shoot it early, or pop it next to its friends: the blast hurts them too. From Sublevel 3, and in Survival from wave 3.",
-          "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page."
-        ]
-      },
-      {
-        "version": "2.0",
-        "date": "2026-11-09",
-        "title": "Five floors down",
-        "notes": [
-          "Two new floors before the reactor: the flooded Pump Station and the overrun Security Wing.",
-          "The Stalker: something tall, pale and unkillable hunts you in set scenes on floors 2 to 4. Run.",
-          "THE HOST: pull the reactor breaker and the lab's nest wakes up. Kill it to call the freight lift.",
-          "New weapons: an SMG, and a crowbar that's always with you (quiet, no ammo, quick bash on V / RB).",
-          "Scripted scares: dying lights, a runner in the dark, a body that wasn't there, footsteps, a door slammed shut.",
-          "Survival mode: endless waves in the Containment Hall, with THE HOST every fifth wave.",
-          "Records screen and four unlockable extras: VHS filter, noir filter, infinite flashlight, golden guns.",
-          "Controller support (wheels and joysticks are ignored so the view never spins on its own).",
-          "Menus remade as a CRT security terminal; the HUD is now a wrist bio-monitor with a live heartbeat."
-        ]
-      },
-      {
-        "version": "1.1",
-        "date": "2026-11-09",
-        "title": "Performance update",
-        "notes": [
-          "Far fewer draw calls: monsters, walls, decals and guns are batched together.",
-          "Cheaper glow and post-processing, one less light on every pixel, and a pixel cap for big screens.",
-          "New Auto resolution setting lowers the render resolution when the frame rate drops.",
-          "Shaders are prepared when a floor loads, so new monsters no longer cause a hitch."
-        ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-08",
-        "title": "Release",
-        "notes": [
-          "Three floors under Ardent Biolabs, four monster types, pistol and shotgun, nine audio logs and the reactor finale."
-        ]
-      }
-    ]
-  },
-  {
-    "id": "deadair",
-    "title": "DEAD AIR",
-    "desc": "A free co-op ghost-hunting game in your browser. Film the weird stuff, get views, try not to get taken. Alone or up to 4 friends with proximity voice chat.",
-    "url": "https://merchantsteam29.github.io/dead-air/",
-    "thumb": "thumbs/deadair.png",
-    "added": 1794865315788,
-    "updates": [
-      {
-        "version": "1.8",
-        "date": "2026-11-16",
-        "title": "Endless night and Play as the monster",
-        "notes": [
-          "Endless night (title screen alone, or Mode in the lobby): one night that never ends. Every 3 minutes the network checks in: your tapes need to have hit a rising view target or the channel is cancelled on the spot. Each check-in brings something new out there. Drive away whenever you like to bank what you have. Your best run shows on the title screen.",
-          "Play as the monster (Mode in the lobby, 2+ players): one of you, picked at random, is Mr. Applause in first person. He sees the dark better, the crew shows up as red rings through walls when they talk or run, click grabs, right click takes a bow. Thrown junk and the flash camera stun him. His voice comes from where he is... The crew wins if more than half of them get away."
-        ]
-      },
-      {
-        "version": "1.7",
-        "date": "2026-11-16",
-        "title": "Gadgets, roles, new looks, van upgrades",
-        "notes": [
-          "The van has kit every night: two walkie-talkies (hold one and talk: whoever has the other hears you anywhere, but monsters hear the static), an EMF meter (lights up and beeps faster near weird stuff), a flash camera (3 shots, stuns whatever is in front of you and makes the Critic vanish) and a spare battery (click next to a camcorder).",
-          "Roles (pick in the lobby or on the title screen): Camera op (battery lasts longer), Host (talking on camera earns 3x), Runner (more stamina, faster), Tech (EMF meter built in, sees the Critic up close without a camera).",
-          "New looks: outfits (hoodie, suit, hazmat, overalls), hats (top hat, party hat, headphones, crown) and extras (glasses, mustache, scarf, backpack).",
-          "Your van grows with your channel (Your channel shows the next level): stickers at 5k views, fairy lights and a brighter van light at 15k, a neon sign and a spare battery at 30k, flames and a bigger zone to leave from at 60k, gold trim and a second flash camera at 120k. In a crew, it is the host's channel that counts."
-        ]
-      },
-      {
-        "version": "1.6",
-        "date": "2026-11-16",
-        "title": "The Critic and haunted junk",
-        "notes": [
-          "The Critic: a figure in a coat that only exists through the camcorder. A couple of seconds of it are great footage. Keep filming and it starts taking views off your tape, and it walks toward you while you film. If it reaches you, you get CANCELLED: knocked over and a quarter of the tape gone. Filming a friend getting cancelled, though, is gold.",
-          "Haunted junk: a few things each night are possessed. They wake when you get close, float after you, and throw themselves at people. Grab one out of the air and throw it back. Worth views on camera, more mid-throw."
-        ]
-      },
-      {
-        "version": "1.5",
-        "date": "2026-11-16",
-        "title": "Quick Play and rejoining",
-        "notes": [
-          "Quick Play (title screen): see public crews, how full they are and whether they are out filming, and join with one click. Or host a public crew so strangers can find you. Private crews with a code still work as before.",
-          "Dropped mid-night? The game gets you back into the same night by itself, standing where you were. The host keeps your place for 45 seconds."
-        ]
-      },
-      {
-        "version": "1.4.1",
-        "date": "2026-11-16",
-        "title": "Runs faster",
-        "notes": [
-          "Smoother on slower PCs and phones: in tests a frame takes about a third less time walking around, and filming is up to three times faster.",
-          "The viewfinder draws at a lower resolution (you cannot tell under the grain), fewer lights per pixel, simpler shadows.",
-          "Windows, lights and doorways are drawn in batches: about half the draw calls outdoors."
-        ]
-      },
-      {
-        "version": "1.4",
-        "date": "2026-11-16",
-        "title": "Polish: tutorial, push to talk, bigger maps",
-        "notes": [
-          "A short tutorial on your first night alone: grab the camcorder, film the floating chair, throw something, do an emote, then how to leave. The monsters wait a little longer while it runs. Replay it from How to play.",
-          "Push to talk: Settings > Microphone. Hold V (R3 on a controller, TALK on phones) to talk. Mr. Applause can only hear you while you hold it.",
-          "Test mic in Settings: a live level bar so you know your mic works before you go out.",
-          "Bigger maps: more ground, one more building on lots, and bigger malls, hospitals and schools.",
-          "Brighter: lamp posts outside, lit windows, ceiling lights in every room. Lot rooms are furnished now (tables, sofas, cabinets)."
-        ]
-      },
-      {
-        "version": "1.3",
-        "date": "2026-11-16",
-        "title": "New places, night events, your channel",
-        "notes": [
-          "New places: malls, hospitals and schools. One big building full of rooms, with shelves, beds or desks, and their own junk to throw.",
-          "Something only each place has: a shopping cart that rolls at you (mall), an X-ray where the skeleton waves (hospital), and a chalkboard that writes messages with your names on them (school).",
-          "Ceiling lights in every room. Some are dead, some flicker.",
-          "Night events, one a night: thick fog (footage x1.3), a lightning storm, a power cut, a BLOOD MOON (everything faster, every view x2), or blood rain.",
-          "Your channel (title screen): subscribers, total views, best night, longest run, times taken and revived, and every upload you have made. Only on this device, nothing to unlock."
-        ]
-      },
-      {
-        "version": "1.2",
-        "date": "2026-11-16",
-        "title": "New creatures",
-        "notes": [
-          "The Intern (2+ players): it looks like one of your friends and walks with the crew. Wander off alone and it comes for you. Its headlamp is off and its mouth never moves, and through the camcorder you see its real face. Film it to expose it (then run).",
-          "The Mascot: a giant hot dog slumped in a chair. Wake it up and it only moves while no camcorder is pointed at it. Keep filming.",
-          "Four new things to film: a phone that rings and answers itself, a bathtub that fills up red, a portrait that changes when nobody is looking, and a ghost dog that plays fetch with anything you throw.",
-          "Up to 7 weird things a night now."
-        ]
-      },
-      {
-        "version": "1.1",
-        "date": "2026-11-16",
-        "title": "Chaos update",
-        "notes": [
-          "Ragdolls: get hit and you go flying the way it came from, limbs flailing.",
-          "Emotes: hold Z and flick the mouse (D-pad on a controller, EMOTE on phones): wave, point, dance, sit, scream, flex. Viewers love them.",
-          "Carry and revive: pick up a dead friend (E), carry or throw them, and a few seconds at the van brings them back to life.",
-          "Donations: viewers pay you to film something specific. The first camcorder to do it gets the bonus views.",
-          "Blood rain: some nights the sky turns red. Outside it drains your stamina and battery, but everything you film in it is worth double."
-        ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-16",
-        "title": "First upload",
-        "notes": [
-          "A new co-op game for 1 to 4 players with proximity voice chat: film the weird stuff, get views, get the tapes back to the van.",
-          "Six anomalies to film, plus Mr. Applause (he hears you) and the hand (it steals).",
-          "Pick up and throw almost anything. Bonk your friends. Bonk the monsters.",
-          "The best 8 seconds of every tape play after the night, with sound.",
-          "Three nights a season, a view quota, and the channel gets terminated if you miss it."
-        ]
-      }
-    ]
-  },
-  {
-    "id": "gun-game-fun",
-    "title": "Trigger Happy",
-    "desc": "(Formerly Gun Game 3D.) A browser-based 3D multiplayer shooter (Three.js + WebRTC) to play with friends, with bots.",
-    "url": "https://merchantsteam29.github.io/trigger-happy/",
-    "thumb": "thumbs/gun-game-fun.png",
-    "added": 1792100523377,
-    "updates": [
-      {
-        "version": "2026.10.16.10",
-        "date": "2026-10-16",
-        "title": "In Motion",
-        "notes": [
-          "Moderator looks",
-          "Fixes",
-          "New Banner"
-        ]
-      },
-      {
-        "version": "2026.10.15.38",
-        "date": "2026-10-15",
-        "title": "New Look",
-        "notes": [
-          "Menus",
-          "Play",
-          "Locker Room",
-          "Shop",
-          "Friends",
-          "New Banner",
-          "Phones: a cleaner menu",
-          "Fixes"
-        ]
-      },
-      {
-        "version": "2026.10.15.35",
-        "date": "2026-10-15",
-        "title": "Play Together",
-        "notes": [
-          "Play Hour",
-          "Join GIGACHAD",
-          "Welcome Back",
-          "New Banner"
-        ]
-      },
-      {
-        "version": "2026.10.15.34",
-        "date": "2026-10-15",
-        "title": "Costume Party 2",
-        "notes": [
-          "Costumes",
-          "Gun Skins",
-          "Banners",
-          "Name Tags",
-          "Kill Effects",
-          "More Costumes",
-          "More Gun Skins",
-          "More Banners, Name Tags and Kill Effects",
-          "Poses and Emotes"
-        ]
-      },
-      {
-        "version": "2026.10.15.32",
-        "date": "2026-10-15",
-        "title": "Armory",
-        "notes": [
-          "Gun Skins",
-          "Animated Wraps",
-          "New Banner"
-        ]
-      },
-      {
-        "version": "2026.10.15.31",
-        "date": "2026-10-15",
-        "title": "Costume Party",
-        "notes": [
-          "Costumes",
-          "New Banner",
-          "Fixes",
-          "More Costumes",
-          "Blood Machine Remake"
-        ]
-      },
-      {
-        "version": "2026.10.15.27",
-        "date": "2026-10-15",
-        "title": "Staff HQ Update",
-        "notes": [
-          "One Big Update Log",
-          "4 New Banners",
-          "Staff Permissions",
-          "Trial Moderators",
-          "Suspect Alerts",
-          "Ban Evasion Finder",
-          "Evidence Clips",
-          "Aim-Snap Detector",
-          "Report Claiming",
-          "Quick Actions on Reports",
-          "Repeat Offenders",
-          "Report Trends",
-          "Live Matches for Staff",
-          "Chat Lock Everywhere",
-          "Go To Player",
-          "Punishment Ladder",
-          "Ranked Bans",
-          "Gift Freeze",
-          "Map Publish Ban",
-          "Undo",
-          "Owner Override Log",
-          "Owner Gifts",
-          "Live Events",
-          "Owner Stats",
-          "Message of the Day",
-          "Shop Spotlight",
-          "Update Countdown",
-          "Staff Test Servers"
-        ]
-      },
-      {
-        "version": "2026.10.14.26",
-        "date": "2026-10-14",
-        "title": "The Mega Update",
-        "notes": [
-          "Smoother Replays",
-          "Ranked Revival",
-          "Smarter Bots",
-          "Replays for Staff",
-          "Moderation Tools",
-          "Your Reports",
-          "Match History",
-          "Name Tags",
-          "Weapon Charms",
-          "Your Own Spray",
-          "3D Character",
-          "Party Up",
-          "Friend Challenges",
-          "Clan Bases",
-          "Day and Night",
-          "Glass",
-          "Foundry"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "happymeadow",
-    "title": "Mochi's Happy Meadow",
-    "desc": "A super cute little bunny platformer! Collect carrots with your friends in the sunny meadow ♥",
-    "url": "https://merchantsteam29.github.io/happy-meadow/",
-    "thumb": "thumbs/happymeadow.png",
-    "added": 1794161818116,
-    "updates": [
-      {
-        "version": "1.4",
-        "date": "2026-11-11",
-        "title": "Achievements",
-        "notes": [
-          "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page.",
-          "Your progress syncs between devices too (☁ Sync)."
-        ]
-      },
-      {
-        "version": "1.3",
-        "date": "2026-11-09",
-        "title": "Install as an app",
-        "notes": [
-          "Mochi's Happy Meadow can be installed as an app from the title screen (Install app ♥), with its own bunny icon. It opens fullscreen and works offline once it has loaded."
-        ]
-      },
-      {
-        "version": "1.2",
-        "date": "2026-11-08",
-        "title": "Realistic 3D garden",
-        "notes": [
-          "The garden is far more realistic: flashlight shadows, a light beam through dust and mist, film grain and motion blur.",
-          "Dead twisted trees, tens of thousands of grass blades moving in the wind, and much worse flowers.",
-          "Sunny is new: hunched, starved, in a torn costume and a cracked porcelain mask.",
-          "Heavier movement: head-bob, stumbles and breath fog.",
-          "A Graphics setting (Auto, High, Low)."
-        ]
-      },
-      {
-        "version": "1.1",
-        "date": "2026-11-08",
-        "title": "Scarier, and on phones",
-        "notes": [
-          "Sunny's footsteps move around you, and Sunny speaks.",
-          "Panic breathing, a lights-out scare, fake footsteps behind you, and a red garden in the final chase.",
-          "Phone controls: buttons in the 2D part, and a joystick, drag-to-look and action buttons in 3D."
-        ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-08",
-        "title": "Release",
-        "notes": [
-          "A super cute bunny platformer. Collect carrots in the sunny meadow. Day 1, Day 2, Day 3...",
-          "Something is wrong with the meadow."
-        ]
-      }
-    ]
-  },
-  {
-    "id": "hollowbadge",
-    "title": "Hollow Badge",
-    "desc": "A dark first-person detective game in your browser. Four cases, one collector. Free, no download. Contains disturbing themes.",
-    "url": "https://merchantsteam29.github.io/hollow-badge/",
-    "thumb": "thumbs/hollowbadge.png",
-    "added": 1794105674503,
-    "updates": [
-      {
-        "version": "4.3",
-        "date": "2026-11-11",
-        "title": "Sync and achievements",
-        "notes": [
-          "Sync: keep your case results and lilies on all your devices. Press ☁ Sync on the menu, then enter the code on your other device. No account or email.",
-          "Achievements: close each case, solve one on hard, find all three white lilies. A 🏆 pops up when you get one, and the Game Library's Profile page shows them all."
-        ]
-      },
-      {
-        "version": "4.2.1",
-        "date": "2026-11-09",
-        "title": "Download for PC",
-        "notes": [
-          "A Download for PC button on the menu: it opens the Game Library page, where one click installs the library as a PC app with Hollow Badge and all the other games in one place. It is hidden on phones."
-        ]
-      },
-      {
-        "version": "4.2",
-        "date": "2026-11-09",
-        "title": "Install as an app",
-        "notes": [
-          "Hollow Badge can be installed as an app: press Install as app on the menu (Chrome / Edge / Android), or Share > Add to Home Screen on iPhone. It gets its own icon, opens fullscreen and works offline once it has loaded."
-        ]
-      },
-      {
-        "version": "4.1",
-        "date": "2026-11-07",
-        "title": "Clean-up",
-        "notes": [
-          "Phones: the ending screen scrolls, so Go home and Epilogue can no longer end up off the bottom of a landscape phone.",
-          "Phones: presenting evidence in an interview scrolls the clue list into view, and the LIGHT and NOTES buttons now tick off the how-to-play checklist.",
-          "The menu buttons no longer overlap the tagline.",
-          "The epilogue morning looks like morning: the rain on your window has stopped.",
-          "The unused voice-acting system has been removed. The game stays fully subtitled.",
-          "Links to the game now show a proper preview image, and the browser tab has a badge icon.",
-          "Behind the scenes: tidier code, a saved suite of automated playtests (desktop and phone), and a licence."
-        ]
-      },
-      {
-        "version": "4.0.1",
-        "date": "2026-11-07",
-        "title": "Fully subtitled",
-        "notes": [
-          "Hollow Badge is fully subtitled with no spoken dialogue. The voice-actor recording link has been removed from the menu."
-        ]
-      },
-      {
-        "version": "4.0",
-        "date": "2026-11-07",
-        "title": "The Final Cut",
-        "notes": [
-          "A living title screen: the menu drifts down a rainy Ashgrove street at night.",
-          "An epilogue after the finale, and a credits roll.",
-          "A white lily is hidden somewhere off the path in Cases 01, 02 and 03. Find all three for the true ending.",
-          "Reduce flashing (on the content warning and in settings): calms lightning, jumpscare flashes, police lights, flickering lamps and screen shake.",
-          "New settings: subtitle size, field of view, invert look, controllers on/off. A short how-to-play checklist the first time you play.",
-          "Gamepad support: left stick to move, right stick to look, A to examine, X flashlight, Y notebook, LT to hold your breath, Start to pause, and the D-pad works every menu."
-        ]
-      },
-      {
-        "version": "3.0.2",
-        "date": "2026-11-07",
-        "title": "Fix: home objectives",
-        "notes": [
-          "The apartment now follows what you have done: messages, mail, then the case wall. With Cases 01 to 03 finished, the payphone downstairs rings and the door takes you straight into Case 04."
-        ]
-      },
-      {
-        "version": "3.0.1",
-        "date": "2026-11-07",
-        "title": "Fix: your car in Case 04",
-        "notes": [
-          "Your car in Ashgrove is now parked outside your building with its headlights on, and walking up to it opens the case board (it used to do nothing)."
-        ]
-      }
-    ]
-  },
-  {
-    "id": "lifewillend",
-    "title": "LIFE WILL END: NOW RUN",
-    "desc": "A first-person parkour shooter in a drowned neon city. Run the walls, cut the bullets, climb the Spire before dawn.",
-    "url": "https://merchantsteam29.github.io/life-will-end-NOW-RUN/",
-    "thumb": "thumbs/lifewillend.png",
-    "added": 1794368112365,
-    "updates": [
-      {
-        "version": "2.0",
-        "date": "2026-11-12",
-        "title": "Longer runs, three new chapters, the grapple",
-        "notes": [
-          "Three new chapters: The Drowned Line (the flooded metro), Glasshouse (the hanging gardens) and The Choir (inside the Spire, three lock-in halls back to back). Nine chapters now.",
-          "Every chapter is about three times longer, and the routes turn corners, climb and drop instead of running in one straight line.",
-          "Grapple: look at a glowing ring and press E (middle click, Y / triangle, or HOOK on touch). It pulls you in and throws you on.",
-          "Ziplines: jump up into a cable and ride it. Jump to let go.",
-          "Lock-in arenas: energy gates shut behind you and the wardens come in waves. Clear every wave to open the way.",
-          "New wardens: Heavies (armoured, take three bullets or one cut, fire a 5-shot spread), Seekers (small drones that dive at you and burst) and Mortars (a red ring on the ground shows where the shell lands; shells hurt wardens too).",
-          "Harder fights: gunners strafe while they shoot, shields and heavies walk at you, and everyone fires a bit faster.",
-          "HALCYON calls down seekers every time you break a pylon.",
-          "Your unlocked chapters carry over. Best times start fresh, since the chapters are new lengths."
-        ]
-      },
-      {
-        "version": "1.2.1",
-        "date": "2026-11-11",
-        "title": "Smoother fights",
-        "notes": [
-          "Fights run much smoother: sparks, bullet glows and bullets are now drawn together instead of one by one (the boss fight runs about 45% faster on slower PCs, with a third fewer draw calls).",
-          "Fixed slowly building up memory during long fights (every enemy shot left a little behind).",
-          "Rain and the see-through shields, blade glow and exit beam cost less to draw."
-        ]
-      },
-      {
-        "version": "1.2",
-        "date": "2026-11-11",
-        "title": "Voices, surround sound and new models",
-        "notes": [
-          "Voices: Wren, HALCYON and the courier now speak their radio lines out loud (your system's text to speech), each with their own voice. The ending is read out too. Turn it off or set its volume in Settings.",
-          "Surround sound: enemy shots, their charge-up before firing, bullets whizzing past, charger footsteps, impacts and kills come from where they happen. Best on headphones; switch it off in Settings.",
-          "Every model rebuilt: armoured wardens with helmets, visors and shoulder plates, a hooded long-rifle sniper, a riot-shield warden, a hunched blade-armed charger, rotor drones, twin-barrel turrets, crystal pylons and a new HALCYON core with an iris.",
-          "The wardens move now: they aim at you, recoil when they fire, breathe while they wait and run on two legs.",
-          "Your gun, blade and gloved hands rebuilt, with a glowing edge that flares when you cut."
-        ]
-      },
-      {
-        "version": "1.1",
-        "date": "2026-11-11",
-        "title": "Every controller, and phones",
-        "notes": [
-          "Controllers: Xbox, PlayStation (DualShock 4 and DualSense), Steam Deck and the Steam Controller all work, in Chrome, Edge and Firefox, with or without Steam running.",
-          "Button names follow the pad you are holding: A / B / LB / RT on Xbox, ✕ / ○ / L1 / R2 on PlayStation, L1 / R2 on Steam Deck. Wren's tips use them too.",
-          "Vibration on pads that support it, a little aim help on sticks, and menus you can drive with the D-pad.",
-          "Phones and tablets: a thumb stick, drag to look, and buttons for jump, slide, dash, fire, blade and focus. Play it sideways.",
-          "Settings: controller vibration on or off, touch look speed."
-        ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-11",
-        "title": "Release",
-        "notes": [
-          "A new game: a first-person parkour shooter in a drowned neon megacity. HALCYON is opening the sea gates at dawn. Climb the Spire and stop it.",
-          "Run the walls, slide under pipes, dash and double-jump. One hit kills you, and one hit kills them, but you're straight back at the last checkpoint.",
-          "A gun with six shots and a blade that cuts wardens down and sends their bullets back at them. Hold Q to slow time.",
-          "Six chapters with a story over the radio, a boss at the top of the Spire, times and ranks for every chapter.",
-          "Controller support, settings, achievements and ☁ Sync between your devices."
-        ]
-      }
-    ]
-  },
-  {
-    "id": "mimic",
-    "title": "Mimic",
-    "desc": "A free first-person horror game in your browser. It records your voice and uses it to lure you, and your friends, into the dark.",
-    "url": "https://merchantsteam29.github.io/mimic/",
-    "thumb": "thumbs/mimic.png",
-    "added": 1793328914384,
-    "updates": [
-      {
-        "version": "Beta 1",
-        "date": "2026-10-29",
-        "title": "It listens first",
-        "notes": [
-          "The mimic sorts what it hears (screams, calls, help, laughs, whispers) and uses the right one at the right moment.",
-          "It calls from the dark near what you're looking for, sounds like the friend you split from, and answers when you shout for someone.",
-          "Each night it starts by listening, then copies, then hunts.",
-          "Learn its tells: a wet click in its throat before it speaks, and your flashlight dips twice when it's close."
-        ]
-      },
-      {
-        "version": "Beta",
-        "date": "2026-10-28",
-        "title": "Nearly finished",
-        "notes": [
-          "Mimic is in beta: fourteen places, three stories and every mode, so now it's fixing and polishing.",
-          "New places: a lighthouse island, the sewers, a liner in a storm, a snow research station and an old mine.",
-          "A third story, The Babysitter, in five chapters.",
-          "Endless descent: floor after floor, each worse than the last.",
-          "The patient, the rat swarm, and a new mode, Imposter voices.",
-          "It walks like you, and its copies of your voice get better as the night goes on.",
-          "Kill-cam replays, simpler menus, bigger-text and colour-blind settings, and a Potato graphics setting for old machines."
-        ]
-      },
-      {
-        "version": "Alpha",
-        "date": "2026-10-27",
-        "title": "Alpha",
-        "notes": [
-          "An abandoned fairground with a ghost train, a hall of mirrors and the clown.",
-          "Spliced sentences: it cuts your words up and makes you say things you never said.",
-          "A closed subway station, the Mother, and four new classes: Sound guy, Priest, Scout and Mechanic.",
-          "Quick Play shows open public rooms, and the voice that fooled you can be saved as a video.",
-          "Escort mode, map picking, a scarier-looking mimic and a sound pass for every place."
-        ]
-      },
-      {
-        "version": "",
-        "date": "2026-10-26",
-        "title": "The big expansion",
-        "notes": [
-          "New places: the church, the asylum, the mall, the school, the hotel and the woods.",
-          "New creatures: the Double, the Listener, the Stalker, the Shadow and the Caller.",
-          "New modes: Night Shift, Versus, Hide and seek, and a second story, The Operator.",
-          "Tape-recorder decoys, walkie-talkies, new hiding spots and things to throw.",
-          "A tutorial, sound captions, auto graphics, an end-of-round recap, and rejoining after a drop.",
-          "Moods and twists, so no two nights are the same."
-        ]
-      },
-      {
-        "version": "",
-        "date": "2026-10-25",
-        "title": "Release",
-        "notes": [
-          "A horror game that records your voice and uses it to lure you into the dark.",
-          "Up to 4 players online with proximity voice chat.",
-          "Story mode with Ellie, and an online story, The Signal, with a secret traitor.",
-          "Hunt mode (one player is the mimic), the hospital and the skinwalker.",
-          "Controller and touch support, and it can be installed as an app."
-        ]
-      }
-    ]
-  },
-  {
-    "id": "remission",
-    "title": "REMISSION",
-    "desc": "Dr. Adrian Hale made a cure for cancer. Then the patients died, and got back up. An open-world zombie horror shooter: an overrun city, a day and night cycle, five guns, a gore slider, and a survival mode for up to 4 players with voice chat, on PC and phones.",
-    "url": "https://merchantsteam29.github.io/remission/",
-    "thumb": "thumbs/remission.png",
-    "added": 1795304114038,
-    "updates": [
-      {
-        "version": "1.1",
-        "date": "2026-11-21",
-        "title": "Survival, co-op and phones",
-        "notes": [
-          "New SURVIVAL mode on the title screen: no story, the whole city, as many nights as you can last. Scavenge by day; at 8 PM the waves start, and every night they are bigger and faster.",
-          "Play it alone or with up to 4 friends: host a room and share the 4-letter code (or the invite link). Phones and PCs can play together.",
-          "Proximity voice chat: friends are loud up close and fade across the city. The dead can hear you talking.",
-          "Go down and your friends have 30 seconds to pick you up. Bleed out and you watch until dawn. When everyone is down, it is over.",
-          "Gun caches at the precinct, the checkpoint, Harrow Court and the helicopter, with fresh ammo every day.",
-          "Phones: lighter graphics and fewer zombies on phones, bigger buttons, aim assist, auto-fire (fires when one is in your sights), and tap the prompt to use things.",
-          "Aim assist for controllers too (Settings)."
-        ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-21",
+    },
+    {
+        "id": "remission",
         "title": "REMISSION",
-        "notes": [
-          "Dr. Adrian Hale made a cure for cancer. Then the patients died, and got back up. Wake up in Halcyon Biotech nine days later.",
-          "An open city to explore: towers, streets of wrecks, a police precinct, St. Agnes Hospital, your apartment, the park, the army checkpoint.",
-          "Five guns: semi-auto pistol, SMG, automatic rifle, a scoped sniper rifle that goes through three of them, and a heavy minigun torn off a helicopter.",
-          "A day and night cycle: by night the fast ones come out, and things happen in the dark. Jump scares, whispers on the radio, and something small that follows you.",
-          "A gore slider from 0 to 100: no blood at all, up to limbs coming off and heads bursting.",
-          "Eight chapters, a boss, notes and tapes to find, two endings. Controllers, touch, and installable as an app."
+        "desc": "Dr. Adrian Hale made a cure for cancer. Then the patients died, and got back up. An open-world zombie horror shooter: an overrun city, a day and night cycle, five guns, a gore slider, and a survival mode for up to 4 players with voice chat, on PC and phones.",
+        "url": "https://merchantsteam29.github.io/remission/",
+        "thumb": "thumbs/remission.png",
+        "added": 1795304114038,
+        "updates": [
+            {
+                "version": "1.1",
+                "date": "2026-11-21",
+                "title": "Survival, co-op and phones",
+                "notes": [
+                    "New SURVIVAL mode on the title screen: no story, the whole city, as many nights as you can last. Scavenge by day; at 8 PM the waves start, and every night they are bigger and faster.",
+                    "Play it alone or with up to 4 friends: host a room and share the 4-letter code (or the invite link). Phones and PCs can play together.",
+                    "Proximity voice chat: friends are loud up close and fade across the city. The dead can hear you talking.",
+                    "Go down and your friends have 30 seconds to pick you up. Bleed out and you watch until dawn. When everyone is down, it is over.",
+                    "Gun caches at the precinct, the checkpoint, Harrow Court and the helicopter, with fresh ammo every day.",
+                    "Phones: lighter graphics and fewer zombies on phones, bigger buttons, aim assist, auto-fire (fires when one is in your sights), and tap the prompt to use things.",
+                    "Aim assist for controllers too (Settings)."
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-21",
+                "title": "REMISSION",
+                "notes": [
+                    "Dr. Adrian Hale made a cure for cancer. Then the patients died, and got back up. Wake up in Halcyon Biotech nine days later.",
+                    "An open city to explore: towers, streets of wrecks, a police precinct, St. Agnes Hospital, your apartment, the park, the army checkpoint.",
+                    "Five guns: semi-auto pistol, SMG, automatic rifle, a scoped sniper rifle that goes through three of them, and a heavy minigun torn off a helicopter.",
+                    "A day and night cycle: by night the fast ones come out, and things happen in the dark. Jump scares, whispers on the radio, and something small that follows you.",
+                    "A gore slider from 0 to 100: no blood at all, up to limbs coming off and heads bursting.",
+                    "Eight chapters, a boss, notes and tapes to find, two endings. Controllers, touch, and installable as an app."
+                ]
+            }
         ]
-      }
-    ]
-  },
-  {
-    "id": "rubblemaker",
-    "title": "RUBBLEMAKER",
-    "desc": "",
-    "url": "https://merchantsteam29.github.io/rubblemaker/",
-    "thumb": "thumbs/rubblemaker.jpg",
-    "added": 1793974262722,
-    "updates": [
-      {
-        "version": "1.10",
-        "date": "2026-11-11",
-        "title": "Achievements",
-        "notes": [
-          "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page.",
-          "Daily leaderboards: see today's top 10 for the daily challenge and put your name on it."
+    },
+    {
+        "id": "rubblemaker",
+        "title": "RUBBLEMAKER",
+        "desc": "",
+        "url": "https://merchantsteam29.github.io/rubblemaker/",
+        "thumb": "thumbs/rubblemaker.jpg",
+        "added": 1793974262722,
+        "updates": [
+            {
+                "version": "1.10",
+                "date": "2026-11-11",
+                "title": "Achievements",
+                "notes": [
+                    "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page.",
+                    "Daily leaderboards: see today's top 10 for the daily challenge and put your name on it."
+                ]
+            },
+            {
+                "version": "1.9",
+                "date": "2026-11-11",
+                "title": "Daily Pit",
+                "notes": [
+                    "DAILY PIT: the Rubble Pit with one modifier for the whole run, the same for everyone that day, and the same bosses.",
+                    "Today's best and your day streak show on the button and on the results screen.",
+                    "Sync: keep your progress on all your devices (☁ SYNC on the menu)."
+                ]
+            },
+            {
+                "version": "1.8.1",
+                "date": "2026-11-09",
+                "title": "Install as an app",
+                "notes": [
+                    "RUBBLEMAKER can be installed as an app from the menu (INSTALL APP), with its own icon. It opens fullscreen and works offline once it has loaded."
+                ]
+            },
+            {
+                "version": "1.8",
+                "date": "2026-11-06",
+                "title": "Mason's Lodge",
+                "notes": [
+                    "A secret co-op campaign for two golems over a room code.",
+                    "Enemies chase the nearer golem, and doors closing pull your partner into the fight.",
+                    "At 0 HP you go down: your partner can lift you back up before you bleed out."
+                ]
+            },
+            {
+                "version": "1.7",
+                "date": "2026-11-06",
+                "title": "Chiselled Stone",
+                "notes": [
+                    "Every menu and panel is carved stone: cut corners, bevelled light and carved capitals.",
+                    "A new HUD: molten health trough, a style-meter tablet and a lintel boss bar."
+                ]
+            },
+            {
+                "version": "1.6",
+                "date": "2026-11-06",
+                "title": "Hard mode, training, speedruns",
+                "notes": [
+                    "Hard mode, with its own ranks and a skin for beating it.",
+                    "A training level the first time you play the campaign.",
+                    "A speedrun timer, golem colours and a tuning pass.",
+                    "Two new duels in Act IV."
+                ]
+            },
+            {
+                "version": "1.5",
+                "date": "2026-11-05",
+                "title": "Act IV: The Aqueduct",
+                "notes": [
+                    "Twelve new levels across the Sluice, the Arches and the Cistern, with their own look and music.",
+                    "Water hazards: currents, sluice-gate jets and rooms that flood while you fight.",
+                    "New enemies, trainers and mini-bosses, the TIDE arm, and THE GUILDMASTER at the end."
+                ]
+            },
+            {
+                "version": "1.4",
+                "date": "2026-11-05",
+                "title": "Three acts, seven layers",
+                "notes": [
+                    "The campaign is regrouped into acts and layers, and your old saves move over by themselves.",
+                    "Guns are dropped by new mini-bosses instead of being sold.",
+                    "Elites in the codex, 17 new achievements and 4 new skins.",
+                    "Fixed the camera spinning on its own with some controllers and devices."
+                ]
+            },
+            {
+                "version": "1.3",
+                "date": "2026-11-05",
+                "title": "The Chain Flail",
+                "notes": [
+                    "The CHAIN FLAIL (weapon 5): whirl it, then sweep, hook, pierce or smash.",
+                    "Elite IRON and EMBER enemies.",
+                    "Ghost replays of your fastest clear on every level.",
+                    "A tuning pass, a performance mode and save backups."
+                ]
+            },
+            {
+                "version": "1.2",
+                "date": "2026-11-05",
+                "title": "The Story, the Codex, new sound",
+                "notes": [
+                    "Story cutscenes for the prologue, each act and the ending.",
+                    "The Codex: a bestiary, the arsenal, lifetime stats and 32 achievements.",
+                    "A sound overhaul: room reverb, 3D sound through walls and enemy voices."
+                ]
+            },
+            {
+                "version": "1.1",
+                "date": "2026-11-05",
+                "title": "Prime rematches and P-ranks",
+                "notes": [
+                    "PRIME boss rematches with new gun skins to win.",
+                    "P-rank for a perfect run.",
+                    "New Kiln trainers, and the RUBBLE PIT arena shifts every 5 waves."
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-04",
+                "title": "Brick launcher and swap chains",
+                "notes": [
+                    "Weapon 4, the BRICK LAUNCHER, with three variants.",
+                    "Swap chains: switch weapons between hits for style and extra damage.",
+                    "New enemies RAM, BURROWER and MENDER, and two new duels.",
+                    "Controller and touch support, and the PRACTICE ROOM (v0.9)."
+                ]
+            }
         ]
-      },
-      {
-        "version": "1.9",
-        "date": "2026-11-11",
-        "title": "Daily Pit",
-        "notes": [
-          "DAILY PIT: the Rubble Pit with one modifier for the whole run, the same for everyone that day, and the same bosses.",
-          "Today's best and your day streak show on the button and on the results screen.",
-          "Sync: keep your progress on all your devices (☁ SYNC on the menu)."
-        ]
-      },
-      {
-        "version": "1.8.1",
-        "date": "2026-11-09",
-        "title": "Install as an app",
-        "notes": [
-          "RUBBLEMAKER can be installed as an app from the menu (INSTALL APP), with its own icon. It opens fullscreen and works offline once it has loaded."
-        ]
-      },
-      {
-        "version": "1.8",
-        "date": "2026-11-06",
-        "title": "Mason's Lodge",
-        "notes": [
-          "A secret co-op campaign for two golems over a room code.",
-          "Enemies chase the nearer golem, and doors closing pull your partner into the fight.",
-          "At 0 HP you go down: your partner can lift you back up before you bleed out."
-        ]
-      },
-      {
-        "version": "1.7",
-        "date": "2026-11-06",
-        "title": "Chiselled Stone",
-        "notes": [
-          "Every menu and panel is carved stone: cut corners, bevelled light and carved capitals.",
-          "A new HUD: molten health trough, a style-meter tablet and a lintel boss bar."
-        ]
-      },
-      {
-        "version": "1.6",
-        "date": "2026-11-06",
-        "title": "Hard mode, training, speedruns",
-        "notes": [
-          "Hard mode, with its own ranks and a skin for beating it.",
-          "A training level the first time you play the campaign.",
-          "A speedrun timer, golem colours and a tuning pass.",
-          "Two new duels in Act IV."
-        ]
-      },
-      {
-        "version": "1.5",
-        "date": "2026-11-05",
-        "title": "Act IV: The Aqueduct",
-        "notes": [
-          "Twelve new levels across the Sluice, the Arches and the Cistern, with their own look and music.",
-          "Water hazards: currents, sluice-gate jets and rooms that flood while you fight.",
-          "New enemies, trainers and mini-bosses, the TIDE arm, and THE GUILDMASTER at the end."
-        ]
-      },
-      {
-        "version": "1.4",
-        "date": "2026-11-05",
-        "title": "Three acts, seven layers",
-        "notes": [
-          "The campaign is regrouped into acts and layers, and your old saves move over by themselves.",
-          "Guns are dropped by new mini-bosses instead of being sold.",
-          "Elites in the codex, 17 new achievements and 4 new skins.",
-          "Fixed the camera spinning on its own with some controllers and devices."
-        ]
-      },
-      {
-        "version": "1.3",
-        "date": "2026-11-05",
-        "title": "The Chain Flail",
-        "notes": [
-          "The CHAIN FLAIL (weapon 5): whirl it, then sweep, hook, pierce or smash.",
-          "Elite IRON and EMBER enemies.",
-          "Ghost replays of your fastest clear on every level.",
-          "A tuning pass, a performance mode and save backups."
-        ]
-      },
-      {
-        "version": "1.2",
-        "date": "2026-11-05",
-        "title": "The Story, the Codex, new sound",
-        "notes": [
-          "Story cutscenes for the prologue, each act and the ending.",
-          "The Codex: a bestiary, the arsenal, lifetime stats and 32 achievements.",
-          "A sound overhaul: room reverb, 3D sound through walls and enemy voices."
-        ]
-      },
-      {
-        "version": "1.1",
-        "date": "2026-11-05",
-        "title": "Prime rematches and P-ranks",
-        "notes": [
-          "PRIME boss rematches with new gun skins to win.",
-          "P-rank for a perfect run.",
-          "New Kiln trainers, and the RUBBLE PIT arena shifts every 5 waves."
-        ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-04",
-        "title": "Brick launcher and swap chains",
-        "notes": [
-          "Weapon 4, the BRICK LAUNCHER, with three variants.",
-          "Swap chains: switch weapons between hits for style and extra damage.",
-          "New enemies RAM, BURROWER and MENDER, and two new duels.",
-          "Controller and touch support, and the PRACTICE ROOM (v0.9)."
-        ]
-      }
-    ]
-  },
-  {
-    "id": "sevenam",
-    "title": "7:00 AM",
-    "desc": "Owen Hale wakes up at 7:00 AM. He dies before 7:40. He wakes up at 7:00 AM. Every time he fixes what killed him, the world gets a little more wrong. A first-person horror game about a loop, a road, and a man with no face.",
-    "url": "https://merchantsteam29.github.io/seven-am/",
-    "thumb": "thumbs/sevenam.png",
-    "added": 1795238971832,
-    "updates": [
-      {
-        "version": "1.0.1",
-        "date": "2026-11-21",
-        "title": "Smoother",
-        "notes": [
-          "Much less lag: every person is one mesh now, the scenery merges into far fewer pieces, and shadows update less often. Less than half the draw calls on the street.",
-          "Medium graphics renders at your screen's real resolution and uses one less room light. Low uses cheaper lighting.",
-          "If the game is still slow at the lowest resolution, it drops to a lower graphics setting by itself and tells you."
-        ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-20",
+    },
+    {
+        "id": "sevenam",
         "title": "7:00 AM",
-        "notes": [
-          "Owen Hale wakes up at 7:00 AM. He has to catch the 7:40 bus. Something kills him first, and he wakes up at 7:00 again.",
-          "Eight ways to die, and a fix for every one. You remember what killed you; the game remembers too.",
-          "Every morning you survive longer, the world goes more wrong: faces fade from photographs, the stairs go round once too often, the neighbours face the wall, and a man with no face gets closer.",
-          "The night before: an opening cutscene on Route 9, in the rain.",
-          "Three endings. One of them needs you to remember what happened last night.",
-          "Gore setting: Quick cut (default) or Full.",
-          "Keyboard and mouse, Xbox, PlayStation, Steam Deck controllers, and touch. Installable as an app."
+        "desc": "Owen Hale wakes up at 7:00 AM. He dies before 7:40. He wakes up at 7:00 AM. Every time he fixes what killed him, the world gets a little more wrong. A first-person horror game about a loop, a road, and a man with no face.",
+        "url": "https://merchantsteam29.github.io/seven-am/",
+        "thumb": "thumbs/sevenam.png",
+        "added": 1795238971832,
+        "updates": [
+            {
+                "version": "1.0.1",
+                "date": "2026-11-21",
+                "title": "Smoother",
+                "notes": [
+                    "Much less lag: every person is one mesh now, the scenery merges into far fewer pieces, and shadows update less often. Less than half the draw calls on the street.",
+                    "Medium graphics renders at your screen's real resolution and uses one less room light. Low uses cheaper lighting.",
+                    "If the game is still slow at the lowest resolution, it drops to a lower graphics setting by itself and tells you."
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-20",
+                "title": "7:00 AM",
+                "notes": [
+                    "Owen Hale wakes up at 7:00 AM. He has to catch the 7:40 bus. Something kills him first, and he wakes up at 7:00 again.",
+                    "Eight ways to die, and a fix for every one. You remember what killed you; the game remembers too.",
+                    "Every morning you survive longer, the world goes more wrong: faces fade from photographs, the stairs go round once too often, the neighbours face the wall, and a man with no face gets closer.",
+                    "The night before: an opening cutscene on Route 9, in the rain.",
+                    "Three endings. One of them needs you to remember what happened last night.",
+                    "Gore setting: Quick cut (default) or Full.",
+                    "Keyboard and mouse, Xbox, PlayStation, Steam Deck controllers, and touch. Installable as an app."
+                ]
+            }
         ]
-      }
-    ]
-  },
-  {
-    "id": "stillhome",
-    "title": "STILL HOME",
-    "desc": "3:17 AM. The power is out. Your daughter has been gone for fourteen months. The baby monitor just turned on. A first-person horror game set in your own dark house.",
-    "url": "https://merchantsteam29.github.io/still-home/",
-    "thumb": "thumbs/stillhome.png",
-    "added": 1794676622832,
-    "updates": [
-      {
-        "version": "1.2",
-        "date": "2026-11-14",
-        "title": "Together",
-        "notes": [
-          "Play together: up to four of you in the same house on the same night. Host a room, send the code or the invite link.",
-          "Proximity voice chat: you hear each other when you are close, muffled through walls and floors. Choose clear or 3D voices.",
-          "It can hear you talking. And it listens: it keeps pieces of what you say and plays them back from the dark, in your friends' voices. It knows your names, too.",
-          "Caught? You are not dead yet. You wait in the dark, hearing the others, then wake up in your bed. It is still 3:17.",
-          "Your own nightmares: what you see, your friends do not. Sometimes you see one of them at the end of the hall, with their back to you, when they are on the other side of the house.",
-          "Scarier alone too: it comes closer with every flash of lightning, it lies flat on the ceiling above you, little bare feet follow yours, and sometimes something is already in the wardrobe with you."
+    },
+    {
+        "id": "stillhome",
+        "title": "STILL HOME",
+        "desc": "3:17 AM. The power is out. Your daughter has been gone for fourteen months. The baby monitor just turned on. A first-person horror game set in your own dark house.",
+        "url": "https://merchantsteam29.github.io/still-home/",
+        "thumb": "thumbs/stillhome.png",
+        "added": 1794676622832,
+        "updates": [
+            {
+                "version": "1.2",
+                "date": "2026-11-14",
+                "title": "Together",
+                "notes": [
+                    "Play together: up to four of you in the same house on the same night. Host a room, send the code or the invite link.",
+                    "Proximity voice chat: you hear each other when you are close, muffled through walls and floors. Choose clear or 3D voices.",
+                    "It can hear you talking. And it listens: it keeps pieces of what you say and plays them back from the dark, in your friends' voices. It knows your names, too.",
+                    "Caught? You are not dead yet. You wait in the dark, hearing the others, then wake up in your bed. It is still 3:17.",
+                    "Your own nightmares: what you see, your friends do not. Sometimes you see one of them at the end of the hall, with their back to you, when they are on the other side of the house.",
+                    "Scarier alone too: it comes closer with every flash of lightning, it lies flat on the ceiling above you, little bare feet follow yours, and sometimes something is already in the wardrobe with you."
+                ]
+            },
+            {
+                "version": "1.1",
+                "date": "2026-11-14",
+                "title": "Scarier",
+                "notes": [
+                    "Something stands at the edge of your light now: at the end of a hall, in a doorway. Shine the light on it and it is gone. Look away and look back, and it is gone.",
+                    "Stand still in the dark too long and you may hear breathing right behind your head.",
+                    "It talks while it looks for you: in Lily's voice, in Claire's, in yours.",
+                    "Hide, and sometimes it comes to the wardrobe and stands there, listening. Hold your breath.",
+                    "Your flashlight dies when it is close and hasn't seen you yet. Doors close behind you when you aren't looking.",
+                    "It moves wrong now: it stops dead and its head turns all the way round towards you, and when it chases you it moves like stop-motion and lunges.",
+                    "New moments in the night: the monitor in your bedroom, crying from Lily's closet, something dragging across the ceiling."
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-14",
+                "title": "Release",
+                "notes": [
+                    "3:17 AM. The power is out, the baby monitor in your missing daughter's room has turned itself on, and something in the house is wearing her nightgown.",
+                    "Explore your own house in the dark with a flashlight and a few batteries: four floors from the basement to the attic.",
+                    "It hears you run and sees your light. Hide in wardrobes, under beds and in the car, and hold your breath when it comes close.",
+                    "Find the three fuses you hid, read what happened, and choose how the night ends. Two endings.",
+                    "Controllers (Xbox, PlayStation, Steam Deck) and touch screens work. Installable as an app."
+                ]
+            }
         ]
-      },
-      {
-        "version": "1.1",
-        "date": "2026-11-14",
-        "title": "Scarier",
-        "notes": [
-          "Something stands at the edge of your light now: at the end of a hall, in a doorway. Shine the light on it and it is gone. Look away and look back, and it is gone.",
-          "Stand still in the dark too long and you may hear breathing right behind your head.",
-          "It talks while it looks for you: in Lily's voice, in Claire's, in yours.",
-          "Hide, and sometimes it comes to the wardrobe and stands there, listening. Hold your breath.",
-          "Your flashlight dies when it is close and hasn't seen you yet. Doors close behind you when you aren't looking.",
-          "It moves wrong now: it stops dead and its head turns all the way round towards you, and when it chases you it moves like stop-motion and lunges.",
-          "New moments in the night: the monitor in your bedroom, crying from Lily's closet, something dragging across the ceiling."
-        ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-14",
-        "title": "Release",
-        "notes": [
-          "3:17 AM. The power is out, the baby monitor in your missing daughter's room has turned itself on, and something in the house is wearing her nightgown.",
-          "Explore your own house in the dark with a flashlight and a few batteries: four floors from the basement to the attic.",
-          "It hears you run and sees your light. Hide in wardrobes, under beds and in the car, and hold your breath when it comes close.",
-          "Find the three fuses you hid, read what happened, and choose how the night ends. Two endings.",
-          "Controllers (Xbox, PlayStation, Steam Deck) and touch screens work. Installable as an app."
-        ]
-      }
-    ]
-  },
-  {
-    "id": "trickortreat",
-    "title": "TRICK OR TREAT",
-    "desc": "Halloween, 1990. You let go of your little brother for one second on Hollow Lane, and he was gone. Follow his candy from house to house. Something tall with a candle in its head is following you. A first-person horror game.",
-    "url": "https://merchantsteam29.github.io/trick-or-treat/",
-    "thumb": "thumbs/trickortreat.png",
-    "added": 1795246079014,
-    "updates": [
-      {
-        "version": "1.0.1",
-        "date": "2026-11-21",
-        "title": "Much less lag",
-        "notes": [
-          "The corn field and the fallen leaves were being drawn across the whole map, even from the bottom of the lane. Now they are drawn in small pieces, only near you, and the corn is thinner.",
-          "The game no longer draws anything past where the fog hides it.",
-          "People far away in the fog are skipped.",
-          "Fixed a rare freeze when he went to check on a noise."
-        ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-21",
+    },
+    {
+        "id": "trickortreat",
         "title": "TRICK OR TREAT",
-        "notes": [
-          "Halloween, 1990. Your little brother Toby is taken on Hollow Lane. Follow his candy from house to house.",
-          "The Tall Pumpkin Man hunts by sight and sound: crouch, keep your flashlight off, hide, and hold your breath. Your walkie-talkie hisses when he's close.",
-          "Neighbours in masks on every porch, who scream for him. The Ferrises, who only move when you aren't looking. A haunted garage with a real guillotine.",
-          "Three named jack-o'-lanterns to blow out, four endings, five ways to die.",
-          "Full gore by default (Quick cut in Settings). Checkpoints, controllers, touch, and installable as an app."
+        "desc": "Halloween, 1990. You let go of your little brother for one second on Hollow Lane, and he was gone. Follow his candy from house to house. Something tall with a candle in its head is following you. A first-person horror game.",
+        "url": "https://merchantsteam29.github.io/trick-or-treat/",
+        "thumb": "thumbs/trickortreat.png",
+        "added": 1795246079014,
+        "updates": [
+            {
+                "version": "1.0.1",
+                "date": "2026-11-21",
+                "title": "Much less lag",
+                "notes": [
+                    "The corn field and the fallen leaves were being drawn across the whole map, even from the bottom of the lane. Now they are drawn in small pieces, only near you, and the corn is thinner.",
+                    "The game no longer draws anything past where the fog hides it.",
+                    "People far away in the fog are skipped.",
+                    "Fixed a rare freeze when he went to check on a noise."
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-21",
+                "title": "TRICK OR TREAT",
+                "notes": [
+                    "Halloween, 1990. Your little brother Toby is taken on Hollow Lane. Follow his candy from house to house.",
+                    "The Tall Pumpkin Man hunts by sight and sound: crouch, keep your flashlight off, hide, and hold your breath. Your walkie-talkie hisses when he's close.",
+                    "Neighbours in masks on every porch, who scream for him. The Ferrises, who only move when you aren't looking. A haunted garage with a real guillotine.",
+                    "Three named jack-o'-lanterns to blow out, four endings, five ways to die.",
+                    "Full gore by default (Quick cut in Settings). Checkpoints, controllers, touch, and installable as an app."
+                ]
+            }
         ]
-      }
-    ]
-  },
-  {
-    "id": "wardnine",
-    "title": "Ward Nine",
-    "desc": "",
-    "url": "https://merchantsteam29.github.io/ward-nine/",
-    "thumb": "thumbs/wardnine.jpg",
-    "added": 1793662593762,
-    "updates": [
-      {
-        "version": "1.4",
-        "date": "2026-11-11",
-        "title": "Achievements",
-        "notes": [
-          "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page.",
-          "Daily leaderboards: see today's top 10 for the daily challenge and put your name on it."
+    },
+    {
+        "id": "wardnine",
+        "title": "Ward Nine",
+        "desc": "",
+        "url": "https://merchantsteam29.github.io/ward-nine/",
+        "thumb": "thumbs/wardnine.jpg",
+        "added": 1793662593762,
+        "updates": [
+            {
+                "version": "1.4",
+                "date": "2026-11-11",
+                "title": "Achievements",
+                "notes": [
+                    "Achievements: unlock them as you play (a 🏆 pops up), and see them all on the Game Library's new Profile page.",
+                    "Daily leaderboards: see today's top 10 for the daily challenge and put your name on it."
+                ]
+            },
+            {
+                "version": "1.3",
+                "date": "2026-11-11",
+                "title": "Daily night",
+                "notes": [
+                    "Daily night: one night a day that's the same for everyone: the same building, the same map and a twist (Blackout, Shotgun start, Swarm, Dying batteries, Fakers everywhere or Nail gun start).",
+                    "Your best for the day and a day streak are kept, separate from your normal best scores."
+                ]
+            },
+            {
+                "version": "1.2",
+                "date": "2026-11-10",
+                "title": "The Basement",
+                "notes": [
+                    "New map: The Basement. Boiler room, cold store, laundry and pipe tunnels, with hardly any lamps. Fix the generator to get the lights on, and stand in the steam from the vents to hide.",
+                    "New boss down there: the Stoker. It slams the floor and puts your flares out.",
+                    "New guns: the nail gun (fast, pins monsters in place) and the flare gun (sets them alight). Find them lying around from 2 and 3 AM.",
+                    "New monsters on both maps: the crawler moves through the ceiling vents and drops on you (watch for falling dust), and the faker looks like a pickup until you get close.",
+                    "Settings: volume, screen shake, sharpness, fullscreen and controllers.",
+                    "Plays with a controller, and has a pause button on phones.",
+                    "Hits feel heavier: monsters flash when shot, the crosshair marks hits, and kills land with a tiny freeze.",
+                    "Runs smoother with lots of monsters on screen."
+                ]
+            },
+            {
+                "version": "1.1",
+                "date": "2026-11-09",
+                "title": "Install as an app",
+                "notes": [
+                    "Ward Nine can be installed as an app from the menu (Install as an app), with its own icon. It opens fullscreen and works offline once it has loaded."
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-03",
+                "title": "Release",
+                "notes": [
+                    "Work the night shift on Ward Nine, a hospital ward where something is loose.",
+                    "The things in the dark hunt by noise: run and shoot, and they hear you.",
+                    "Play until dawn or in an endless night, on Easy, Normal or Nightmare.",
+                    "Watch out for the Ward Sister."
+                ]
+            }
         ]
-      },
-      {
-        "version": "1.3",
-        "date": "2026-11-11",
-        "title": "Daily night",
-        "notes": [
-          "Daily night: one night a day that's the same for everyone: the same building, the same map and a twist (Blackout, Shotgun start, Swarm, Dying batteries, Fakers everywhere or Nail gun start).",
-          "Your best for the day and a day streak are kept, separate from your normal best scores."
+    },
+    {
+        "id": "whistle",
+        "title": "WHISTLE · Basketball Ref & Coach",
+        "desc": "A basketball ref and coach for kids. Point a camera at a player: it counts dribbles, calls traveling and double dribbles, tracks makes, and awards XP, levels and badges.",
+        "url": "https://merchantsteam29.github.io/whistle/",
+        "thumb": "thumbs/whistle.png",
+        "added": 1794766071734,
+        "updates": [
+            {
+                "version": "1.5",
+                "date": "2026-11-15",
+                "title": "Season mode",
+                "notes": [
+                    "Career: a 10-chapter rookie season with a coach, a rival and a championship game",
+                    "Trick Contest: spin moves, between the legs, combos and three judges' cards",
+                    "New shooting games: 21 and Around the World; 2v2 games count passes, assists and steals",
+                    "Calibrate a player in 1 minute so calls fit how they move",
+                    "\"Bad call\" button saves the replay and what the ref saw, so wrong calls can be fixed",
+                    "Side camera: a second phone filming from the side takes over travel calls",
+                    "Voice commands, a phone remote control, and online leagues with friends",
+                    "Fix: some buttons in setup were drawn in the wrong place"
+                ]
+            },
+            {
+                "version": "1.4",
+                "date": "2026-11-15",
+                "title": "Coach in a box",
+                "notes": [
+                    "New drills: Weak Hand 30, Crossovers 30, Between the Legs, Layup Lines, Defensive Slides",
+                    "Today's challenge with day streaks, and Beat the Pro ghost bars to race",
+                    "Practice plans that run a whole practice: stations, rest countdowns and voice cues",
+                    "Instant replay in slow motion with the skeleton drawn on",
+                    "Shot chart over your own court, team mode with printable reports, and shareable parent reports",
+                    "A second phone or tablet can be the big scoreboard",
+                    "Arena mode (crowd, buzzer, intros) and unlockable themes, whistles and celebrations",
+                    "Play offline, plus a battery saver"
+                ]
+            },
+            {
+                "version": "1.3",
+                "date": "2026-11-15",
+                "title": "Full court",
+                "notes": [
+                    "Shooting form coach: every shot scored out of 10 (legs, elbow, release, follow-through) with a tip",
+                    "New calls: carrying, out of bounds, 3 seconds in the lane and a shot clock",
+                    "HORSE and Knockout for 2 to 4 kids, with letters, a spot to copy and voice calls",
+                    "Highlight clips of makes, threes and big dribble streaks, ready to download",
+                    "Coach dashboard: each kid's progress over weeks, as charts",
+                    "Ref voice packs (Coach, Hype announcer, Strict ref) and team names and colours",
+                    "Accounts and leaderboards: sync players and badges with your Game Library account; daily Handles 30 and Ten Shots boards"
+                ]
+            },
+            {
+                "version": "1.2",
+                "date": "2026-11-15",
+                "title": "Sharper eyes",
+                "notes": [
+                    "Learns your ball by itself: hold it up in both hands for a second (works for brown, faded, red or any coloured ball)",
+                    "Follows a shot all the way to the rim, even when the ball leaves the top of the picture",
+                    "Ignores other people's balls and the orange rim itself; a ball near the hoop can look small and still count",
+                    "A ball held up to shoot is no longer mistaken for the face",
+                    "No more double-counted dribbles when the ball is hidden for part of a bounce",
+                    "Tested on real footage: made shots now score, and a long dribbling clip has no false calls"
+                ]
+            },
+            {
+                "version": "1.1",
+                "date": "2026-11-15",
+                "title": "Game day",
+                "notes": [
+                    "Game mode: 1v1 or 2v2 on one camera. Fouls, 2s and 3s, free throws, and-ones, bonus, foul-outs and a box score",
+                    "Better tracking: it ignores skin, shirts and background spots that look like the ball, and checks the ball is the right size",
+                    "Calls keep working when the ball is hidden in the hands or blurred mid-dribble",
+                    "Any ball: tap it to learn its colour. White or grey balls are found by motion",
+                    "Faster: it tracks once per camera frame at a lighter resolution, and drops to Fast mode if a device can't keep up",
+                    "Ref a recorded video from setup, plus a Tracking view to see what it sees"
+                ]
+            },
+            {
+                "version": "1.0",
+                "date": "2026-11-15",
+                "title": "Tip-off",
+                "notes": [
+                    "Point a phone or laptop camera at a player and WHISTLE refs them live",
+                    "Calls traveling (2 steps, or 3 in Beginner, plus pivot-foot rules) and double dribbles, with a whistle and a voice call",
+                    "Counts dribbles and streaks, and scores shots through a hoop you mark on screen",
+                    "XP, 10 levels from Rookie to Hall of Fame, 16 badges, and player profiles",
+                    "Drills: Handles 30 and Ten Shots, with personal bests"
+                ]
+            }
         ]
-      },
-      {
-        "version": "1.2",
-        "date": "2026-11-10",
-        "title": "The Basement",
-        "notes": [
-          "New map: The Basement. Boiler room, cold store, laundry and pipe tunnels, with hardly any lamps. Fix the generator to get the lights on, and stand in the steam from the vents to hide.",
-          "New boss down there: the Stoker. It slams the floor and puts your flares out.",
-          "New guns: the nail gun (fast, pins monsters in place) and the flare gun (sets them alight). Find them lying around from 2 and 3 AM.",
-          "New monsters on both maps: the crawler moves through the ceiling vents and drops on you (watch for falling dust), and the faker looks like a pickup until you get close.",
-          "Settings: volume, screen shake, sharpness, fullscreen and controllers.",
-          "Plays with a controller, and has a pause button on phones.",
-          "Hits feel heavier: monsters flash when shot, the crosshair marks hits, and kills land with a tiny freeze.",
-          "Runs smoother with lots of monsters on screen."
-        ]
-      },
-      {
-        "version": "1.1",
-        "date": "2026-11-09",
-        "title": "Install as an app",
-        "notes": [
-          "Ward Nine can be installed as an app from the menu (Install as an app), with its own icon. It opens fullscreen and works offline once it has loaded."
-        ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-03",
-        "title": "Release",
-        "notes": [
-          "Work the night shift on Ward Nine, a hospital ward where something is loose.",
-          "The things in the dark hunt by noise: run and shoot, and they hear you.",
-          "Play until dawn or in an endless night, on Easy, Normal or Nightmare.",
-          "Watch out for the Ward Sister."
-        ]
-      }
-    ]
-  },
-  {
-    "id": "whistle",
-    "title": "WHISTLE · Basketball Ref & Coach",
-    "desc": "A basketball ref and coach for kids. Point a camera at a player: it counts dribbles, calls traveling and double dribbles, tracks makes, and awards XP, levels and badges.",
-    "url": "https://merchantsteam29.github.io/whistle/",
-    "thumb": "thumbs/whistle.png",
-    "added": 1794766071734,
-    "updates": [
-      {
-        "version": "1.5",
-        "date": "2026-11-15",
-        "title": "Season mode",
-        "notes": [
-          "Career: a 10-chapter rookie season with a coach, a rival and a championship game",
-          "Trick Contest: spin moves, between the legs, combos and three judges' cards",
-          "New shooting games: 21 and Around the World; 2v2 games count passes, assists and steals",
-          "Calibrate a player in 1 minute so calls fit how they move",
-          "\"Bad call\" button saves the replay and what the ref saw, so wrong calls can be fixed",
-          "Side camera: a second phone filming from the side takes over travel calls",
-          "Voice commands, a phone remote control, and online leagues with friends",
-          "Fix: some buttons in setup were drawn in the wrong place"
-        ]
-      },
-      {
-        "version": "1.4",
-        "date": "2026-11-15",
-        "title": "Coach in a box",
-        "notes": [
-          "New drills: Weak Hand 30, Crossovers 30, Between the Legs, Layup Lines, Defensive Slides",
-          "Today's challenge with day streaks, and Beat the Pro ghost bars to race",
-          "Practice plans that run a whole practice: stations, rest countdowns and voice cues",
-          "Instant replay in slow motion with the skeleton drawn on",
-          "Shot chart over your own court, team mode with printable reports, and shareable parent reports",
-          "A second phone or tablet can be the big scoreboard",
-          "Arena mode (crowd, buzzer, intros) and unlockable themes, whistles and celebrations",
-          "Play offline, plus a battery saver"
-        ]
-      },
-      {
-        "version": "1.3",
-        "date": "2026-11-15",
-        "title": "Full court",
-        "notes": [
-          "Shooting form coach: every shot scored out of 10 (legs, elbow, release, follow-through) with a tip",
-          "New calls: carrying, out of bounds, 3 seconds in the lane and a shot clock",
-          "HORSE and Knockout for 2 to 4 kids, with letters, a spot to copy and voice calls",
-          "Highlight clips of makes, threes and big dribble streaks, ready to download",
-          "Coach dashboard: each kid's progress over weeks, as charts",
-          "Ref voice packs (Coach, Hype announcer, Strict ref) and team names and colours",
-          "Accounts and leaderboards: sync players and badges with your Game Library account; daily Handles 30 and Ten Shots boards"
-        ]
-      },
-      {
-        "version": "1.2",
-        "date": "2026-11-15",
-        "title": "Sharper eyes",
-        "notes": [
-          "Learns your ball by itself: hold it up in both hands for a second (works for brown, faded, red or any coloured ball)",
-          "Follows a shot all the way to the rim, even when the ball leaves the top of the picture",
-          "Ignores other people's balls and the orange rim itself; a ball near the hoop can look small and still count",
-          "A ball held up to shoot is no longer mistaken for the face",
-          "No more double-counted dribbles when the ball is hidden for part of a bounce",
-          "Tested on real footage: made shots now score, and a long dribbling clip has no false calls"
-        ]
-      },
-      {
-        "version": "1.1",
-        "date": "2026-11-15",
-        "title": "Game day",
-        "notes": [
-          "Game mode: 1v1 or 2v2 on one camera. Fouls, 2s and 3s, free throws, and-ones, bonus, foul-outs and a box score",
-          "Better tracking: it ignores skin, shirts and background spots that look like the ball, and checks the ball is the right size",
-          "Calls keep working when the ball is hidden in the hands or blurred mid-dribble",
-          "Any ball: tap it to learn its colour. White or grey balls are found by motion",
-          "Faster: it tracks once per camera frame at a lighter resolution, and drops to Fast mode if a device can't keep up",
-          "Ref a recorded video from setup, plus a Tracking view to see what it sees"
-        ]
-      },
-      {
-        "version": "1.0",
-        "date": "2026-11-15",
-        "title": "Tip-off",
-        "notes": [
-          "Point a phone or laptop camera at a player and WHISTLE refs them live",
-          "Calls traveling (2 steps, or 3 in Beginner, plus pivot-foot rules) and double dribbles, with a whistle and a voice call",
-          "Counts dribbles and streaks, and scores shots through a hoop you mark on screen",
-          "XP, 10 levels from Rookie to Hall of Fame, 16 badges, and player profiles",
-          "Drills: Handles 30 and Ten Shots, with personal bests"
-        ]
-      }
-    ]
-  }
+    }
 ]
