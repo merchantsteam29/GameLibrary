@@ -305,10 +305,11 @@
     "added": 1792100523377,
     "updates": [
       {
-        "version": "2026.11.27.6",
+        "version": "2026.11.27.7",
         "date": "2026-11-27",
         "title": "Remastered",
         "notes": [
+          "Smoother again",
           "Better looking players",
           "Better looking guns",
           "Better looking maps",
