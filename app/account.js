@@ -126,11 +126,12 @@
           if (!pw) return draw('Type your password.', true);
           busy('Checking…');
           const code = await GS().accountCode(t, pw);
-          const r = await GS().probe(code, 'library');
+          let r = await GS().probe(code, 'library');
+          if (r === 'none') { busy('Still checking (slow connection)…'); r = await GS().probe(code, 'library'); } // the relays can be slow to answer
           if (r === 'moved') return draw('That password was changed (or the account was deleted). Use your new password.', true);
           if (r !== 'ok') {
             const taken = await GS().tagTaken(t);
-            return draw(taken ? 'Wrong password for ' + t + '.' : 'There’s no account called ' + t + '. Check the number after the #.', true);
+            return draw(taken ? 'Wrong password for ' + t + '. (Passwords care about capital letters. If you’re sure it’s right, try again: the connection may be slow.)' : 'There’s no account called ' + t + '. Check the number after the #.', true);
           }
           // the tag as it was created (capitals), from the account itself
           GS().signIn(code, t, 'join');

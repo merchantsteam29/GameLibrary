@@ -190,6 +190,7 @@
     if (!p) {
       p = (async () => {
         const clients = await lbConnect(), got = new Map(), exact = !/[+#]/.test(filter), base = filter.replace(/[+#].*$/, '');
+        await connected(clients); // the wait starts once a relay is there (connecting can take seconds on a slow line)
         const on = (t, msg) => { if ((exact ? t === filter : t.startsWith(base)) && msg && msg.length) got.set(t, new Uint8Array(msg)); };
         for (const c of clients) { c.on('message', on); c.subscribe(filter, { qos: 1 }); }
         const t0 = Date.now();
@@ -201,6 +202,10 @@
     }
     return p;
   }
+  const connected = (clients, ms = 9000) => new Promise((r) => {
+    if (clients.some((c) => c.connected)) return r(true);
+    const t = setTimeout(() => r(false), ms); for (const c of clients) c.once('connect', () => { clearTimeout(t); r(true); });
+  });
   // a retained message on the relays, or null after a short wait
   const peek = async (topic, ms = 3500) => (await collectRaw(topic, ms)).get(topic) || null;
   // a retained message on both relays; waits until they confirm it (or a few seconds, if one is down: it's sent when it's back)
@@ -215,7 +220,8 @@
   async function probe(code, game) {
     const c = clean(code), id = hex(await sha('id:' + c)).slice(0, 32);
     const key = await crypto.subtle.importKey('raw', await sha('key:' + c), 'AES-GCM', false, ['decrypt']);
-    const bytes = await peek(TOPIC + id + '/' + game);
+    if (!(await connected(await lbConnect()))) throw new Error('offline');
+    const bytes = await peek(TOPIC + id + '/' + game, 6000);
     if (!bytes) return 'none';
     try { const d = JSON.parse(td.decode(await crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes.slice(0, 12) }, key, bytes.slice(12)))); return d && d.moved ? 'moved' : 'ok'; } catch { return 'none'; }
   }
