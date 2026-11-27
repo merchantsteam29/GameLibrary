@@ -188,6 +188,16 @@
     "added": 1795725292919,
     "updates": [
       {
+        "version": "1.3.2",
+        "date": "2026-11-26",
+        "title": "Is your graphics card being used?",
+        "notes": [
+          "If the browser is drawing the game without your graphics card (hardware acceleration switched off), the title screen now shows a red banner that stays, with how to turn it back on. That alone can make the game many times faster.",
+          "The F3 readout shows the graphics chip on its own line (it was being cut off), and flags software drawing in red.",
+          "Changing the graphics setting during a match prepares the new shaders straight away, instead of stuttering."
+        ]
+      },
+      {
         "version": "1.3.1",
         "date": "2026-11-26",
         "title": "A much lighter Low",
