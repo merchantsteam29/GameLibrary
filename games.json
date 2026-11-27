@@ -305,6 +305,16 @@
     "added": 1792100523377,
     "updates": [
       {
+        "version": "2026.11.27.5",
+        "date": "2026-11-27",
+        "title": "Back in Action",
+        "notes": [
+          "Trigger Happy is back",
+          "Welcome Back Weekend: double tokens until Monday Nov 30",
+          "New Banner"
+        ]
+      },
+      {
         "version": "2026.11.27.4",
         "date": "2026-11-27",
         "title": "Clean Slate",
@@ -389,18 +399,6 @@
           "Gun Skins",
           "Animated Wraps",
           "New Banner"
-        ]
-      },
-      {
-        "version": "2026.10.15.31",
-        "date": "2026-10-15",
-        "title": "Costume Party",
-        "notes": [
-          "Costumes",
-          "New Banner",
-          "Fixes",
-          "More Costumes",
-          "Blood Machine Remake"
         ]
       }
     ]
