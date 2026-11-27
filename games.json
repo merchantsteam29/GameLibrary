@@ -305,6 +305,17 @@
     "added": 1792100523377,
     "updates": [
       {
+        "version": "2026.11.27.6",
+        "date": "2026-11-27",
+        "title": "Remastered",
+        "notes": [
+          "Better looking players",
+          "Better looking guns",
+          "Better looking maps",
+          "New Banner"
+        ]
+      },
+      {
         "version": "2026.11.27.5",
         "date": "2026-11-27",
         "title": "Back in Action",
@@ -389,16 +400,6 @@
           "More Gun Skins",
           "More Banners, Name Tags and Kill Effects",
           "Poses and Emotes"
-        ]
-      },
-      {
-        "version": "2026.10.15.32",
-        "date": "2026-10-15",
-        "title": "Armory",
-        "notes": [
-          "Gun Skins",
-          "Animated Wraps",
-          "New Banner"
         ]
       }
     ]
