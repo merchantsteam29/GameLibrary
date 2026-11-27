@@ -305,6 +305,31 @@
     "added": 1792100523377,
     "updates": [
       {
+        "version": "2026.11.27.2",
+        "date": "2026-11-27",
+        "title": "Clean Slate",
+        "notes": [
+          "A new look",
+          "Simpler progress",
+          "Removed",
+          "Fixes",
+          "New Banner"
+        ]
+      },
+      {
+        "version": "2026.11.27.1",
+        "date": "2026-11-27",
+        "title": "Full Deck",
+        "notes": [
+          "Smoother matches",
+          "New map: Carrier",
+          "New mode: Core Rush",
+          "New weapons",
+          "Smarter bots",
+          "New Banner"
+        ]
+      },
+      {
         "version": "2026.10.16.10",
         "date": "2026-10-16",
         "title": "In Motion",
@@ -376,65 +401,6 @@
           "Fixes",
           "More Costumes",
           "Blood Machine Remake"
-        ]
-      },
-      {
-        "version": "2026.10.15.27",
-        "date": "2026-10-15",
-        "title": "Staff HQ Update",
-        "notes": [
-          "One Big Update Log",
-          "4 New Banners",
-          "Staff Permissions",
-          "Trial Moderators",
-          "Suspect Alerts",
-          "Ban Evasion Finder",
-          "Evidence Clips",
-          "Aim-Snap Detector",
-          "Report Claiming",
-          "Quick Actions on Reports",
-          "Repeat Offenders",
-          "Report Trends",
-          "Live Matches for Staff",
-          "Chat Lock Everywhere",
-          "Go To Player",
-          "Punishment Ladder",
-          "Ranked Bans",
-          "Gift Freeze",
-          "Map Publish Ban",
-          "Undo",
-          "Owner Override Log",
-          "Owner Gifts",
-          "Live Events",
-          "Owner Stats",
-          "Message of the Day",
-          "Shop Spotlight",
-          "Update Countdown",
-          "Staff Test Servers"
-        ]
-      },
-      {
-        "version": "2026.10.14.26",
-        "date": "2026-10-14",
-        "title": "The Mega Update",
-        "notes": [
-          "Smoother Replays",
-          "Ranked Revival",
-          "Smarter Bots",
-          "Replays for Staff",
-          "Moderation Tools",
-          "Your Reports",
-          "Match History",
-          "Name Tags",
-          "Weapon Charms",
-          "Your Own Spray",
-          "3D Character",
-          "Party Up",
-          "Friend Challenges",
-          "Clan Bases",
-          "Day and Night",
-          "Glass",
-          "Foundry"
         ]
       }
     ]
