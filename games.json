@@ -188,6 +188,17 @@
     "added": 1795725292919,
     "updates": [
       {
+        "version": "1.4",
+        "date": "2026-11-26",
+        "title": "Real surfaces",
+        "notes": [
+          "Photo-scanned surfaces (Poly Haven, public domain) on Medium and up: real plaster on the houses, real sand underfoot, cracked asphalt at the port, concrete, cinder blocks, weathered planks, corrugated and rusted iron, steel plate. Each has real bumps, roughness and dirt in the creases, so the light catches them properly.",
+          "The shipping containers keep their colours and company names but get the dents, ribs and wear of a real container.",
+          "They load in the background (about 5 MB, once); Low keeps the light drawn textures.",
+          "If the game is slow: check the red banner on the title screen. In Edge, graphics acceleration had been switched off, which makes any browser game run on the processor instead of the graphics card."
+        ]
+      },
+      {
         "version": "1.3.2",
         "date": "2026-11-26",
         "title": "Is your graphics card being used?",
