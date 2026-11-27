@@ -188,6 +188,17 @@
     "added": 1795725292919,
     "updates": [
       {
+        "version": "1.6",
+        "date": "2026-11-26",
+        "title": "More real guns",
+        "notes": [
+          "Real 3D models (public domain) for the Colt M4, the AKM and the Remington 870, plus the grenades in your hand and in the air.",
+          "New real guns at real prices: the Remington 700 SPS with a 3-9× scope (,100; aim to look through it), the Makarov PM (50, in its own 9×18mm), the Luger P08 (,800, a collector piece), and two WWII submachine guns at what registered machine guns really sell for: the M3A1 Grease Gun (4,000) and the Suomi KP/-31 with its 71-round drum (6,000).",
+          "On the model guns the magazine really comes out when you reload, and the shotgun fore-end really slides when you pump it.",
+          "People (real soldier models and motion-captured animation) are next."
+        ]
+      },
+      {
         "version": "1.5",
         "date": "2026-11-26",
         "title": "Real 3D models",
