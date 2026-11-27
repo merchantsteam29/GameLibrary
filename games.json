@@ -305,11 +305,11 @@
     "added": 1792100523377,
     "updates": [
       {
-        "version": "2026.11.27.3",
+        "version": "2026.11.27.4",
         "date": "2026-11-27",
         "title": "Clean Slate",
         "notes": [
-          "A new look",
+          "Simpler menus",
           "Simpler progress",
           "Removed",
           "Fixes",
