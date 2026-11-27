@@ -188,6 +188,17 @@
     "added": 1795725292919,
     "updates": [
       {
+        "version": "1.5",
+        "date": "2026-11-26",
+        "title": "Real 3D models",
+        "notes": [
+          "Real 3D models (Poly Haven, public domain), scanned and modelled from the real things:",
+          "Two real guns: the Walther P1 (P38) is a new pistol (50), and the sniper slot is now the real Mosin–Nagant M91/30 PU with its 3.5× scope, in its real 7.62×54R calibre (00). Aim to look through the PU scope. Its shot is the actual Mosin recording.",
+          "The machete and a new camp hatchet (replacing the tomahawk) are real models too.",
+          "The maps are full of real objects: oil drums, old tyres, military crates and ammo boxes at the checkpoints, jerrycans, gas bottles, cement bags and generators by the houses, boxes and plastic crates at the market, dumpsters, utility cabinets, concrete road barriers, wall-mounted AC units, scrub, and cars under tarps. They load in the background (about 9 MB, once), simplified so they cost little to draw; Low keeps the light stand-ins."
+        ]
+      },
+      {
         "version": "1.4",
         "date": "2026-11-26",
         "title": "Real surfaces",
