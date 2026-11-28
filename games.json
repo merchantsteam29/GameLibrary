@@ -305,12 +305,13 @@
     "added": 1792100523377,
     "updates": [
       {
-        "version": "2026.11.27.15",
+        "version": "2026.11.27.16",
         "date": "2026-11-27",
         "title": "Party Line",
         "notes": [
           "Party tab",
           "Invite anyone by gamertag",
+          "Pick your microphone",
           "Remodeled melee and grenades",
           "New Banner"
         ]
