@@ -305,7 +305,7 @@
     "added": 1792100523377,
     "updates": [
       {
-        "version": "2026.11.27.17",
+        "version": "2026.11.27.18",
         "date": "2026-11-27",
         "title": "Party Line",
         "notes": [
@@ -314,6 +314,7 @@
           "Pick your microphone",
           "Remodeled melee and grenades",
           "New Banner",
+          "Gun Game shuffle",
           "Fixes"
         ]
       },
