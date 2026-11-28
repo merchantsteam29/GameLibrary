@@ -305,6 +305,16 @@
     "added": 1792100523377,
     "updates": [
       {
+        "version": "2026.11.27.14",
+        "date": "2026-11-27",
+        "title": "Party Line",
+        "notes": [
+          "Party tab",
+          "Remodeled melee and grenades",
+          "New Banner"
+        ]
+      },
+      {
         "version": "2026.11.27.12",
         "date": "2026-11-27",
         "title": "Remastered",
@@ -389,22 +399,6 @@
           "Join GIGACHAD",
           "Welcome Back",
           "New Banner"
-        ]
-      },
-      {
-        "version": "2026.10.15.34",
-        "date": "2026-10-15",
-        "title": "Costume Party 2",
-        "notes": [
-          "Costumes",
-          "Gun Skins",
-          "Banners",
-          "Name Tags",
-          "Kill Effects",
-          "More Costumes",
-          "More Gun Skins",
-          "More Banners, Name Tags and Kill Effects",
-          "Poses and Emotes"
         ]
       }
     ]
