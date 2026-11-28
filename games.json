@@ -305,10 +305,11 @@
     "added": 1792100523377,
     "updates": [
       {
-        "version": "2026.11.27.11",
+        "version": "2026.11.27.12",
         "date": "2026-11-27",
         "title": "Remastered",
         "notes": [
+          "Smoother matches",
           "Remodeled guns",
           "New gun shapes",
           "Every map dressed up",
